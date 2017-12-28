@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
     resources :reviews, only: [:destroy, :update]
 
+    resource :session, only: [:create, :destroy]
   end
 
 end
