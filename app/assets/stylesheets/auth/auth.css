@@ -1,0 +1,21 @@
+.login-modal-background {
+  height: inherit;
+  width: 100%;
+  background-color: black;
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: .68;
+}
+
+.login-modal-main {
+  position: relative;
+  left: 100px;
+  top: 100px;
+  height: 500px;
+  width: 500px;
+  z-index: 3;
+  background-color: white;
+  
+}
