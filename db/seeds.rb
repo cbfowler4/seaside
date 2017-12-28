@@ -14,7 +14,7 @@ u1 = User.new({
   session_token: "asdfs"});
 
 u2 = User.new({
-  email: "bryan@gmail.com",
+  email: "bryan2@gmail.com",
   fname: "bryan",
   lname: "fowler",
   pwd_digest: "asdfas",
