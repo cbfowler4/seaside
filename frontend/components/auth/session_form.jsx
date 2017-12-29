@@ -31,43 +31,47 @@ class SessionForm extends React.Component {
   }
 
   handleClick(e) {
+    // debugger
     this.props.history.goBack();
   }
 
   render() {
     return (
-      <div className="auth-modal-background" onClick={this.handleClick}>
-        <section className="auth-modal-main">
-          <form onSubmit={this.handleSubmit}>
+      <div>
+        <div className="auth-modal-background" onClick={this.handleClick}>
+        </div>
+      <section className="auth-modal-main">
+        <form onSubmit={this.handleSubmit}>
 
-            <div className="exit-modal">
-              <span onClick={this.handleClick}>
-                &#10005;
-              </span>
-            </div>
+          <div className="exit-modal">
+            <span onClick={this.handleClick}>
+              &#10005;
+            </span>
+          </div>
 
-            <h1>Log in to continue</h1>
+          <h1>Log in to continue</h1>
 
-            <input
-              type="text"
-              placeholder="Email Address"
-              value={this.state.email}
-              onChange={this.handleChange("email")}
-              />
+          <input
+            type="text"
+            placeholder="Email Address"
+            value={this.state.email}
+            onChange={this.handleChange("email")}
+            />
 
-            <input
-              type="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleChange("password")}
-              />
+          <input
+            type="password"
+            placeholder="Password"
+            value={this.state.password}
+            onChange={this.handleChange("password")}
+            />
 
-            <button>Log In</button>
+          <button>Log In</button>
 
-            <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
-          </form>
-        </section>
-      </div>
+          <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+        </form>
+      </section>
+    </div>
+
     );
   }
 }
