@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
+import { signup } from '../../actions/session_actions';
 
 
 const mapDispatchToProps = dispatch => {
   return {
-    login: (user) => dispatch(login(user)),
+    signup: (user) => dispatch(signup(user)),
   };
 };
 
-class SessionForm extends React.Component {
+class UserForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { email: "", password: ""};
+    this.state = { email: "", fname: "", lname: "", password: ""};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -27,7 +27,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.login({user: this.state});
+    this.props.signup({user: this.state});
   }
 
   handleClick(e) {
@@ -39,7 +39,7 @@ class SessionForm extends React.Component {
       <div>
         <div className="auth-modal-background" onClick={this.handleClick}>
         </div>
-      <section className="auth-modal-main" id="login-modal">
+      <section className="auth-modal-main" id="signup-modal">
         <form onSubmit={this.handleSubmit}>
 
           <div className="exit-modal">
@@ -48,7 +48,7 @@ class SessionForm extends React.Component {
             </span>
           </div>
 
-          <h1>Log in to continue</h1>
+          <h1>Sign up!</h1>
 
           <input
             type="text"
@@ -58,15 +58,29 @@ class SessionForm extends React.Component {
             />
 
           <input
+            type="text"
+            placeholder="First Name"
+            value={this.state.fname}
+            onChange={this.handleChange("fname")}
+            />
+
+          <input
+            type="text"
+            placeholder="Last Name"
+            value={this.state.lname}
+            onChange={this.handleChange("lname")}
+            />
+
+          <input
             type="password"
             placeholder="Password"
             value={this.state.password}
             onChange={this.handleChange("password")}
             />
 
-          <button>Log In</button>
+          <button>Sign Up</button>
 
-          <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+          <p>Already have a Seaside account? <Link to='/login'>Log In</Link></p>
         </form>
       </section>
     </div>
@@ -75,4 +89,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(SessionForm));
+export default withRouter(connect(null, mapDispatchToProps)(UserForm));
