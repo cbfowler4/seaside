@@ -9,7 +9,7 @@
   opacity: .68;
 }
 
-.auth-modal-main {
+#login-modal {
   position: relative;
   left: 100px;
   top: 100px;
@@ -17,8 +17,16 @@
   width: 500px;
   z-index: 3;
   background-color: white;
+}
 
-
+#signup-modal {
+  position: relative;
+  left: 100px;
+  top: 100px;
+  height: 575px;
+  width: 500px;
+  z-index: 3;
+  background-color: white;
 }
 
 .auth-modal-main form {

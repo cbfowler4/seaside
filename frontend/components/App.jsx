@@ -2,6 +2,7 @@ import React from 'react';
 import { Route } from 'react-router-dom';
 import NavListContainer from './nav_list/nav_list_container';
 import SessionFormContainer from './auth/session_form';
+import UserFormContainer from './auth/user_form';
 
 const App = () => (
   <div className="main">
@@ -9,6 +10,7 @@ const App = () => (
     <NavListContainer />
 
     <Route path="/login" component={SessionFormContainer}/>
+    <Route path="/signup" component={UserFormContainer}/>
   </div>
 );
 
