@@ -17,6 +17,11 @@ class UserForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.stopProp = this.stopProp.bind(this);
+  }
+
+  stopProp (e) {
+    e.stopPropagation();
   }
 
   handleChange(field) {
@@ -36,10 +41,9 @@ class UserForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="auth-modal-background" onClick={this.handleClick}>
-        </div>
-      <section className="auth-modal-main" id="signup-modal">
+      <div className="auth-modal-background" onClick={this.handleClick}>
+
+      <section className="auth-modal-main" id="signup-modal" onClick={this.stopProp}>
         <form onSubmit={this.handleSubmit}>
 
           <div className="exit-modal">
@@ -99,7 +103,7 @@ class UserForm extends React.Component {
                   1.35-7.74 1.35-2.55 0-5.32-.52-7.74-1.37-1.01-.35-1.9-.74-2.52-1.1-.47-.27-.74-.51-.74-.46
                   0-3.35 5.55-7.85 10.64-8.05.13.01.25.02.38.02.12 0 .24-.01.36-.02
                   5.09.22 10.62 4.71 10.62 8.05 0-.07-.02-.04-.1.04z"
-                  fill-rule="evenodd">
+                  fillRule="evenodd">
                 </path>
               </svg>
           </div>
@@ -123,7 +127,7 @@ class UserForm extends React.Component {
                   1.35-7.74 1.35-2.55 0-5.32-.52-7.74-1.37-1.01-.35-1.9-.74-2.52-1.1-.47-.27-.74-.51-.74-.46
                   0-3.35 5.55-7.85 10.64-8.05.13.01.25.02.38.02.12 0 .24-.01.36-.02
                   5.09.22 10.62 4.71 10.62 8.05 0-.07-.02-.04-.1.04z"
-                  fill-rule="evenodd">
+                  fillRule="evenodd">
                 </path>
               </svg>
           </div>
@@ -159,8 +163,8 @@ class UserForm extends React.Component {
           <p>Already have a Seaside account? <Link to='/login'>Log In</Link></p>
         </form>
       </section>
+      <div className="cf"></div>
     </div>
-
     );
   }
 }
