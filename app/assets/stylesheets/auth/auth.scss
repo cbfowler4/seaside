@@ -1,3 +1,16 @@
+.email {
+  background-image: image-url('email.svg');
+}
+
+.password {
+  background-image: image-url('password.svg');
+}
+
+.name {
+  background-image: image-url('name.svg');
+}
+
+
 .auth-modal-background {
   height: 100vh;
   width: 100vw;
@@ -16,120 +29,112 @@
   margin-top: 200px;
 }
 
-#login-modal {
+#login-modal, #signup-modal {
   position: relative;
   left: 100px;
   top: 100px;
+  z-index: 3;
+  background-color: white;
+}
+
+#login-modal, #signup-modal {
   height: 450px;
   width: 500px;
-  z-index: 3;
-  background-color: white;
 }
+
 
 #signup-modal {
-  position: relative;
-  left: 100px;
-  top: 100px;
   height: 575px;
   width: 500px;
-  z-index: 3;
-  background-color: white;
 }
 
-.auth-modal-main form {
-  padding: 32px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  opacity: 1;
+
+
+.auth-modal-main {
+  form {
+    padding: 32px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 1;
+  }
+
+  svg {
+    display: inline;
+    height: 19px;
+    width: 19px;
+    fill: gray;
+  }
+
+  input {
+    border-radius: 2px;
+    border: 1px solid lightgray;
+    height: 46px;
+    width: 100%;
+    padding: 11px;
+    margin: 0 0 13px 0;
+    font-size: 19px;
+    line-height: 24px;
+    font-weight: 300;
+    background-repeat: no-repeat;
+    background-size: 19px 19px;
+    background-position: 93% 50%;
+  }
+
+
+  input::placeholder {
+    color: darkgray;
+  }
+
+  input:focus {
+    border-color: #008489;
+  }
+
+  button {
+    margin: 15px 0;
+    height: 50px;
+    padding: 12px 24px;
+    color: white;
+    background-color: #FF5A5F;
+    font-size: 19px;
+    line-height: 22px;
+    border-radius: 3px;
+    font-weight: 900;
+  }
+
+  a {
+    margin-left: 5px;
+    color: #008489;
+    font-weight: 900;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  p {
+    border-top: 1px solid lightgray;
+    padding: 15px 0 0 0;
+    margin: 20px;
+    font-size: 19px;
+    text-align: center;
+    line-height: 24px;
+    color: rgb(20, 20, 20);
+  }
+
+  h1 {
+    margin: 25px 0;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 32px;
+    color: rgb(2, 2, 2);
+    letter-spacing: -0.6px;
+    font-weight: 900;
+  }
 }
 
-.auth-modal-main svg {
-  display: inline;
-  height: 19px;
-  width: 19px;
-  fill: gray;
-}
 
 .exit-modal {
   font-size: 25px;
   color: rgb(118,118,118);
-}
-
-
-.auth-modal-main input {
-  border: 1px solid gray;
-  border-radius: 2px;
-  border: 1px solid lightgray;
-  height: 46px;
-  padding: 11px;
-  margin: 0 0 13px 0;
-  font-size: 19px;
-  line-height: 24px;
-  font-weight: 300;
-}
-
-.auth-modal-main input:focus {
-  border-color: green;
-}
-
-.auth-modal-main input {
-    position:relative;
-    background-image: image-url('email.svg');
-}
-.auth-modal-main input::after {
-    background:red;/* apply your image here */
-    content:" ";
-    position:absolute;
-    width:999em;
-    height:25px;
-    margin:0 0 0 5px;
-}
-
-.auth-modal-main input::placeholder {
-  color: darkgray;
-}
-
-
-.auth-modal-main h1 {
-  margin: 25px 0;
-  font-size: 28px;
-  font-weight: 700;
-  line-height: 32px;
-  color: rgb(2, 2, 2);
-  letter-spacing: -0.6px;
-  font-weight: 900;
-}
-
-
-.auth-modal-main button {
-  margin: 15px 0;
-  height: 50px;
-  padding: 12px 24px;
-  color: white;
-  background-color: #FF5A5F;
-  font-size: 19px;
-  line-height: 22px;
-  border-radius: 3px;
-  font-weight: 900;
-}
-
-.auth-modal-main p {
-  border-top: 1px solid lightgray;
-  padding: 15px 0 0 0;
-  margin: 20px;
-  font-size: 19px;
-  text-align: center;
-  line-height: 24px;
-  color: rgb(20, 20, 20);
-}
-
-.auth-modal-main a {
-  margin-left: 5px;
-  color: #008489;
-  font-weight: 900;
-}
-
-.auth-modal-main a:hover {
-  text-decoration: underline;
 }
