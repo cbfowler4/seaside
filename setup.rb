@@ -1,0 +1,5 @@
+system('npm init -y')
+system('npm install --save webpack react react-dom react-router-dom react-redux redux redux-logger redux-thunk babel-core babel-loader babel-preset-react babel-preset-env')
+system('bundle install')
+system('rails db:create')
+system('rails db:migrate')

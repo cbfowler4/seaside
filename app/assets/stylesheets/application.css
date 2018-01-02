@@ -19,9 +19,21 @@
   padding: 0;
   margin: 0;
   list-style: none;
+  border: none;
   /* border: 1px solid red; */
   z-index: 1;
   font-family: 'Roboto', sans-serif;
+
+}
+
+*:focus {
+  outline: none;
+}
+
+*:link {
+  font-style: inherit;
+  color: inherit;
+  text-decoration: none;
 }
 
 .main {

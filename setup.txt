@@ -1,2 +1,0 @@
-npm init -y
-npm install --save webpack react react-dom react-router-dom react-redux redux redux-logger redux-thunk babel-core babel-loader babel-preset-react babel-preset-env 

@@ -37,10 +37,47 @@
   flex-direction: column;
 }
 
+.auth-modal-main svg {
+  display: inline;
+  height: 19px;
+  width: 19px;
+  fill: gray;
+}
+
 .exit-modal {
   font-size: 25px;
   color: rgb(118,118,118);
 }
+
+.auth-modal-main .input {
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  border: 1px solid gray;
+  box-sizing: border-box;
+  border-radius: 2px;
+  border: 1px solid lightgray;
+  height: 46px;
+  padding: 11px;
+  margin: 0 0 13px 0;
+}
+
+.auth-modal-main .input:active {
+  border-color: green;
+}
+
+.auth-modal-main input {
+  font-size: 19px;
+  line-height: 24px;
+  width: 100%;
+  height: 100%;
+  font-weight: 300;
+}
+
+.auth-modal-main input::placeholder {
+  color: #484848;
+}
+
 
 .auth-modal-main h1 {
   margin: 25px 0;
@@ -49,18 +86,9 @@
   line-height: 32px;
   color: rgb(2, 2, 2);
   letter-spacing: -0.6px;
+  font-weight: 900;
 }
 
-.auth-modal-main input {
-  box-sizing: border-box;
-  border-radius: 2px;
-  border: 1px solid lightgray;
-  height: 46px;
-  padding: 11px;
-  font-size: 19px;
-  line-height: 24px;
-  margin: 0 0 13px 0;
-}
 
 .auth-modal-main button {
   margin: 15px 0;
@@ -68,10 +96,11 @@
   box-sizing: border-box;
   padding: 12px 24px;
   color: white;
-  background-color: cadetblue;
+  background-color: #FF5A5F;
   font-size: 19px;
   line-height: 22px;
   border-radius: 3px;
+  font-weight: 900;
 }
 
 .auth-modal-main p {
@@ -82,4 +111,14 @@
   text-align: center;
   line-height: 24px;
   color: rgb(20, 20, 20);
+}
+
+.auth-modal-main a {
+  margin-left: 5px;
+  color: #008489;
+  font-weight: 900;
+}
+
+.auth-modal-main a:hover {
+  text-decoration: underline;
 }
