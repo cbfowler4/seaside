@@ -63,46 +63,25 @@ class SessionForm extends React.Component {
 
           <h1>Log in to continue</h1>
 
-
-          <div className="input">
-            <input
-              type="text"
+          <div>
+            <input className="email"
+              type="email"
               placeholder="Email Address"
               value={this.state.email}
               onChange={this.handleChange("email")}
               />
-              
           </div>
 
-          <div className="input">
-            <input
+          <div>
+            <input className="password"
               type="password"
               placeholder="Password"
               value={this.state.password}
               onChange={this.handleChange("password")}
               />
-
-            <svg viewBox="0 0 24 24" role="presentation" aria-hidden="true"
-               focusable="false" >
-               <path d="m19.5 9h-.5v-2a7 7 0 1 0 -14 0v2h-.5c-.78 0-1.5.72-1.5
-                1.5v12c0 .78.72 1.5 1.5 1.5h15c .78 0 1.5-.72
-                1.5-1.5v-12c0-.78-.72-1.5-1.5-1.5zm.5 13.5c0
-                .22-.28.5-.5.5h-15c-.22 0-.5-.28-.5-.5v-12c0-.22.28-.5.5-.5h1a
-                .5.5 0 0 0 .5-.5v-2.5a6 6 0 1 1 12 0v2.5a.5.5 0 0 0 .5.5h1c
-                .22 0 .5.28.5.5zm-8-10.5a3 3 0 0 0 -3 3c0 .83.36 1.59.94
-                2.15l-.9 2.16a.5.5 0 0 0 .46.69h5a .5.5 0 0 0
-                .46-.69l-.87-2.19c.56-.55.91-1.31.91-2.13a3 3 0 0 0 -3-3zm1.04
-                5.19.72 1.81h-3.51l.74-1.79a.5.5 0 0 0 -.17-.6 2 2 0 1 1
-                3.18-1.61c0 .64-.31 1.24-.8 1.6a.5.5 0 0 0
-                -.17.59zm-1.04-14.19a4 4 0 0 0 -4 4v2.5a.5.5 0 0 0 .5.5h7a
-                .5.5 0 0 0 .5-.5v-2.5a4 4 0 0 0 -4-4zm3 6h-6v-2a3 3 0 1 1 6 0z"
-                fillRule="evenodd"></path>
-            </svg>
           </div>
 
           <button>Log In</button>
-
-
 
           <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
         </form>
