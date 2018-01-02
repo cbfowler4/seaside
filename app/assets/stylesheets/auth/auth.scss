@@ -6,7 +6,7 @@
   position: absolute;
   left: 0;
   top: 0;
-  opacity: .68;
+  background-color: rgba(0, 0, 0, 0.5);
   overflow: scroll;
 }
 
@@ -37,11 +37,11 @@
 }
 
 .auth-modal-main form {
-  box-sizing: border-box;
   padding: 32px;
   height: 100%;
   display: flex;
   flex-direction: column;
+  opacity: 1;
 }
 
 .auth-modal-main svg {
@@ -56,29 +56,34 @@
   color: rgb(118,118,118);
 }
 
-.auth-modal-main .input {
-  display: flex;
-  justify-content: space-between;
-  box-sizing: border-box;
+
+.auth-modal-main input {
   border: 1px solid gray;
-  box-sizing: border-box;
   border-radius: 2px;
   border: 1px solid lightgray;
   height: 46px;
   padding: 11px;
   margin: 0 0 13px 0;
+  font-size: 19px;
+  line-height: 24px;
+  font-weight: 300;
 }
 
-.auth-modal-main .input:active {
+.auth-modal-main input:focus {
   border-color: green;
 }
 
 .auth-modal-main input {
-  font-size: 19px;
-  line-height: 24px;
-  width: 100%;
-  height: 100%;
-  font-weight: 300;
+    position:relative;
+    background-image: image-url('email.svg');
+}
+.auth-modal-main input::after {
+    background:red;/* apply your image here */
+    content:" ";
+    position:absolute;
+    width:999em;
+    height:25px;
+    margin:0 0 0 5px;
 }
 
 .auth-modal-main input::placeholder {
@@ -100,7 +105,6 @@
 .auth-modal-main button {
   margin: 15px 0;
   height: 50px;
-  box-sizing: border-box;
   padding: 12px 24px;
   color: white;
   background-color: #FF5A5F;
