@@ -17,6 +17,11 @@ class SessionForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.stopProp = this.stopProp.bind(this);
+  }
+
+  stopProp (e) {
+    e.stopPropagation();
   }
 
   handleChange(field) {
@@ -36,11 +41,10 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className="auth-modal-background" onClick={this.handleClick}>
-        </div>
-      <section className="auth-modal-main" id="login-modal">
-        <form onSubmit={this.handleSubmit}>
+    <div className="auth-modal-background" onClick={this.handleClick} >
+
+      <section className="auth-modal-main" id="login-modal" onClick={this.stopProp}>
+        <form onSubmit={this.handleSubmit} >
 
           <div className="exit-modal">
             <span onClick={this.handleClick}>
@@ -114,8 +118,8 @@ class SessionForm extends React.Component {
           <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
         </form>
       </section>
+      <div className="cf"></div>
     </div>
-
     );
   }
 }
