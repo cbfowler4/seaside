@@ -1,18 +1,19 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { login } from '../../actions/session_actions';
+import { login, clearSessionErrors } from '../../actions/session_actions';
 
 
 const mapStateToProps = state => {
   return {
-    errors: state.errors.session.responseText
+    errors: state.errors.session
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     login: (user) => dispatch(login(user)),
+    clearErrors: () => dispatch(clearSessionErrors())
   };
 };
 
@@ -23,6 +24,7 @@ class SessionForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleClickAuth = this.handleClickAuth.bind(this);
     this.stopProp = this.stopProp.bind(this);
     this.demoLogin = this.demoLogin.bind(this);
   }
@@ -40,10 +42,20 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login({user: this.state});
+    this.handleClick();
   }
 
-  handleClick(e) {
-    this.props.history.push('/');
+  handleClick() {
+    const auth = document.getElementsByClassName('login');
+    auth[0].classList.add('hide-modal');
+    this.setState({ email: "", password: ""});
+    this.props.clearErrors();
+  }
+
+  handleClickAuth() {
+    this.handleClick();
+    const auth = document.getElementsByClassName('signup');
+    auth[0].classList.remove('hide-modal');
   }
 
   demoLogin() {
@@ -53,11 +65,12 @@ class SessionForm extends React.Component {
   render() {
     let errors;
     if (this.props.errors) {
-      errors = <h2 className="login-error">{this.props.errors}</h2>;
+      errors = this.props.errors.map((error, idx)=> {
+        return (<h2 className='auth-error' key={idx}>{error}</h2>);
+      });
     }
-
     return (
-    <div className="auth-modal-background" onClick={this.handleClick} >
+    <div className="auth-modal-background hide-modal login" onClick={this.handleClick} >
 
       <section className="auth-modal-main" id="login-modal" onClick={this.stopProp}>
         <form onSubmit={this.handleSubmit} >
@@ -101,7 +114,7 @@ class SessionForm extends React.Component {
           <button>Log In</button>
           <button onClick={this.demoLogin}>Demo Log In</button>
 
-          <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
+          <p>Don't have an account? <a href='#' onClick={this.handleClickAuth}>Sign Up</a></p>
         </form>
       </section>
       <div className="cf"></div>

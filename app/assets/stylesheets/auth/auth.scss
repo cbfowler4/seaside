@@ -42,18 +42,9 @@
   width: 500px;
 }
 
-// #login-modal, #signup-modal {
-//   height: 500px;
-//   width: 500px;
-// }
-//
-//
-// #signup-modal {
-//   height: 575px;
-//   width: 500px;
-// }
-
-
+.hide-modal {
+  display: none;
+}
 
 .auth-modal-main {
   form {
@@ -144,7 +135,7 @@
   color: rgb(118,118,118);
 }
 
-.login-error {
+.auth-error {
   background: red;
   color: white;
   font-size: 19px;

@@ -1,19 +1,20 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { signup } from '../../actions/session_actions';
+import { signup, clearSessionErrors } from '../../actions/session_actions';
 
 
 
 const mapStateToProps = state => {
   return {
-    errors: state.session.errors
+    errors: state.errors.session
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     signup: (user) => dispatch(signup(user)),
+    clearErrors: () => dispatch(clearSessionErrors())
   };
 };
 
@@ -24,6 +25,7 @@ class UserForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleClickAuth = this.handleClickAuth.bind(this);
     this.stopProp = this.stopProp.bind(this);
   }
 
@@ -40,24 +42,35 @@ class UserForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.signup({user: this.state});
+    this.handleClick();
   }
 
-  handleClick(e) {
-    this.props.history.push('/');
+  handleClick() {
+    const auth = document.getElementsByClassName('signup');
+    auth[0].classList.add('hide-modal');
+    this.props.clearErrors();
+    this.setState({ email: "", fname: "", lname: "", password: ""});
+  }
+
+  handleClickAuth() {
+    this.handleClick();
+    const auth = document.getElementsByClassName('login');
+    auth[0].classList.remove('hide-modal');
   }
 
   render() {
     let errors;
     if (this.props.errors) {
-      errors = <h2>{this.props.errors}</h2>;
+      errors = this.props.errors.map((error, idx)=> {
+        return (<h2 className='auth-error' key={idx}>{error}</h2>);
+      });
     }
 
     return (
-      <div className="auth-modal-background" onClick={this.handleClick}>
+      <div className="auth-modal-background hide-modal signup" onClick={this.handleClick}>
 
       <section className="auth-modal-main" id="signup-modal" onClick={this.stopProp}>
         <form onSubmit={this.handleSubmit}>
-          {errors}
           <div className="exit-modal">
             <span onClick={this.handleClick}>
               <svg viewBox="0 0 24 24" role="img"
@@ -75,6 +88,7 @@ class UserForm extends React.Component {
 
           <h1>Sign up!</h1>
 
+          {errors}
 
           <input
             className="email"
@@ -117,7 +131,7 @@ class UserForm extends React.Component {
 
           <button>Sign Up</button>
 
-          <p>Already have a Seaside account? <Link to='/login'>Log In</Link></p>
+          <p>Already have a Seaside account? <a href='#' onClick={this.handleClickAuth}>Log In</a></p>
         </form>
       </section>
       <div className="cf"></div>
