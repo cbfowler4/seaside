@@ -1,8 +1,32 @@
 .icon-link {
   height: 34px;
   width: 34px;
+  padding: 24px;
   display: block;
   background-image: image-url('wave.svg');
   background-size: 34px 34px;
   background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.nav-bar-main {
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    height: 50px;
+    font-size: 19px;
+    font-weight: 400px;
+    line-height: 24px;
+    background-image: image-url('magnify.svg');
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: 5% 50%;
+    padding-left: 48px;
+  }
+
+  // border: 1px solid red;
+  // * {
+  //   border: 1px solid red;
+  // }
 }
