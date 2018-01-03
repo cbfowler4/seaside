@@ -16,6 +16,10 @@
   padding: 15px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
+  form {
+    position: absolute;
+  }
+
   input {
     height: 50px;
     font-size: 19px;
@@ -60,6 +64,13 @@
     border-bottom: 2px solid rgba(0,0,0, .5);
   }
 
+}
+
+.clear-search {
+  display: inline;
+  position: absolute;
+  top: 17px;
+  right: 12px;
 }
 
 @media screen and (max-width: 730px) {
