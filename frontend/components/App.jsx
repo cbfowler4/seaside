@@ -7,8 +7,6 @@ import {AuthRoute} from '../util/route_util';
 
 const App = () => (
   <div className="main">
-    <h1>Seaside</h1>
-    <Link className="icon-link" to='/'></Link>
     <NavListContainer />
 
     <SessionFormContainer />
