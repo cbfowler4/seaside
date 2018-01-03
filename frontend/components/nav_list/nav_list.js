@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SearchBarContainer from '../search/search_bar_container';
 
 class NavList extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class NavList extends React.Component {
     return (e) => {
       const auth = document.getElementsByClassName(`${modal}`);
       auth[0].classList.remove('hide-modal');
-      
+
     };
   }
 
@@ -25,14 +26,14 @@ class NavList extends React.Component {
     let userStatus;
     if (!this.props.currentUser) {
       userStatus = (
-        <div>
+        <div className='nav-right'>
           <a href='#' onClick={this.handleClickAuth('signup')}>Sign Up</a>
           <a href='#' onClick={this.handleClickAuth('login')}>Log In</a>
         </div>
       );
     } else {
       userStatus = (
-        <div>
+        <div className='nav-right'>
           <h1>Welcome {this.props.currentUser.fname}!</h1>
           <form onSubmit={this.handleLogout}>
             <button>Log Out</button>
@@ -43,9 +44,11 @@ class NavList extends React.Component {
 
 
     return (
-      <div>
+      <nav className='nav-bar-main'>
+        <Link className="icon-link" to='/'></Link>
+        <SearchBarContainer />
         {userStatus}
-      </div>
+      </nav>
     );
   }
 }
