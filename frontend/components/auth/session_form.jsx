@@ -24,6 +24,7 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.stopProp = this.stopProp.bind(this);
+    this.demoLogin = this.demoLogin.bind(this);
   }
 
   stopProp (e) {
@@ -43,6 +44,10 @@ class SessionForm extends React.Component {
 
   handleClick(e) {
     this.props.history.push('/');
+  }
+
+  demoLogin() {
+    this.props.login({user: {email: "guest", password: "password"}});
   }
 
   render() {
@@ -94,6 +99,7 @@ class SessionForm extends React.Component {
           </div>
 
           <button>Log In</button>
+          <button onClick={this.demoLogin}>Demo Log In</button>
 
           <p>Don't have an account? <Link to='/signup'>Sign Up</Link></p>
         </form>

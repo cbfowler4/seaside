@@ -21,12 +21,15 @@
   background-color: rgba(0, 0, 0, 0.5);
   overflow: scroll;
   display: flex;
-  justify-content: center;
+  align-content: center;
+  flex-direction: column;
 }
+
 
 .cf {
   content: "this is a clearfix";
   height: 0;
+  width: 100%;
   margin-top: 200px;
 }
 
@@ -36,18 +39,19 @@
   top: 100px;
   z-index: 3;
   background-color: white;
-}
-
-#login-modal, #signup-modal {
-  height: 500px;
   width: 500px;
 }
 
-
-#signup-modal {
-  height: 575px;
-  width: 500px;
-}
+// #login-modal, #signup-modal {
+//   height: 500px;
+//   width: 500px;
+// }
+//
+//
+// #signup-modal {
+//   height: 575px;
+//   width: 500px;
+// }
 
 
 
