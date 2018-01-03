@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import SearchBarContainer from '../search/search_bar_container';
+import SearchBar from './search_bar';
 
 
 class NavList extends React.Component {
@@ -47,7 +47,7 @@ class NavList extends React.Component {
       <nav className='nav-bar-main'>
         <div className='nav-left'>
           <Link className="icon-link" to='/'></Link>
-          <SearchBarContainer />
+          <SearchBar fetchRooms={this.props.fetchRooms}/>
         </div>
         {userStatus}
       </nav>

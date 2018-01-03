@@ -21,6 +21,10 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :rooms,
+    foreign_key: :host_id,
+    class_name: :Room
+
   attr_reader :password
 
   def is_password?(pwd)

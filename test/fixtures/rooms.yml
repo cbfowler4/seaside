@@ -1,0 +1,71 @@
+# == Schema Information
+#
+# Table name: rooms
+#
+#  id           :integer          not null, primary key
+#  host_id      :integer          not null
+#  title        :string           not null
+#  address      :string           not null
+#  lat          :float            not null
+#  lng          :float            not null
+#  price        :integer          not null
+#  max_guests   :integer          not null
+#  description  :text             not null
+#  beds         :integer          not null
+#  bathrooms    :integer          not null
+#  bedrooms     :integer          not null
+#  cancellation :string           not null
+#  min_stay     :integer          not null
+#  kitchen      :boolean          default(FALSE)
+#  wifi         :boolean          default(FALSE)
+#  washer       :boolean          default(FALSE)
+#  dryer        :boolean          default(FALSE)
+#  gym          :boolean          default(FALSE)
+#  hot_tub      :boolean          default(FALSE)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  host_id: 1
+  title: MyString
+  address: MyString
+  lat: 1.5
+  lng: 1.5
+  price: 1
+  max_guests: 1
+  description: MyText
+  beds: 1
+  bathrooms: 1
+  bedrooms: 1
+  cancellation: MyString
+  min_stay: 1
+  kitchen: false
+  wifi: false
+  washer: false
+  dryer: false
+  gym: false
+  hot_tub: false
+
+two:
+  host_id: 1
+  title: MyString
+  address: MyString
+  lat: 1.5
+  lng: 1.5
+  price: 1
+  max_guests: 1
+  description: MyText
+  beds: 1
+  bathrooms: 1
+  bedrooms: 1
+  cancellation: MyString
+  min_stay: 1
+  kitchen: false
+  wifi: false
+  washer: false
+  dryer: false
+  gym: false
+  hot_tub: false
