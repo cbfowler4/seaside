@@ -40,12 +40,14 @@ class Room < ApplicationRecord
             :bedrooms,
             :cancellation,
             :min_stay,
-            :kitchen,
-            :wifi,
-            :washer,
-            :dryer,
-            :gym,
-            :hot_tub, presence: true
+            :room_type, presence: true
+
+  validates   :kitchen,
+              :wifi,
+              :washer,
+              :dryer,
+              :gym,
+              :hot_tub, inclusion: { in: [true, false]}
 
   validates :host_id, uniqueness: true
 
