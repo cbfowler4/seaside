@@ -11,8 +11,8 @@ const App = () => (
     <Link className="icon-link" to='/'></Link>
     <NavListContainer />
 
-    <AuthRoute path="/login" component={SessionFormContainer}/>
-    <AuthRoute path="/signup" component={UserFormContainer}/>
+    <SessionFormContainer />
+    <UserFormContainer />
   </div>
 );
 

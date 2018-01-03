@@ -13,13 +13,21 @@ class NavList extends React.Component {
     this.props.logout();
   }
 
+  handleClickAuth(modal) {
+    return (e) => {
+      const auth = document.getElementsByClassName(`${modal}`);
+      auth[0].classList.remove('hide-modal');
+      
+    };
+  }
+
   render() {
     let userStatus;
     if (!this.props.currentUser) {
       userStatus = (
         <div>
-          <Link to='/signup'>Sign Up</Link>
-          <Link to='/login'>Log In</Link>
+          <a href='#' onClick={this.handleClickAuth('signup')}>Sign Up</a>
+          <a href='#' onClick={this.handleClickAuth('login')}>Log In</a>
         </div>
       );
     } else {
