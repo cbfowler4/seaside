@@ -45,8 +45,10 @@ class NavList extends React.Component {
 
     return (
       <nav className='nav-bar-main'>
-        <Link className="icon-link" to='/'></Link>
-        <SearchBarContainer />
+        <div className='nav-left'>
+          <Link className="icon-link" to='/'></Link>
+          <SearchBarContainer />
+        </div>
         {userStatus}
       </nav>
     );
