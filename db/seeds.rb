@@ -33,3 +33,54 @@ r1 = Room.create!({
             :min_stay => 2,
             :room_type => 'Full Ship'
   });
+
+r2 = Room.create!({
+  :host_id => demoUser.id,
+  :title => 'Luxurious House Boat in the Cape',
+            :address => 'Fish Docks',
+            :lat => 43.133,
+            :lng => -72.842,
+            :price => 60,
+            :max_guests => 6,
+            :description => 'Boat comes with fishing gear, linens done every day',
+            :beds => 4,
+            :bathrooms => 2,
+            :bedrooms => 3,
+            :cancellation => "Strict",
+            :min_stay => 4,
+            :room_type => 'Full Ship'
+  });
+
+r3 = Room.create!({
+  :host_id => demoUser.id,
+  :title => 'Sail boat launch ready',
+            :address => 'Hook Line Dock',
+            :lat => 43.219,
+            :lng => -72.2942,
+            :price => 120,
+            :max_guests => 2,
+            :description => 'Rich mohagany and silk sheets, perfect for a weekend',
+            :beds => 2,
+            :bathrooms => 1,
+            :bedrooms => 2,
+            :cancellation => "Strict",
+            :min_stay => 1,
+            :room_type => 'Full Ship'
+  });
+
+r4 = Room.create!({
+  :host_id => demoUser.id,
+  :title => 'Four person sail boat',
+            :address => '42 Crescent drive',
+            :lat => 43.04,
+            :lng => -71.9942,
+            :price => 300,
+            :max_guests => 5,
+            :description => 'Please enjoy the spectacular views on our boat',
+            :beds => 2,
+            :bathrooms => 1,
+            :bedrooms => 2,
+            :cancellation => "Strict",
+            :min_stay => 1,
+            :room_type => 'Full Ship'
+  });
