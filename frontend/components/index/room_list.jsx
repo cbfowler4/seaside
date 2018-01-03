@@ -7,7 +7,6 @@ class RoomList extends React.Component {
   }
 
   render () {
-    debugger
     let roomListArr = this.props.rooms.map((room) => {
       return (<RoomListItem room={room} key={room.id}/>);
     });
