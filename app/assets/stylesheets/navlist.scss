@@ -1,0 +1,75 @@
+.icon-link {
+  height: 34px;
+  width: 34px;
+  padding: 24px;
+  display: block;
+  background-image: image-url('wave.svg');
+  background-size: 34px 34px;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+
+.nav-bar-main {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+  input {
+    height: 50px;
+    font-size: 19px;
+    font-weight: 400px;
+    line-height: 24px;
+    background-image: image-url('magnify.svg');
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-position: 4% 50%;
+    padding-left: 55px;
+    width: 450px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-left: 20px;
+    border-radius: 4px;
+    border: 1px solid #DBDBDB;
+  }
+
+}
+
+.nav-left {
+  display: flex;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+  a, button {
+    box-sizing: content-box;
+    padding: 8px;
+    margin: 0 5px;
+    font-size: 14px;
+    font-weight: 900px;
+    color: rgb(72, 72, 72);
+    text-align: center;
+    line-height: 14px;
+  }
+
+  a:hover {
+    border-bottom: 2px solid rgba(0,0,0, .5);
+  }
+
+}
+
+@media screen and (max-width: 730px) {
+    .nav-right {
+      display: none;
+    }
+
+    .nav-bar-main {
+      div, input {
+        width: 95%;
+      }
+    }
+}
