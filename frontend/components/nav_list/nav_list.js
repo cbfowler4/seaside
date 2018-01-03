@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 class NavList extends React.Component {
   constructor(props) {
     super(props);
@@ -14,10 +15,9 @@ class NavList extends React.Component {
   }
 
   handleClickAuth(modal) {
-    return (e) => {
-      const auth = document.getElementsByClassName(`${modal}`);
-      auth[0].classList.remove('hide-modal');
-      
+    return () => {
+      const action = (modal === 'signup') ? this.props.openSignup : this.props.openLogin;
+      action();
     };
   }
 
