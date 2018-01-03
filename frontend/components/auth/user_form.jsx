@@ -48,7 +48,7 @@ class UserForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.signup({user: this.state});
-    this.handleClick();
+    this.setState({password: ""});
   }
 
   handleClick() {
@@ -73,6 +73,7 @@ class UserForm extends React.Component {
     if (this.props.modal_state) {
       return (
         <div className="auth-modal-background signup" onClick={this.handleClick}>
+          <div className="cf"></div>
 
         <section className="auth-modal-main" id="signup-modal" onClick={this.stopProp}>
           <form onSubmit={this.handleSubmit}>

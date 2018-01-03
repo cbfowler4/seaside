@@ -21,8 +21,9 @@
   background-color: rgba(0, 0, 0, 0.5);
   overflow: scroll;
   display: flex;
-  align-content: center;
+  align-items: center;
   flex-direction: column;
+
 }
 
 
@@ -30,13 +31,10 @@
   content: "this is a clearfix";
   height: 0;
   width: 100%;
-  margin-top: 200px;
+  margin-top: 120px;
 }
 
 #login-modal, #signup-modal {
-  position: relative;
-  left: 100px;
-  top: 100px;
   z-index: 3;
   background-color: white;
   width: 500px;

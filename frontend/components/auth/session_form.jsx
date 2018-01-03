@@ -47,7 +47,7 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.login({user: this.state});
-    this.handleClick();
+    this.setState({password: ""});
   }
 
   handleClick() {
@@ -75,6 +75,7 @@ class SessionForm extends React.Component {
     if (this.props.modal_state) {
       return (
         <div className="auth-modal-background login" onClick={this.handleClick} >
+          <div className="cf"></div>
 
           <section className="auth-modal-main" id="login-modal" onClick={this.stopProp}>
             <form onSubmit={this.handleSubmit} >
