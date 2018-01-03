@@ -15,7 +15,7 @@
 
 class User < ApplicationRecord
   validates :email, :fname, :lname, :session_token, presence: true
-  validates :password, length: {minimum: 6, allow_nil: true}
+  validates :password, length: {minimum: 6}, allow_nil: true
   validates :host, inclusion: {in: [true, false]}
   validates :email, uniqueness: true
 
@@ -28,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def password=(pwd)
-    @password = password
+    @password = pwd
     self.pwd_digest = BCrypt::Password.create(pwd)
   end
 

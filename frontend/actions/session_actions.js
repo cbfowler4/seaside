@@ -28,6 +28,9 @@ export const signup = (user) => {
   return (dispatch) => {
     SessionAPIUtil.signup(user).then((response) => {
       dispatch(receiveCurrentUser(response));
+    },
+      (errors) => {
+        dispatch(receiveErrors(errors));
     });
   };
 };

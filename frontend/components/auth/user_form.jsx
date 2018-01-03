@@ -4,6 +4,13 @@ import { connect } from 'react-redux';
 import { signup } from '../../actions/session_actions';
 
 
+
+const mapStateToProps = state => {
+  return {
+    errors: state.session.errors
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     signup: (user) => dispatch(signup(user)),
@@ -40,12 +47,17 @@ class UserForm extends React.Component {
   }
 
   render() {
+    let errors;
+    if (this.props.errors) {
+      errors = <h2>{this.props.errors}</h2>;
+    }
+
     return (
       <div className="auth-modal-background" onClick={this.handleClick}>
 
       <section className="auth-modal-main" id="signup-modal" onClick={this.stopProp}>
         <form onSubmit={this.handleSubmit}>
-
+          {errors}
           <div className="exit-modal">
             <span onClick={this.handleClick}>
               <svg viewBox="0 0 24 24" role="img"
@@ -114,4 +126,4 @@ class UserForm extends React.Component {
   }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(UserForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(UserForm));
