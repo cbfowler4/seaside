@@ -1,4 +1,6 @@
 import * as SessionAPIUtil from '../util/session_api_util';
+import { Redirect } from 'react-router';
+import React from 'react';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
@@ -8,10 +10,12 @@ export const receiveCurrentUser = (currentUser) => ({
   currentUser
 });
 
-export const receiveErrors = (errors) => ({
+export const receiveErrors = (errors) => {
+  return {
   type: RECEIVE_SESSION_ERRORS,
   errors
-});
+  };
+};
 
 export const login = (user) => {
   return (dispatch) => {
