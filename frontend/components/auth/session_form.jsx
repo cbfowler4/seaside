@@ -4,6 +4,12 @@ import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
 
 
+const mapStateToProps = state => {
+  return {
+    errors: state.errors.session.responseText
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     login: (user) => dispatch(login(user)),
@@ -40,12 +46,16 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let errors;
+    if (this.props.errors) {
+      errors = <h2 className="login-error">{this.props.errors}</h2>;
+    }
+
     return (
     <div className="auth-modal-background" onClick={this.handleClick} >
 
       <section className="auth-modal-main" id="login-modal" onClick={this.stopProp}>
         <form onSubmit={this.handleSubmit} >
-
           <div className="exit-modal">
             <span onClick={this.handleClick}>
               <svg viewBox="0 0 24 24" role="img"
@@ -62,6 +72,8 @@ class SessionForm extends React.Component {
           </div>
 
           <h1>Log in to continue</h1>
+
+          {errors}
 
           <div>
             <input className="email"
@@ -92,4 +104,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default withRouter(connect(null, mapDispatchToProps)(SessionForm));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(SessionForm));

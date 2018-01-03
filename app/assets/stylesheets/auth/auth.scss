@@ -10,7 +10,6 @@
   background-image: image-url('name.svg');
 }
 
-
 .auth-modal-background {
   height: 100vh;
   width: 100vw;
@@ -21,6 +20,8 @@
   top: 0;
   background-color: rgba(0, 0, 0, 0.5);
   overflow: scroll;
+  display: flex;
+  justify-content: center;
 }
 
 .cf {
@@ -38,7 +39,7 @@
 }
 
 #login-modal, #signup-modal {
-  height: 450px;
+  height: 500px;
   width: 500px;
 }
 
@@ -137,4 +138,14 @@
 .exit-modal {
   font-size: 25px;
   color: rgb(118,118,118);
+}
+
+.login-error {
+  background: red;
+  color: white;
+  font-size: 19px;
+  font-weight: 300px;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 15px;
 }
