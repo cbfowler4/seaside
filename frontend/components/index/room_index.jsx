@@ -1,6 +1,6 @@
 import React from 'react';
 import RoomMapContainer from '../map/room_map_container';
-import RoomList from './room_list';
+import RoomListContainer from './room_list_container';
 
 
 class RoomIndex extends React.Component {
@@ -9,14 +9,13 @@ class RoomIndex extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
     this.props.fetchRooms(nextProps.filters);
   }
 
   render() {
     return (
       <div className='room-index-main'>
-        <RoomListContainer rooms={this.props.rooms}/>
+        <RoomListContainer />
         <RoomMapContainer />
       </div>
     );
