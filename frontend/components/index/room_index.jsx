@@ -8,15 +8,19 @@ class RoomIndex extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    this.props.fetchRooms();
+  componentWillReceiveProps(nextProps) {
+    debugger
+    this.props.fetchRooms(nextProps.filters);
   }
 
   render() {
     return (
       <div className='room-index-main'>
         <RoomList rooms={this.props.rooms}/>
-        <RoomMap rooms={this.props.rooms} center={this.props.center}/>
+        <RoomMap
+          rooms={this.props.rooms}
+          center={this.props.filters.bounds.center}
+          receiveBounds={this.props.receiveBounds}/>
       </div>
     );
   }

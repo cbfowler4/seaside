@@ -54,4 +54,11 @@ class Room < ApplicationRecord
     primary_key: :id,
     class_name: :User
 
+
+  def self.filterRooms(filters)
+    bounds = filters['bounds']
+    Rooms.where()
+    debugger
+    puts 'hello'
+  end
 end
