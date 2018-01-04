@@ -20,7 +20,6 @@ class RoomMap extends React.Component {
   }
 
   updateBounds() {
-    debugger
     const northEast = this.map.getBounds().getNorthEast();
     const southWest = this.map.getBounds().getSouthWest();
     this.props.receiveBounds({
@@ -32,7 +31,6 @@ class RoomMap extends React.Component {
   }
 
   componentWillReceiveProps({rooms, center}) {
-    debugger
     this.map.setCenter(center);
     this.MarkerManager.updateMarkers(rooms);
   }
