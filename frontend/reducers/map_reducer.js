@@ -1,4 +1,5 @@
 import { UPDATE_MAP_CENTER } from '../actions/map_actions';
+import { merge } from 'lodash';
 
 
 const defaultState = {
