@@ -17,6 +17,8 @@ class RoomMap extends React.Component {
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
     this.map.addListener('dragend', this.updateBounds);
+    this.map.addListener('zoom_changed', this.updateBounds);
+    // this.map.addListener('center_changed', this.updateBounds);
     google.maps.event.addListenerOnce(this.map, 'idle', this.updateBounds);
   }
 
