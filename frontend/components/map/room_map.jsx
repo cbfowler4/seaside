@@ -1,4 +1,6 @@
 import React from 'react';
+import MarkerManager from '../../util/marker_manager';
+
 
 class RoomMap extends React.Component {
   constructor(props) {
@@ -8,11 +10,17 @@ class RoomMap extends React.Component {
 
   componentDidMount () {
     const mapOptions = {
-      center: {lat: 37.7, lng: -122.43},
+      center: {lat: 43.213, lng: -72.2342},
       zoom: 10
     };
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
+    this.MarkerManager = new MarkerManager(this.map);
+  }
+
+  componentWillReceiveProps({rooms}) {
+
+    this.MarkerManager.updateMarkers(rooms);
   }
 
   render() {
