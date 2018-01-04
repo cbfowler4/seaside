@@ -47,7 +47,7 @@ class NavList extends React.Component {
       <nav className='nav-bar-main'>
         <div className='nav-left'>
           <Link className="icon-link" to='/'></Link>
-          <SearchBar fetchRooms={this.props.fetchRooms}/>
+          <SearchBar fetchRooms={this.props.fetchRooms} receiveMapCenter={this.props.receiveMapCenter}/>
         </div>
         {userStatus}
       </nav>

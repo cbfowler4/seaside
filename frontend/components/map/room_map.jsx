@@ -9,7 +9,6 @@ class RoomMap extends React.Component {
 
   componentDidMount () {
     const mapOptions = {
-      center: this.props.center,
       zoom: 10
     };
 
@@ -18,7 +17,6 @@ class RoomMap extends React.Component {
   }
 
   componentWillReceiveProps({rooms, center}) {
-    debugger
     this.map.setCenter(center);
     this.MarkerManager.updateMarkers(rooms);
   }
