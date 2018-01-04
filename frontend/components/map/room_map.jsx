@@ -16,18 +16,21 @@ class RoomMap extends React.Component {
 
     this.map = new google.maps.Map(this.mapNode, mapOptions);
     this.MarkerManager = new MarkerManager(this.map);
-    this.map.addListener('idle', this.updateBounds);
+    this.map.addListener('dragend', this.updateBounds);
+    google.maps.event.addListenerOnce(this.map, 'idle', this.updateBounds);
   }
 
   updateBounds() {
     const northEast = this.map.getBounds().getNorthEast();
     const southWest = this.map.getBounds().getSouthWest();
+    const center = this.map.getCenter();
     this.props.receiveBounds({
       north: northEast.lat(),
       east: northEast.lng(),
       south: southWest.lat(),
       west: southWest.lng()
     });
+    this.props.receiveMapCenter({lat: center.lat(), lng: center.lng()});
   }
 
   componentWillReceiveProps({rooms, center}) {

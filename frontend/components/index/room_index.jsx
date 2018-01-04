@@ -9,7 +9,6 @@ class RoomIndex extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
-    debugger
     this.props.fetchRooms(nextProps.filters);
   }
 
