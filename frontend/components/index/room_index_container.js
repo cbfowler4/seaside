@@ -4,13 +4,14 @@ import {fetchRooms} from '../../actions/room_index_actions';
 
 const mapStateToProps = state => {
   return ({
-    rooms: Object.values(state.entities.rooms)
+    rooms: Object.values(state.entities.rooms),
+    center: state.filters.bounds.center
   });
 };
 
 const mapDispatchToProps = dispatch => {
   return ({
-    fetchRooms: () => dispatch(fetchRooms())
+    fetchRooms: (filters) => dispatch(fetchRooms(filters))
   });
 };
 
