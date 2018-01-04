@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signup, clearSessionErrors } from '../../actions/session_actions';
-import { openLogin, openSignup, closeAuth } from '../../actions/ui_actions';
+import { openLogin, openSignup, closeModal } from '../../actions/ui_actions';
 
 
 
@@ -19,7 +19,7 @@ const mapDispatchToProps = dispatch => {
     clearErrors: () => dispatch(clearSessionErrors()),
     openLogin: () => dispatch(openLogin()),
     openSignup: () => dispatch(openSignup()),
-    closeAuth: () => dispatch(closeAuth()),
+    closeModal: () => dispatch(closeModal()),
   };
 };
 
@@ -54,7 +54,7 @@ class UserForm extends React.Component {
   handleClick() {
     this.props.clearErrors();
     this.setState({ email: "", fname: "", lname: "", password: ""});
-    this.props.closeAuth();
+    this.props.closeModal();
   }
 
   handleClickAuth() {

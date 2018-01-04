@@ -4,6 +4,12 @@
 
 .room-index-main {
   display: flex;
+  flex-direction: column;
+}
+
+
+.room-index-content {
+  display: flex;
 }
 
 .room-list {

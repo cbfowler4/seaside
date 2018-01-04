@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { login, clearSessionErrors } from '../../actions/session_actions';
-import { openLogin, openSignup, closeAuth } from '../../actions/ui_actions';
+import { openLogin, openSignup, closeModal } from '../../actions/ui_actions';
 
 
 const mapStateToProps = state => {
@@ -18,7 +18,7 @@ const mapDispatchToProps = dispatch => {
     clearErrors: () => dispatch(clearSessionErrors()),
     openLogin: () => dispatch(openLogin()),
     openSignup: () => dispatch(openSignup()),
-    closeAuth: () => dispatch(closeAuth()),
+    closeModal: () => dispatch(closeModal()),
   };
 };
 
@@ -53,7 +53,7 @@ class SessionForm extends React.Component {
   handleClick() {
     this.setState({ email: "", password: ""});
     this.props.clearErrors();
-    this.props.closeAuth();
+    this.props.closeModal();
   }
 
   handleClickAuth() {
