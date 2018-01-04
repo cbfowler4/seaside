@@ -49,8 +49,6 @@ class Room < ApplicationRecord
               :gym,
               :hot_tub, inclusion: { in: [true, false]}
 
-  validates :host_id, uniqueness: true
-
   belongs_to :host,
     foreign_key: :host_id,
     primary_key: :id,
