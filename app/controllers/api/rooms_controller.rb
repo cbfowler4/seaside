@@ -1,8 +1,8 @@
 class Api::RoomsController < ApplicationController
 
   def index
-    @rooms = Room.all
-    # roms = Room.filterRooms(params['filters'])
+    # @rooms = Room.all
+    @rooms = Room.filterRooms(params['filters'])
   end
 
   def show

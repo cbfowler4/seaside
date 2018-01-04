@@ -57,8 +57,8 @@ class Room < ApplicationRecord
 
   def self.filterRooms(filters)
     bounds = filters['bounds']
-    # Rooms.where()
-    # debugger
-    puts 'hello'
+    Room
+      .where(["lat < ? and lat > ?", bounds['north'],bounds['south']])
+      .where(["lng > ? and lng < ?", bounds['west'],bounds['east']])
   end
 end
