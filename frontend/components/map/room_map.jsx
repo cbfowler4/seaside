@@ -5,12 +5,11 @@ import MarkerManager from '../../util/marker_manager';
 class RoomMap extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
   }
 
   componentDidMount () {
     const mapOptions = {
-      center: {lat: 43.213, lng: -72.2342},
+      center: this.props.center,
       zoom: 10
     };
 
@@ -18,8 +17,9 @@ class RoomMap extends React.Component {
     this.MarkerManager = new MarkerManager(this.map);
   }
 
-  componentWillReceiveProps({rooms}) {
-
+  componentWillReceiveProps({rooms, center}) {
+    debugger
+    this.map.setCenter(center);
     this.MarkerManager.updateMarkers(rooms);
   }
 
