@@ -57,8 +57,8 @@ class Room < ApplicationRecord
 
   def self.filterRooms(filters)
     bounds = filters['bounds']
-    Rooms.where()
-    debugger
+    # Rooms.where()
+    # debugger
     puts 'hello'
   end
 end

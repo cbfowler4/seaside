@@ -1,5 +1,5 @@
 import React from 'react';
-import RoomMap from '../map/room_map';
+import RoomMapContainer from '../map/room_map_container';
 import RoomList from './room_list';
 
 
@@ -16,11 +16,8 @@ class RoomIndex extends React.Component {
   render() {
     return (
       <div className='room-index-main'>
-        <RoomList rooms={this.props.rooms}/>
-        <RoomMap
-          rooms={this.props.rooms}
-          center={this.props.filters.bounds.center}
-          receiveBounds={this.props.receiveBounds}/>
+        <RoomListContainer rooms={this.props.rooms}/>
+        <RoomMapContainer />
       </div>
     );
   }
