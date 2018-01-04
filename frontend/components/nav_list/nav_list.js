@@ -34,7 +34,6 @@ class NavList extends React.Component {
     } else {
       userStatus = (
         <div className='nav-right'>
-          <h1>Welcome {this.props.currentUser.fname}!</h1>
           <form onSubmit={this.handleLogout}>
             <button>Log Out</button>
           </form>
