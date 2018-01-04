@@ -8,7 +8,8 @@ class RoomIndex extends React.Component {
     super(props);
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps (nextProps) {
+    debugger
     this.props.fetchRooms(nextProps.filters);
   }
 

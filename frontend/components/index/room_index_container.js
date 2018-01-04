@@ -4,7 +4,6 @@ import { fetchRooms } from '../../actions/room_index_actions';
 
 const mapStateToProps = state => {
   return ({
-    rooms: Object.values(state.entities.rooms),
     filters: state.filters
   });
 };
