@@ -16,7 +16,14 @@ class SearchBar extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    this.props.fetchRooms();
+    this.geocoder.geocode({'address': this.state.search}, (response)=>{
+      const center = response[0].geometry.location.toJSON();
+      this.props.receiveMapCenter(center);
+    });
+  }
+
+  componentDidMount () {
+    this.geocoder = new google.maps.Geocoder();
   }
 
   resetSearch () {
