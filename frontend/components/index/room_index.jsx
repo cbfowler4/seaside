@@ -16,7 +16,7 @@ class RoomIndex extends React.Component {
     return (
       <div className='room-index-main'>
         <RoomList rooms={this.props.rooms}/>
-        <RoomMap />
+        <RoomMap rooms={this.props.rooms}/>
       </div>
     );
   }
