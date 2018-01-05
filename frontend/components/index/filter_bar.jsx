@@ -14,16 +14,12 @@ class FilterBar extends React.Component {
     return (e) => {
       e.stopPropagation();
       this.props.openFilter(filterType);
-      const el = document.getElementById(filterType);
-      el.classList.add('filter-active');
     };
   }
 
   handleClose (filterType) {
     return (e) => {
       this.props.closeModal();
-      const el = document.getElementById(filterType);
-      el.classList.remove('filter-active');
     };
   }
 
@@ -49,12 +45,23 @@ class FilterBar extends React.Component {
     }
   }
 
+  getGuestButton() {
+    const activeGuests = (this.props.guests.adult !== 1 || this.props.guests.child !== 0);
+    if (this.props.filterModal === 'guest' || activeGuests) {
+      return (<button id='guest' className='filter-active' onClick={this.handleOpen('guest')}>Guests</button>);
+    } else {
+      return (<button  id='guest' onClick={this.handleOpen('guest')}>Guests</button>);
+    }
+  }
+
   render() {
     const modalShown = this.getModal();
 
+    const guestButton = this.getGuestButton();
+
     return (
       <div className='filter-bar'>
-        <button id='guest' onClick={this.handleOpen('guest')}>Guests</button>
+          {guestButton}
           {modalShown}
       </div>
     );
