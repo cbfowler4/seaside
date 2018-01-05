@@ -9,7 +9,11 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyCCAlZu6woIaZLwixJKWu6Rv-oazFKD9x0" %>
-
+    <script>
+      window.staticImages = {
+        plusImage: "<%= asset_url("plus-button.svg")%>"
+      }
+    </script>
   </head>
 
   <body>
