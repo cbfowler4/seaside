@@ -1,10 +1,12 @@
 .filter-bar {
   height: 64px;
+  width: 100%;
   padding: 16px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  display: block;
+  display: flex;
 
   button {
+    margin: 0 16px 0 0;
     letter-spacing: .2px;
     line-height: 18px;
     font-size: 15px;
@@ -12,7 +14,6 @@
     padding: 6px 12px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    position: absolute;
     z-index: 5;
 
   }
@@ -50,7 +51,6 @@
   position: relative;
   padding: 24px;
   top: 56px;
-  left: 16px;
   width: 344px;
   height: 192px;
   background-color: white;
@@ -63,6 +63,7 @@
 
 .guest-modal {
   position: absolute;
+  left: 16px;
 
   ul {
     li {
@@ -102,5 +103,16 @@
     a:hover {
       text-decoration: underline;
     }
+  }
+}
+
+.price-modal {
+  left: 105px;
+
+  .price-range {
+    font-weight: 300px;
+    line-height: 24px;
+    font-size: 19px;
+    color: rgb(72, 72, 72);
   }
 }

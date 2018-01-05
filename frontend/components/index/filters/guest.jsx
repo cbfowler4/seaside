@@ -19,9 +19,7 @@ class GuestFilter extends React.Component {
       let sumGuests = (this.state[guestType] - 1);
       if ((sumGuests > 0 ) || (sumGuests === 0 && guestType!=='adult')) {
         this.setState({[guestType]: sumGuests});
-      } else {
-        console.log('hey stop it!');
-      }
+      } 
     }).bind(this);
   }
 
