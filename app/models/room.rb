@@ -56,9 +56,19 @@ class Room < ApplicationRecord
 
 
   def self.filterRooms(filters)
-    bounds = filters['bounds']
+    default_filters = {
+      "guests" => {"adult" => "1", "child" => "0"}
+    }
+
+    merged_filters = default_filters.merge(filters)
+
+    bounds = merged_filters['bounds']
+    total_guests = merged_filters['guests']['adult'].to_i + merged_filters['guests']['child'].to_i
+
     Room
       .where(["lat < ? and lat > ?", bounds['north'],bounds['south']])
       .where(["lng > ? and lng < ?", bounds['west'],bounds['east']])
+      .where([" max_guests >= ?", total_guests])
+
   end
 end

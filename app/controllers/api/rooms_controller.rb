@@ -1,8 +1,7 @@
 class Api::RoomsController < ApplicationController
 
   def index
-    # @rooms = Room.all
-    @rooms = Room.filterRooms(params['filters'])
+    @rooms = Room.filterRooms(filter_params)
   end
 
   def show
@@ -15,5 +14,12 @@ class Api::RoomsController < ApplicationController
   end
 
   def delete
+  end
+
+
+  private
+
+  def filter_params
+    params.require(:filters).permit(bounds: [:north, :west, :east, :south], guests: [:child, :adult])
   end
 end

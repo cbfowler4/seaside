@@ -6,7 +6,7 @@ export const updateFilters = (filter) => {
   if (filter.guests) {
     return ({
       type: RECEIVE_GUESTS,
-      guest
+      guests: filter.guests
     });
   } else {
     return ({

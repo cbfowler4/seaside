@@ -1,8 +1,37 @@
 import { combineReducers } from 'redux';
-import boundsReducer from './bounds_reducer';
-import guestReducer from './guest_reducer';
+import { RECEIVE_BOUNDS } from '../actions/room_index_actions';
+import { RECEIVE_GUESTS, CLEAR_ALL_FILTERS } from '../actions/filter_actions';
+import { merge } from 'lodash';
 
-export default combineReducers({
+
+const defaultGuestState = {};
+
+const guestReducer = (state = defaultGuestState, action) => {
+  switch (action.type) {
+    case RECEIVE_GUESTS:
+      return action.guests;
+    case CLEAR_ALL_FILTERS:
+      return defaultState;
+    default:
+      return state;
+  }
+};
+
+
+const defaultBoundsState = {
+};
+
+const boundsReducer = (state = defaultBoundsState, action ) => {
+  switch (action.type) {
+    case RECEIVE_BOUNDS:
+      return merge({}, state, action.bounds);
+    default:
+      return state;
+  }
+};
+
+
+export const filterReducer = combineReducers({
   bounds: boundsReducer,
-  guest: guestReducer
+  guests: guestReducer
 });
