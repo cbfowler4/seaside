@@ -41,14 +41,14 @@ class GuestFilter extends React.Component {
       <div className='filter-modal-main guest-modal' onClick={this.stopProp}>
         <ul>
           <li><div>Adults</div>
-            <span onClick={this.removeGuest('adult')}>-</span>
+            <img onClick={this.removeGuest('adult')} src={window.staticImages.minusImage}></img>
             <span>{`${this.state.adult}+`}</span>
             <img onClick={this.addGuest('adult')} src={window.staticImages.plusImage}></img>
           </li>
           <li><div>Children</div>
-            <span onClick={this.removeGuest('child')}>-</span>
+            <img onClick={this.removeGuest('child')} src={window.staticImages.minusImage}></img>
             <span>{`${this.state.child}+`}</span>
-            <img onClick={this.addGuest('adult')} src={window.staticImages.plusImage}></img>
+            <img onClick={this.addGuest('child')} src={window.staticImages.plusImage}></img>
           </li>
           <a href='#' onClick={this.updateFilters(this.state)}>Apply</a>
         </ul>
