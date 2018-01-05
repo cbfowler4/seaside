@@ -39,9 +39,9 @@
 .filter-modal-background {
   position: absolute;
   top: 80px;
-  bottom: 0;
   left: 0;
   right: 0;
+  height: 100%;
   background-color: rgba(255, 255, 255, .7);
   z-index: 2;
 }
@@ -69,14 +69,17 @@
       display: flex;
       justify-content: space-between;
       padding: 5px;
-      margin-top: 13px;
+      margin-bottom: 13px;
 
       div {
         width: 105px;
+        line-height: 30px;
         font-size: 18px;
         color: rgb(72, 72, 72);
       }
       span {
+        font-size: 18px;
+        line-height: 30px;
         display: block;
       }
     }
@@ -87,8 +90,8 @@
 
     a {
       position: relative;
-      top: 40px;
-      left: 250px;
+      top: 20px;
+      left: 242px;
       color: #008489;
       font-size: 18px;
     }

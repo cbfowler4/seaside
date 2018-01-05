@@ -26,7 +26,6 @@ class GuestFilter extends React.Component {
 
   updateFilters(guest) {
     return ((e) => {
-      debugger
       e.stopPropagation();
       this.props.updateFilters({guests: guest});
     }).bind(this);
