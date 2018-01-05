@@ -54,14 +54,25 @@ class FilterBar extends React.Component {
     }
   }
 
+  getPriceButton() {
+    const Price = (this.props.price.min !== 1 || this.props.price.max !== 0);
+    if (this.props.filterModal === 'price' || Price) {
+      return (<button id='price' className='filter-active' onClick={this.handleOpen('price')}>Price</button>);
+    } else {
+      return (<button  id='price' onClick={this.handleOpen('price')}>Price</button>);
+    }
+  }
+
   render() {
     const modalShown = this.getModal();
 
     const guestButton = this.getGuestButton();
+    const priceButton = this.getPriceButton();
 
     return (
       <div className='filter-bar'>
           {guestButton}
+          {priceButton}
           {modalShown}
       </div>
     );
