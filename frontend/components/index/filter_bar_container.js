@@ -6,7 +6,8 @@ import { updateFilters, clearFilter } from '../../actions/filter_actions';
 const mapStateToProps = state => {
   return ({
     filterModal: state.ui.filter_modal,
-    guests: state.filters.guests
+    guests: state.filters.guests,
+    price: state.filters.price
   });
 };
 
