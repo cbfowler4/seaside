@@ -24,7 +24,7 @@
   input {
     height: 50px;
     font-size: 19px;
-    font-weight: 400px;
+    font-weight: 400;
     line-height: 24px;
     background-image: image-url('magnify.svg');
     background-size: 24px 24px;
@@ -50,18 +50,29 @@
   align-items: center;
 
 
-  a, button {
+  a {
     box-sizing: content-box;
     padding: 8px;
     margin: 0 5px;
-    font-size: 14px;
-    font-weight: 900px;
-    color: rgb(72, 72, 72);
+    color: rgba(72, 72, 72, .8);
     text-align: center;
     line-height: 14px;
+    font-size: 16px;
+    font-weight: 400;
   }
 
-  a:hover {
+  button {
+    width: 60px;
+    position: absolute;
+    right: 15px;
+    top: -8px;
+    line-height: 14px;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(72, 72, 72, .8);
+  }
+
+  a:hover, button:hover {
     border-bottom: 2px solid rgba(0,0,0, .5);
   }
 
