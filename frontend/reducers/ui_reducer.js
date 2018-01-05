@@ -4,6 +4,8 @@ import {
   CLOSE_MODAL,
   OPEN_FILTER } from '../actions/ui_actions';
 
+import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+
 import { merge } from 'lodash';
 
 const defaultState = {
@@ -21,6 +23,8 @@ export default (state = defaultState, action) => {
     case OPEN_FILTER:
       return merge({}, defaultState, {filter_modal: action.filterType});
     case CLOSE_MODAL:
+      return merge({}, state, defaultState);
+    case RECEIVE_CURRENT_USER:
       return merge({}, state, defaultState);
     default:
       return state;
