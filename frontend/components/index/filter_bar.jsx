@@ -1,5 +1,6 @@
 import React from 'react';
 import GuestFilter from './filters/guest';
+import PriceFilter from './filters/price';
 
 class FilterBar extends React.Component {
   constructor(props) {
@@ -40,6 +41,15 @@ class FilterBar extends React.Component {
               handleClose = {this.handleClose(this.props.filterModal)}/>
           </div>
           );
+      case "price":
+        return (
+          <div className='filter-modal-background' onClick={this.handleClose(this.props.filterModal)}>
+            <PriceFilter updateFilters = {this.props.updateFilters}
+              clearFilter = {this.props.clearFilter}
+              price = {this.props.price}
+              handleClose = {this.handleClose(this.props.filterModal)}/>
+          </div>
+          );
       default:
         return (<div></div>);
     }
@@ -47,19 +57,31 @@ class FilterBar extends React.Component {
 
   getGuestButton() {
     const activeGuests = (this.props.guests.adult !== 1 || this.props.guests.child !== 0);
+    let buttonText = 'Guest';
+
+    if (activeGuests) {
+      buttonText = `${this.props.guests.adult+this.props.guests.child} Guests`;
+    }
+
     if (this.props.filterModal === 'guest' || activeGuests) {
-      return (<button id='guest' className='filter-active' onClick={this.handleOpen('guest')}>Guests</button>);
+      return (<button id='guest' className='filter-active' onClick={this.handleOpen('guest')}>{buttonText}</button>);
     } else {
-      return (<button  id='guest' onClick={this.handleOpen('guest')}>Guests</button>);
+      return (<button  id='guest' onClick={this.handleOpen('guest')}>{buttonText}</button>);
     }
   }
 
   getPriceButton() {
-    const Price = (this.props.price.min !== 1 || this.props.price.max !== 0);
-    if (this.props.filterModal === 'price' || Price) {
-      return (<button id='price' className='filter-active' onClick={this.handleOpen('price')}>Price</button>);
+    const activePrice = (this.props.price.min !== 0 || this.props.price.max !== 1000);
+    let buttonText = 'Price';
+
+    if (activePrice) {
+      buttonText = `$${this.props.price.min}-$${this.props.price.max}`;
+    }
+
+    if (this.props.filterModal === 'price' || activePrice) {
+      return (<button id='price' className='filter-active' onClick={this.handleOpen('price')}>{buttonText}</button>);
     } else {
-      return (<button  id='price' onClick={this.handleOpen('price')}>Price</button>);
+      return (<button  id='price' onClick={this.handleOpen('price')}>{buttonText}</button>);
     }
   }
 
