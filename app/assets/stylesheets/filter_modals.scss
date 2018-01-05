@@ -108,11 +108,70 @@
 
 .price-modal {
   left: 105px;
+  height: 205px;
+  font-weight: 300px;
+  line-height: 24px;
+  font-size: 19px;
+  color: rgb(72, 72, 72);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
-  .price-range {
-    font-weight: 300px;
-    line-height: 24px;
-    font-size: 19px;
-    color: rgb(72, 72, 72);
+  li {
+    margin-bottom: 14px;
   }
+
+  .filter-links {
+    margin-top: 35px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .price-slider {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  input {
+    width: 180px;
+    height: 25px;
+    -webkit-appearance: none;
+  }
+
+  input:focus {
+    outline: none;
+  }
+
+  input::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: #D8D8D8;
+  }
+
+  input[type=range]::-webkit-slider-thumb {
+    border: 1px solid #008489;
+    height: 28px;
+    width: 28px;
+    border-radius: 32px;
+    background: white;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -13px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #008489;
+  }
+
+  a {
+    color: #008489;
+    font-size: 18px;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+
 }
