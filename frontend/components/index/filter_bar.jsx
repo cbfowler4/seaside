@@ -38,7 +38,10 @@ class FilterBar extends React.Component {
       case "guest":
         return (
           <div className='filter-modal-background' onClick={this.handleClose(this.props.filterModal)}>
-            <GuestFilter updateFilters = {this.props.updateFilters}/>
+            <GuestFilter updateFilters = {this.props.updateFilters}
+              clearFilter = {this.props.clearFilter}
+              guests = {this.props.guests}
+              handleClose = {this.handleClose(this.props.filterModal)}/>
           </div>
           );
       default:

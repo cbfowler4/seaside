@@ -15,11 +15,11 @@ const defaultState = {
 export default (state = defaultState, action) => {
   switch (action.type) {
     case OPEN_LOGIN:
-      return merge({}, state, {login_modal: true});
+      return merge({}, defaultState, {login_modal: true});
     case OPEN_SIGNUP:
-      return merge({}, state, {signup_modal: true});
+      return merge({}, defaultState, {signup_modal: true});
     case OPEN_FILTER:
-      return merge({}, state, {filter_modal: action.filterType});
+      return merge({}, defaultState, {filter_modal: action.filterType});
     case CLOSE_MODAL:
       return merge({}, state, defaultState);
     default:

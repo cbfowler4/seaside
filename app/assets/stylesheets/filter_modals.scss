@@ -88,10 +88,13 @@
       height: 30px;
     }
 
+    .filter-links {
+      padding-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+
     a {
-      position: relative;
-      top: 20px;
-      left: 242px;
       color: #008489;
       font-size: 18px;
     }

@@ -4,7 +4,8 @@ import React from 'react';
 class GuestFilter extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {adult: 1, child: 0};
+    this.state = this.props.guests;
+    this.clearFilter = this.clearFilter.bind(this);
   }
   addGuest(guestType) {
     return (e) => {
@@ -28,12 +29,20 @@ class GuestFilter extends React.Component {
     return ((e) => {
       e.stopPropagation();
       this.props.updateFilters({guests: guest});
+      this.props.handleClose();
     }).bind(this);
+  }
+
+  clearFilter(e) {
+    e.stopPropagation();
+    this.props.clearFilter('guest');
+    this.props.handleClose();
   }
 
   stopProp(e) {
     e.stopPropagation();
   }
+
 
   render() {
     return (
@@ -49,7 +58,10 @@ class GuestFilter extends React.Component {
             <span>{`${this.state.child}+`}</span>
             <img onClick={this.addGuest('child')} src={window.staticImages.plusImage}></img>
           </li>
-          <a href='#' onClick={this.updateFilters(this.state)}>Apply</a>
+          <div className='filter-links'>
+            <a href='#' onClick={this.clearFilter}>Clear Filter</a>
+            <a href='#' onClick={this.updateFilters(this.state)}>Apply</a>
+          </div>
         </ul>
       </div>
     );

@@ -1,17 +1,19 @@
 import { combineReducers } from 'redux';
 import { RECEIVE_BOUNDS } from '../actions/room_index_actions';
-import { RECEIVE_GUESTS, CLEAR_ALL_FILTERS } from '../actions/filter_actions';
+import { RECEIVE_GUESTS, CLEAR_ALL_FILTERS, CLEAR_GUEST_FILTER } from '../actions/filter_actions';
 import { merge } from 'lodash';
 
 
-const defaultGuestState = {};
+const defaultGuestState = {adult: 1, child: 0};
 
 const guestReducer = (state = defaultGuestState, action) => {
   switch (action.type) {
     case RECEIVE_GUESTS:
       return action.guests;
+    case CLEAR_GUEST_FILTER:
+      return defaultGuestState;
     case CLEAR_ALL_FILTERS:
-      return defaultState;
+      return defaultGuestState;
     default:
       return state;
   }
