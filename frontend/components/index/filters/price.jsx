@@ -43,14 +43,14 @@ class PriceFilter extends React.Component {
   }
 
   handleChange(priceType) {
-    return (e) => {
-      debugger
-      if (priceType === 'min' && e.target.value < this.state.max - 25) {
+    return ((e) => {
+      console.log("hey");
+      if (priceType === 'min' && parseInt(e.target.value) < parseInt(this.state.max) - 30) {
         this.setState({'min': e.target.value});
-      } else if (priceType === 'max' && e.target.value > this.state.min + 25) {
+      } else if (priceType === 'max' && parseInt(e.target.value) > parseInt(this.state.min) + 30) {
         this.setState({'max': e.target.value});
       }
-    };
+    }).bind(this);
   }
 
 
@@ -58,15 +58,19 @@ class PriceFilter extends React.Component {
     return (
       <div className='filter-modal-main price-modal' onClick={this.stopProp}>
         <ul>
-          <div className='price-range'>{`$${this.state.min} - $${this.state.max}`}</div>
-          <div className='slider-container' >
+          <li>{`$${this.state.min} - $${this.state.max}`}</li>
+          <li className = 'price-slider'>
+            <span>Min Price </span>
             <input type="range" min="1" max="1000" value={this.state.min} onChange={this.handleChange('min')}/>
+          </li>
+          <li className = 'price-slider'>
+            <span>Max Price </span>
             <input type="range" min="1" max="1000" value={this.state.max} onChange={this.handleChange('max')}/>
-          </div>
-          <div className='filter-links'>
+          </li>
+          <li className='filter-links'>
             <a href='#' onClick={this.clearFilter}>Clear Filter</a>
             <a href='#' onClick={this.updateFilters(this.state)}>Apply</a>
-          </div>
+          </li>
         </ul>
       </div>
     );
