@@ -12,6 +12,7 @@ class RoomIndex extends React.Component {
     this.props.fetchRooms(nextProps.filters);
   }
 
+
   render() {
     return (
       <div className='room-index-main'>
