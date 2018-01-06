@@ -3,7 +3,6 @@ import React from 'react';
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {search: ""};
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -37,7 +36,7 @@ class SearchBar extends React.Component {
     }
 
     return (
-      <div>
+      <div className = 'search-bar'>
         <form onSubmit={this.handleSubmit}>
           <input type='text'
             placeholder='Try "New York"'
@@ -45,6 +44,9 @@ class SearchBar extends React.Component {
             onChange={this.handleChange}>
           </input>
           {cancelInput}
+
+          {this.props.onWelcomePage &&
+            <button>Search</button>}
         </form>
       </div>
     );

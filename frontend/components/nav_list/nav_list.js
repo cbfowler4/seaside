@@ -22,7 +22,7 @@ class NavList extends React.Component {
   }
 
   onWelcomePage () {
-    return !(this.props.match.url === '/');
+    return (this.props.location.pathname === '/');
   }
 
 
@@ -50,10 +50,11 @@ class NavList extends React.Component {
       <nav className='nav-bar-main'>
         <div className='nav-left'>
           <Link className="icon-link" to='/'></Link>
-          {this.onWelcomePage() &&
+          {!this.onWelcomePage() &&
             <SearchBar
               fetchRooms={this.props.fetchRooms}
-              receiveMapCenter={this.props.receiveMapCenter}/>
+              receiveMapCenter={this.props.receiveMapCenter}
+              onWelcomePage={this.onWelcomePage()}/>
           }
         </div>
         {userStatus}
