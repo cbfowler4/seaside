@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect, withRouter } from 'react-router-dom';
 import { fetchRooms } from '../../actions/room_index_actions';
 import { receiveMapCenter } from '../../actions/map_actions';
+
 
 
 const mapDispatchToProps = dispatch => {
@@ -27,6 +29,11 @@ class SearchBar extends React.Component {
 
   handleSubmit (e) {
     e.preventDefault();
+
+    if (this.props.onWelcomePage) {
+      this.props.history.push('/explore');
+    }
+
     this.geocoder.geocode({'address': this.state.search}, (response)=>{
       const center = response[0].geometry.location.toJSON();
       this.props.receiveMapCenter(center);
@@ -65,4 +72,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar);
+export default withRouter(connect(null, mapDispatchToProps)(SearchBar));
