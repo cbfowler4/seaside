@@ -32,7 +32,7 @@ r1 = Room.create!({
             :cancellation => "Strict",
             :min_stay => 2,
             :room_type => 'Full Ship'
-  });
+  })
 
 r2 = Room.create!({
   :host_id => demoUser.id,
@@ -49,7 +49,7 @@ r2 = Room.create!({
             :cancellation => "Strict",
             :min_stay => 4,
             :room_type => 'Full Ship'
-  });
+  })
 
 r3 = Room.create!({
   :host_id => demoUser.id,
@@ -66,7 +66,7 @@ r3 = Room.create!({
             :cancellation => "Strict",
             :min_stay => 1,
             :room_type => 'Full Ship'
-  });
+  })
 
 r4 = Room.create!({
   :host_id => demoUser.id,
@@ -83,4 +83,9 @@ r4 = Room.create!({
             :cancellation => "Strict",
             :min_stay => 1,
             :room_type => 'Full Ship'
-  });
+  })
+
+p1 = Photo.create!({
+  title: "cover",
+  image: File.open('app/assets/images/artem-verbo-55904.jpg'),
+  imageable: demoUser})
