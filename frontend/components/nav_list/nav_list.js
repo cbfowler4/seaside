@@ -6,7 +6,6 @@ import SearchBar from './search_bar';
 class NavList extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleLogout = this.handleLogout.bind(this);
   }
 
@@ -21,6 +20,11 @@ class NavList extends React.Component {
       action();
     };
   }
+
+  onWelcomePage () {
+    return !(this.props.match.url === '/');
+  }
+
 
   render() {
     let userStatus;
@@ -46,7 +50,11 @@ class NavList extends React.Component {
       <nav className='nav-bar-main'>
         <div className='nav-left'>
           <Link className="icon-link" to='/'></Link>
-          <SearchBar fetchRooms={this.props.fetchRooms} receiveMapCenter={this.props.receiveMapCenter}/>
+          {this.onWelcomePage() &&
+            <SearchBar
+              fetchRooms={this.props.fetchRooms}
+              receiveMapCenter={this.props.receiveMapCenter}/>
+          }
         </div>
         {userStatus}
       </nav>

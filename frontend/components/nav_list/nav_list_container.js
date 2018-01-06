@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
 import { fetchRooms } from '../../actions/room_index_actions';
 import NavList from './nav_list';
@@ -7,7 +8,7 @@ import { receiveMapCenter } from '../../actions/map_actions';
 
 
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return {
     currentUser: state.session.currentUser
   };
@@ -23,4 +24,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavList);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(NavList));
