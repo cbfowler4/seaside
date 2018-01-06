@@ -25,6 +25,9 @@ class User < ApplicationRecord
     foreign_key: :host_id,
     class_name: :Room
 
+  has_many :photos, as: :imageable
+
+
   attr_reader :password
 
   def is_password?(pwd)

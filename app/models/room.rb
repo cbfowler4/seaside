@@ -24,6 +24,7 @@
 #  hot_tub      :boolean          default(FALSE)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  room_type    :string           not null
 #
 
 class Room < ApplicationRecord
@@ -54,6 +55,7 @@ class Room < ApplicationRecord
     primary_key: :id,
     class_name: :User
 
+  has_many :photos, as: :imageable
 
   def self.filterRooms(filters)
     default_filters = {
