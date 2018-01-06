@@ -87,6 +87,12 @@
 
     img {
       height: 30px;
+      cursor: pointer;
+    }
+
+    .button-inactive {
+      opacity: .5;
+      cursor: default;
     }
 
     .filter-links {
