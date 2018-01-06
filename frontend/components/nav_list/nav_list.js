@@ -30,8 +30,8 @@ class NavList extends React.Component {
     if (!this.props.currentUser) {
       userStatus = (
         <div className='nav-right'>
-          <a href='#' onClick={this.handleClickAuth('signup')}>Sign Up</a>
-          <a href='#' onClick={this.handleClickAuth('login')}>Log In</a>
+          <a onClick={this.handleClickAuth('signup')}>Sign Up</a>
+          <a onClick={this.handleClickAuth('login')}>Log In</a>
         </div>
       );
     } else {

@@ -127,6 +127,10 @@
 .exit-modal {
   font-size: 25px;
   color: rgb(118,118,118);
+
+  svg {
+    cursor: pointer;
+  }
 }
 
 .auth-error {
