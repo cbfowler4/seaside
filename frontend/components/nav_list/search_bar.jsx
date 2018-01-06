@@ -1,4 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { fetchRooms } from '../../actions/room_index_actions';
+import { receiveMapCenter } from '../../actions/map_actions';
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchRooms: () => dispatch(fetchRooms()),
+    receiveMapCenter: (center) => dispatch(receiveMapCenter(center))
+  };
+};
+
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -53,4 +65,4 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
+export default connect(null, mapDispatchToProps)(SearchBar);

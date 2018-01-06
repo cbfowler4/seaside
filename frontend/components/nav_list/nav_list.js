@@ -25,7 +25,6 @@ class NavList extends React.Component {
     return (this.props.location.pathname === '/');
   }
 
-
   render() {
     let userStatus;
     if (!this.props.currentUser) {
@@ -51,10 +50,7 @@ class NavList extends React.Component {
         <div className='nav-left'>
           <Link className="icon-link" to='/'></Link>
           {!this.onWelcomePage() &&
-            <SearchBar
-              fetchRooms={this.props.fetchRooms}
-              receiveMapCenter={this.props.receiveMapCenter}
-              onWelcomePage={this.onWelcomePage()}/>
+            <SearchBar onWelcomePage={this.onWelcomePage()}/>
           }
         </div>
         {userStatus}
