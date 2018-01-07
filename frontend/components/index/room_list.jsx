@@ -4,6 +4,7 @@ import RoomListItem from './room_list_item';
 class RoomList extends React.Component {
   constructor(props) {
     super(props);
+
   }
 
   render () {

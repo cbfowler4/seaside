@@ -6,3 +6,10 @@ export const fetchRooms = (filters) => {
     data: {filters}
   });
 };
+
+export const fetchRoomInfo = (roomId) => {
+  return $.ajax({
+    url: `/api/rooms/${roomId}`,
+    method: 'get'
+  });
+};

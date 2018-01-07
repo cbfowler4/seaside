@@ -5,6 +5,12 @@ class Api::RoomsController < ApplicationController
   end
 
   def show
+    @room = Room.find_by(id: params[:id].to_i);
+    if @room
+      render :show
+    else
+      render json: ['Room not found'], status: 422
+    end
   end
 
   def create
