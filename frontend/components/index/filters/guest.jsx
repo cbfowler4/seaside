@@ -19,7 +19,7 @@ class GuestFilter extends React.Component {
       let sumGuests = (this.state[guestType] - 1);
       if ((sumGuests > 0 ) || (sumGuests === 0 && guestType!=='adult')) {
         this.setState({[guestType]: sumGuests});
-      } 
+      }
     }).bind(this);
   }
 
@@ -57,8 +57,8 @@ class GuestFilter extends React.Component {
             <img onClick={this.addGuest('child')} src={window.staticImages.plusImage}></img>
           </li>
           <div className='filter-links'>
-            <a href='#' onClick={this.clearFilter}>Clear Filter</a>
-            <a href='#' onClick={this.updateFilters(this.state)}>Apply</a>
+            <a onClick={this.clearFilter}>Clear Filter</a>
+            <a onClick={this.updateFilters(this.state)}>Apply</a>
           </div>
         </ul>
       </div>
