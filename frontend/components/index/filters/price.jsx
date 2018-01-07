@@ -68,8 +68,8 @@ class PriceFilter extends React.Component {
             <input type="range" min="1" max="1000" value={this.state.max} onChange={this.handleChange('max')}/>
           </li>
           <li className='filter-links'>
-            <a href='#' onClick={this.clearFilter}>Clear Filter</a>
-            <a href='#' onClick={this.updateFilters(this.state)}>Apply</a>
+            <a onClick={this.clearFilter}>Clear Filter</a>
+            <a onClick={this.updateFilters(this.state)}>Apply</a>
           </li>
         </ul>
       </div>
