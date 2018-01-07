@@ -4,6 +4,7 @@ import NavListContainer from './nav_list/nav_list_container';
 import SessionFormContainer from './auth/session_form';
 import UserFormContainer from './auth/user_form';
 import RoomIndexContainer from './index/room_index_container';
+import RoomShowContainer from './room_show/room_show_container';
 import WelcomePage from './welcome_page';
 import {AuthRoute} from '../util/route_util';
 
@@ -12,6 +13,7 @@ const App = () => (
     <NavListContainer />
     <Switch>
       <Route path='/explore' component={RoomIndexContainer} />
+      <Route path='/rooms/:roomId' component={RoomShowContainer}/>
       <Route exact path='/' component={WelcomePage}/>
     </Switch>
 
