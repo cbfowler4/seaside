@@ -119,7 +119,7 @@ class SessionForm extends React.Component {
               <button>Log In</button>
               <button onClick={this.demoLogin}>Demo Log In</button>
 
-              <p>Don't have an account? <a href='#' onClick={this.handleClickAuth}>Sign Up</a></p>
+              <p>Don't have an account? <a onClick={this.handleClickAuth}>Sign Up</a></p>
             </form>
           </section>
           <div className="cf"></div>
