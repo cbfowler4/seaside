@@ -38,7 +38,9 @@ YACHTS = ['https://s3.amazonaws.com/aa-seaside-dev/seeds/boats/yachts/ahmed-saff
   'https://s3.amazonaws.com/aa-seaside-dev/seeds/boats/yachts/taduuda-38507.jpg']
 
 LAT_LNG = [
-  {lat: 43.213, lng: -72.2342}
+  {lat: 43.213, lng: -72.2342},
+  {lat: 38.213, lng: -78.2342},
+  {lat: 29.213, lng: -86.2342}
 ]
 
 ADJECTIVES = [ 'Beautiful', 'Amazing', 'Spectacular', 'Cozy']
@@ -63,8 +65,8 @@ class RoomSeeds
             :host_id => @users[USER_TYPES.sample].sample[:user].id,
             :title => "#{ADJECTIVES.sample} sail boat, all aboard!",
             :address => Faker::Address.street_address,
-            :lat => (LAT_LNG.sample[:lat]+(rand()/100)),
-            :lng => (LAT_LNG.sample[:lng]+(rand()/100)),
+            :lat => (LAT_LNG.sample[:lat]+(5*rand())),
+            :lng => (LAT_LNG.sample[:lng]+(5*rand())),
             :price => (rand()*400).to_i,
             :max_guests => (rand()*8.to_i),
             :description => 'Ship from the 1800s with ample space and plenty of natural light',
