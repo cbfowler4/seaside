@@ -137,7 +137,7 @@ class UserForm extends React.Component {
 
             <button>Sign Up</button>
 
-            <p>Already have a Seaside account? <a href='#' onClick={this.handleClickAuth}>Log In</a></p>
+            <p>Already have a Seaside account? <a onClick={this.handleClickAuth}>Log In</a></p>
           </form>
         </section>
         <div className="cf"></div>
