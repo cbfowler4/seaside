@@ -10,7 +10,6 @@ class RoomShow extends React.Component {
   }
 
   render() {
-
     if (this.props.room) {
       return (
         <content className='room-show-main'>
@@ -32,18 +31,20 @@ class RoomShow extends React.Component {
                   </div>
                   <div className='host-pic'>host pic will be here</div>
               </header>
-              <div className='ammenities'>
-                ammenities here
+              <div className='room-features'>
+                <div id='guests-icon'></div><span>{`${this.props.room.max_guests} guest${this.props.room.max_guests > 1 ? 's' : ''}`}</span>
+                <div id='bedroom-icon'></div><span>{`${this.props.room.bedrooms} bedroom${this.props.room.bedrooms > 1 ? 's' : ''}`}</span>
+                <div id='bed-icon'></div><span>{`${this.props.room.beds} bed${this.props.room.beds > 1 ? 's' : ''}`}</span>
+                <div id='bathtub-icon'></div><span>{`${this.props.room.bathrooms} bath${this.props.room.bathrooms > 1 ? 's' : ''}`}</span>
               </div>
               <p className='description'>
-                {this.props.description}
+                {this.props.room.description}
               </p>
             </section>
             <aside className='booking-aside'>
               this will be the booking component
             </aside>
           </main>
-          room show page
         </content>
       )
     }

@@ -1,13 +1,12 @@
 .room-main-picture {
   width: 100%;
   height: 80vh;
-  background-color: lightblue;
   min-height: 320px;
   overflow: hidden;
 
   img {
     width: inherit;
-    height: auto;
+    object-fit: cover;
   }
 }
 
@@ -57,7 +56,7 @@
 
   .header-content {
     width: 495px;
-    padding: 0 8px;
+    padding: 0 16px 0 0;
 
     h1 {
       font-size: 40px;
@@ -68,12 +67,60 @@
     }
 
     h2 {
-      font-size: 17px;
+      font-size: 20px;
       font-weight: 300;
       letter-spacing: .2px;
       line-height: 22px;
+      margin: 5px 0;
+    }
+
+    }
+
+    .description {
+      font-size: 17px;
+      color: rgb(72, 72, 72);
+      letter-spacing: .2px;
+      line-height: 22px;
+      padding-right: 55px;
+      margin: 20px 0;
     }
   }
+
+.room-features {
+  display: flex;
+  margin: 15px 0;
+
+  span {
+    margin: 0 15px 0 10px;
+    font-size: 17px;
+    font-weight: 300;
+    letter-spacing: .2px;
+    line-height: 22px;
+    color: rgb(72, 72, 72);
+  }
+
+  div {
+    height: 22px;
+    width: 22px;
+    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    display: block;
+  }
+
+  #bathtub-icon {
+    background-image: image-url('bathtub-with-opened-shower');
+  }
+  #bedroom-icon {
+    background-image: image-url('opened-door-aperture');
+  }
+  #bed-icon {
+    background-image: image-url('bed');
+  }
+  #guests-icon {
+    background-image: image-url('multiple-users-silhouette');
+  }
+
 
 }
 
