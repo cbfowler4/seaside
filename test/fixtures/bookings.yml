@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: bookings
+#
+#  id         :integer          not null, primary key
+#  renter_id  :integer          not null
+#  house_id   :integer          not null
+#  start_date :date             not null
+#  end_date   :date             not null
+#  status     :string           default("Pending")
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  renter_id: 1
+  house_id: 1
+  start_date: 2018-01-08
+  end_date: 2018-01-08
+  status: MyString
+
+two:
+  renter_id: 1
+  house_id: 1
+  start_date: 2018-01-08
+  end_date: 2018-01-08
+  status: MyString

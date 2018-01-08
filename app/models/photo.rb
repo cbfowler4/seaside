@@ -3,7 +3,6 @@
 # Table name: photos
 #
 #  id                 :integer          not null, primary key
-#  CreatePhotos       :string           not null
 #  imageable_type     :string
 #  imageable_id       :integer
 #  created_at         :datetime         not null
@@ -12,6 +11,7 @@
 #  image_content_type :string
 #  image_file_size    :integer
 #  image_updated_at   :datetime
+#  title              :string
 #
 
 class Photo < ApplicationRecord
