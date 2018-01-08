@@ -6,7 +6,7 @@ class Api::RoomsController < ApplicationController
 
   def show
     @room = Room.find_by(id: params[:id].to_i)
-    @users = Room.find_all_users(@room)
+    # @users = Room.find_all_users(@room)
 
     # @user_photos = @users.map do |user|
     #   user.photos
