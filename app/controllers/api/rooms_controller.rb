@@ -6,6 +6,7 @@ class Api::RoomsController < ApplicationController
 
   def show
     @room = Room.find_by(id: params[:id].to_i);
+    @photos = @room.image
     if @room
       render :show
     else
