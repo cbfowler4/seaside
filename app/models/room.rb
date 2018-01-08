@@ -56,7 +56,8 @@ class Room < ApplicationRecord
     class_name: :User
 
   has_many :photos, as: :imageable
-
+  has_many :bookings
+  
   def self.filterRooms(filters)
     default_filters = {
       "guests" => {"adult" => "1", "child" => "0"}

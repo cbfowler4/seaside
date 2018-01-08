@@ -27,7 +27,8 @@ class User < ApplicationRecord
 
   has_many :photos, as: :imageable
 
-
+  has_many :bookings
+  
   attr_reader :password
 
   def is_password?(pwd)

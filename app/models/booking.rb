@@ -13,4 +13,31 @@
 #
 
 class Booking < ApplicationRecord
+  validates :renter_id, :room_id, :start_date, :end_date, presence: true
+  validate :isValid?
+
+  belongs_to :renter,
+  foreign_key: :renter_id,
+  class_name: :User
+
+  belongs_to :room,
+  foreign_key: :room_id,
+  class_name: :Room
+
+  def isValid?
+    if (self.start_date < self.end_date) && (self.room.host_id != self.renter.id)
+      if isOverlap
+        errors.add(:date, "Booking request overlaps with another confirmed booking")
+      end
+    else
+      errors.add(:date, "Start date is after end date of booking")
+    end
+  end
+
+  def isOverlap
+    debugger
+    self.room.bookings.any? do |booking|
+      !(self.start_date >= booking.end_date || self.end_date <= booking.start_date)
+    end
+  end
 end
