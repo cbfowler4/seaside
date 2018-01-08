@@ -10,7 +10,6 @@ class RoomShow extends React.Component {
   }
 
   render() {
-    debugger
     return (
       <content className='room-show-main'>
         <div className='room-main-picture'>This is the main picture area</div>
@@ -24,8 +23,8 @@ class RoomShow extends React.Component {
               </nav>
               <header>
                 <div className='header-content'>
-                  <h1>{this.props.room.title}</h1>
-                  <h2>{this.props.room.roomType}</h2>
+                  <h1>{`this.props.room.title`}</h1>
+                  <h2>{`this.props.room.roomType`}</h2>
                 </div>
                 <div className='host-pic'>host pic will be here</div>
             </header>

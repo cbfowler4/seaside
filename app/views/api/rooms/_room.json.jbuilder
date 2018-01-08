@@ -7,4 +7,6 @@ json.position do
   json.lat room.lat
   json.lng room.lng
 end
+
+json.photoIds room.photo_ids
 # json.rating room.rating
