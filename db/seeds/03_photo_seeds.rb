@@ -11,7 +11,7 @@
     def initialize(users, rooms)
       @users = users
       @rooms = rooms
-      @photos = {}
+      @photos = []
     end
 
     def generateSeeds()

@@ -49,6 +49,15 @@
     opacity: 1;
   }
 
+  .login-top {
+    padding-bottom: 0px;
+  }
+
+  .login-bottom {
+    padding: 0 32px 32px 32px;
+    display: flex;
+    flex-direction: column;
+  }
   svg {
     display: inline;
     height: 19px;
@@ -80,7 +89,7 @@
     border-color: #008489;
   }
 
-  button {
+  button, .demo-login {
     margin: 15px 0;
     height: 50px;
     padding: 12px 24px;
