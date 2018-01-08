@@ -61,7 +61,8 @@ class SessionForm extends React.Component {
     this.props.openSignup();
   }
 
-  demoLogin() {
+  demoLogin(e) {
+    e.stopPropagation();
     this.props.login({user: {email: "guest", password: "password"}});
   }
 
@@ -78,7 +79,7 @@ class SessionForm extends React.Component {
           <div className="cf"></div>
 
           <section className="auth-modal-main" id="login-modal" onClick={this.stopProp}>
-            <form onSubmit={this.handleSubmit} >
+            <form onSubmit={this.handleSubmit} className='login-top'>
               <div className="exit-modal">
                 <span onClick={this.handleClick}>
                   <svg viewBox="0 0 24 24" role="img"
@@ -117,10 +118,12 @@ class SessionForm extends React.Component {
               </div>
 
               <button>Log In</button>
+            </form>
+            <div className='login-bottom' >
               <button onClick={this.demoLogin}>Demo Log In</button>
 
               <p>Don't have an account? <a onClick={this.handleClickAuth}>Sign Up</a></p>
-            </form>
+            </div>
           </section>
           <div className="cf"></div>
         </div>

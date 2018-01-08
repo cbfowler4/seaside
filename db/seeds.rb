@@ -20,5 +20,5 @@ user_seeds.generateSeeds
 room_seeds = RoomSeeds.new(user_seeds.users)
 room_seeds.generateSeeds
 
-# photo_seeds = PhotoSeeds.new(user_seeds.users, room_seeds.rooms)
-# photo_seeds.generateSeeds
+photo_seeds = PhotoSeeds.new(user_seeds.users, room_seeds.rooms)
+photo_seeds.generateSeeds
