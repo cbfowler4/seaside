@@ -1,8 +1,14 @@
 .room-main-picture {
   width: 100%;
-  min-height: 320px;
   height: 80vh;
   background-color: lightblue;
+  min-height: 320px;
+  overflow: hidden;
+
+  img {
+    width: inherit;
+    height: auto;
+  }
 }
 
 .room-info-booking-container {

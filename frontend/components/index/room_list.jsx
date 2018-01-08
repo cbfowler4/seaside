@@ -9,7 +9,10 @@ class RoomList extends React.Component {
 
   render () {
     let roomListArr = this.props.rooms.map((room) => {
-      return (<RoomListItem room={room} key={room.id}/>);
+      let photos = room.photoIds.map((id) => {
+        return this.props.photos[id];
+      });
+      return (<RoomListItem room={room} photos={photos} key={room.id}/>);
     });
 
     return(
