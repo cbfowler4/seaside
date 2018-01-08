@@ -3,6 +3,7 @@ import RoomShow from './room_show';
 import { fetchRoomInfo } from '../../actions/room_show_actions';
 
 const mapStateToProps = (state, ownProps) => {
+
   return ({
     roomId: ownProps.match.params.roomId,
     room: state.entities.rooms[ownProps.match.params.roomId]
