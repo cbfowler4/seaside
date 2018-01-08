@@ -59,9 +59,7 @@ class RoomSeeds
 
   def generateSeeds()
     SAIL_BOATS.each do |boat|
-      @rooms[:sailboats].push
-        (
-          { room:
+      @rooms[:sailboats].push({ room:
             Room.create!({
             :host_id => @users[USER_TYPES.sample].sample[:user].id,
             :title => "#{ADJECTIVES.sample} sail boat, #{VERBS.sample}",
@@ -82,14 +80,11 @@ class RoomSeeds
             :room_type => 'Sail boat'
             }),
             picture: boat
-          }
-        )
+          })
       end
 
     MOTOR_BOATS.each do |boat|
-      @rooms[:motorboats].push
-        (
-          { room:
+      @rooms[:motorboats].push({ room:
             Room.create!({
             :host_id => @users[USER_TYPES.sample].sample[:user].id,
             :title => "#{ADJECTIVES.sample} motor boat, all aboard!",
@@ -107,15 +102,12 @@ class RoomSeeds
             :room_type => 'Motor boat'
           }),
           picture: boat
-        }
-      )
+        })
 
       end
 
     YACHTS.each do |boat|
-      @rooms[:yachts].push
-        (
-          { room:
+      @rooms[:yachts].push({ room:
             Room.create!({
             :host_id => @users[USER_TYPES.sample].sample[:user].id,
             :title => "#{ADJECTIVES.sample} yacht, all aboard!",
@@ -133,8 +125,7 @@ class RoomSeeds
             :room_type => 'Yacht'
           }),
           picture: boat
-        }
-      )
+        })
     end
   end
 end
