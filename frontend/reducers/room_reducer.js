@@ -5,10 +5,8 @@ import { merge } from 'lodash';
 export default (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_ROOMS:
-      debugger
       return action.rooms;
     case RECEIVE_ROOM:
-      debugger 
       return merge({}, state, action.room);
     default:
       return state;

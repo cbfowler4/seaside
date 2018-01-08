@@ -2,7 +2,9 @@ import {
   OPEN_LOGIN,
   OPEN_SIGNUP,
   CLOSE_MODAL,
-  OPEN_FILTER } from '../actions/ui_actions';
+  OPEN_FILTER,
+  FETCHING,
+  FETCHING_COMPLETE } from '../actions/ui_actions';
 
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 
@@ -12,6 +14,7 @@ const defaultState = {
   login_modal: false,
   signup_modal: false,
   filter_modal: null,
+  isFetching: false
 };
 
 export default (state = defaultState, action) => {
@@ -26,6 +29,10 @@ export default (state = defaultState, action) => {
       return merge({}, state, defaultState);
     case RECEIVE_CURRENT_USER:
       return merge({}, state, defaultState);
+    case FETCHING:
+      return merge({}, state, {isFetching: true});
+    case FETCHING_COMPLETE:
+      return merge({}, state, {isFetching: false});
     default:
       return state;
   }
