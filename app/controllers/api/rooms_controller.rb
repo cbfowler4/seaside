@@ -1,12 +1,12 @@
 class Api::RoomsController < ApplicationController
 
   def index
-    @rooms = Room.filterRooms(filter_params)
+    @rooms = Room.filterRooms(filter_params).includes(:photos);
   end
 
   def show
-    @room = Room.find_by(id: params[:id].to_i);
-    @photos = @room.image
+    @room = Room.find_by(id: params[:id].to_i)
+    @photos = @room.photos
     if @room
       render :show
     else
