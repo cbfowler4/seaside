@@ -43,7 +43,8 @@ LAT_LNG = [
   {lat: 29.213, lng: -86.2342}
 ]
 
-ADJECTIVES = [ 'Beautiful', 'Amazing', 'Spectacular', 'Cozy']
+ADJECTIVES = [ 'Beautiful', 'Amazing', 'Spectacular', 'Cozy', 'Comfortable', 'Welcoming']
+VERBS = ["all aboard!", "please join us!", "perfect for a weekend", "bring your shorts!"]
 CANCELLATION = ["Strict", "Moderate"]
 
 USER_TYPES = [:couples, :males, :females]
@@ -63,13 +64,16 @@ class RoomSeeds
           { room:
             Room.create!({
             :host_id => @users[USER_TYPES.sample].sample[:user].id,
-            :title => "#{ADJECTIVES.sample} sail boat, all aboard!",
+            :title => "#{ADJECTIVES.sample} sail boat, #{VERBS.sample}",
             :address => Faker::Address.street_address,
             :lat => (LAT_LNG.sample[:lat]+(5*rand())),
             :lng => (LAT_LNG.sample[:lng]+(5*rand())),
             :price => (rand()*400).to_i,
             :max_guests => (rand()*8.to_i),
-            :description => 'Ship from the 1800s with ample space and plenty of natural light',
+            :description => 'Ship from the 1800s with ample space and plenty of natural light.
+             Please stay on our boat with us. We can take you across the marina or to some islands nearby.
+              There are awesome places for swimming and fishing as well. The sunsets are also beautiful and
+               we would love for you to join us',
             :beds => (rand()*8.to_i),
             :bathrooms => (rand()*3.to_i),
             :bedrooms => (rand()*5.to_i),

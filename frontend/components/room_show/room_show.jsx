@@ -5,22 +5,29 @@ class RoomShow extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.fetchRoomInfo(this.props.roomId);
   }
 
   render() {
+    debugger
     return (
       <content className='room-show-main'>
         <div className='room-main-picture'>This is the main picture area</div>
         <main className='room-info-booking-container'>
           <section className='room-info'>
-            <header>
-              <div className='header-content'>
-                <h1>this.props.title</h1>
-                <h2>this.props.roomType</h2>
-              </div>
-              <div>host pic will be here</div>
+              <nav>
+                <a>Overview</a><span> · </span>
+                <a>Reviews</a><span> · </span>
+                <a>The Host</a><span> · </span>
+                <a>Location</a>
+              </nav>
+              <header>
+                <div className='header-content'>
+                  <h1>{this.props.room.title}</h1>
+                  <h2>{this.props.room.roomType}</h2>
+                </div>
+                <div className='host-pic'>host pic will be here</div>
             </header>
             <div className='ammenities'>
               ammenities here
