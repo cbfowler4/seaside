@@ -15,7 +15,7 @@ class RoomListItem extends React.Component {
   render() {
     return(
       <div className={`room-list-item room-item-${this.room.id}`} onClick={this.handleClick}>
-        <img src={this.props.photos[0].imageUrl} className='room-thumbnail'/>
+        <img src={this.props.photos[0].imageThumbUrl} className='room-thumbnail'/>
         <h3>{this.room.roomType}</h3>
         <h1>{this.room.title}</h1>
         <p>{`From $${this.room.price} per night`}</p>

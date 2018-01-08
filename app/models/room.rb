@@ -73,4 +73,8 @@ class Room < ApplicationRecord
       .where([" max_guests >= ?", total_guests])
 
   end
+
+  def self.find_all_users(room)
+    # User.where('id in ?', [room.hostId].concat(room.commenter_ids))
+  end
 end
