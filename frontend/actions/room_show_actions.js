@@ -7,7 +7,8 @@ export const RECEIVE_ROOM = 'RECEIVE_ROOM_SHOW';
 export const receiveRoom = (response) => ({
   type: RECEIVE_ROOM,
   room: response.room,
-  photos: response.photos
+  photos: response.photos,
+  users: response.users
 });
 
 export const fetchRoomInfo = (roomId) => {

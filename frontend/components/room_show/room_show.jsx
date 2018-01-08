@@ -14,7 +14,7 @@ class RoomShow extends React.Component {
       return (
         <content className='room-show-main'>
           <div className='room-main-picture'>
-          <img src={this.props.photos[0].imageUrl}/>
+          <img src={this.props.photos[this.props.room.photoIds[0]].imageUrl}/>
           </div>
           <main className='room-info-booking-container'>
             <section className='room-info'>
@@ -29,7 +29,9 @@ class RoomShow extends React.Component {
                     <h1>{this.props.room.title}</h1>
                     <h2>{this.props.room.roomType}</h2>
                   </div>
-                  <div className='host-pic'>host pic will be here</div>
+                  <div className='host-pic'>
+                    <img src={`this.props.photos[this.props.host.photoIds[0]].imageUrl`} />
+                  </div>
               </header>
               <div className='room-features'>
                 <div id='guests-icon'></div><span>{`${this.props.room.max_guests} guest${this.props.room.max_guests > 1 ? 's' : ''}`}</span>

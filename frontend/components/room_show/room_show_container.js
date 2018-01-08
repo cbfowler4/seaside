@@ -5,10 +5,11 @@ import { fetchRoomInfo } from '../../actions/room_show_actions';
 const mapStateToProps = (state, ownProps) => {
   const roomId = ownProps.match.params.roomId;
   const room = state.entities.rooms[roomId];
-  let photos = [];
+  // const host = state.entities.users[room.hostId];
+  let photos = {};
   if (room) {
-    photos = room.photoIds.map((id) => {
-      return state.entities.photos[id];
+    room.photoIds.forEach((id) => {
+      photos[id] = state.entities.photos[id];
     });
   }
 

@@ -61,4 +61,10 @@ class User < ApplicationRecord
       nil
     end
   end
+
+  def self.find_host_and_commenters(room)
+    # Room.where(['id = ?', room.id]).includes(:host)
+    # Room.where( )
+  end
+
 end

@@ -34,9 +34,7 @@ class UserSeeds
   end
 
   def generateSeeds()
-    @users[:males].push
-    (
-      {
+    @users[:males].push({
         user:
           User.create!({
           email: "guest",
@@ -45,8 +43,7 @@ class UserSeeds
           password: "password"}),
 
           picture: MALE_IMAGES.sample
-      }
-    )
+      })
 
     MALE_IMAGES.each do |person|
       @users[:males].push({

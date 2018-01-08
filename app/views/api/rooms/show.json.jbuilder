@@ -1,6 +1,6 @@
 json.room do
   json.set! @room.id do
-    json.partial! '/api/rooms/room', room: @room, photos: @photos
+    json.partial! '/api/rooms/room', room: @room, photos: @room_photos
     json.bedrooms @room.bedrooms
     json.beds @room.beds
     json.bathrooms @room.bathrooms
@@ -20,9 +20,16 @@ json.room do
 end
 
 json.photos do
-  @photos.each do |photo|
+  @room_photos.each do |photo|
     json.set! photo.id do
       json.partial! '/api/photos/photo', photo: photo
     end
   end
-end 
+
+  # @user_photos.each do |photo|
+  #   debugger
+  #   json.set! photo.id do
+  #     json.partial! '/api/photos/photo', photo: photo
+  #   end
+  # end
+end
