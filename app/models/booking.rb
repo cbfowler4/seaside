@@ -26,7 +26,7 @@ class Booking < ApplicationRecord
   foreign_key: :room_id,
   class_name: :Room
 
-  has_one :review 
+  has_one :review, as: :reviewable
 
   def isValid?
     if (self.start_date > self.end_date)
