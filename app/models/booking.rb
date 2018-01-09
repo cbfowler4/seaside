@@ -25,18 +25,22 @@ class Booking < ApplicationRecord
   class_name: :Room
 
   def isValid?
-    debugger
-    if (self.start_date < self.end_date) && (self.room.host_id != self.renter.id)
-      if isOverlap
-        errors.add(:date, "Booking request overlaps with another confirmed booking")
-      end
-    else
+    if (self.start_date > self.end_date)
       errors.add(:date, "Start date is after end date of booking")
+    elsif (self.room.host_id != self.renter.id)
+      errors.add(:date, "Cannot book a boat you are captain of!")
+    elsif isOverlap
+        errors.add(:date, "Booking request overlaps with another confirmed booking")
+    elsif (self.start_date < Date.today())
+      errors.add(:date, "Booking start date is before current date")
+    elsif (self.start_date + self.room.min_stay < self.end_date)
+      errors.add(:date, "Booking is does not extend for boats minimum stay length")
+    else
+      true
     end
   end
 
   def isOverlap
-    debugger
     self.room.bookings.any? do |booking|
       !(self.start_date >= booking.end_date || self.end_date <= booking.start_date)
     end

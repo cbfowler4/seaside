@@ -9,10 +9,12 @@
 require_relative './seeds/01_user_seeds'
 require_relative './seeds/02_room_seeds'
 require_relative './seeds/03_photo_seeds'
+require_relative './seeds/04_booking_seeds'
 
 User.destroy_all
 Room.destroy_all
 Photo.destroy_all
+Booking.destroy_all
 
 user_seeds = UserSeeds.new()
 user_seeds.generateSeeds
@@ -22,3 +24,6 @@ room_seeds.generateSeeds
 
 photo_seeds = PhotoSeeds.new(user_seeds.users, room_seeds.rooms)
 photo_seeds.generateSeeds
+
+booking_seeds = BookingSeeds.new(user_seeds.users, room_seeds.rooms)
+booking_seeds.generateSeeds
