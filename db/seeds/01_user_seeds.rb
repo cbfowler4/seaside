@@ -78,6 +78,7 @@ class UserSeeds
 
             picture: person})
     end
+
   end
 
 end

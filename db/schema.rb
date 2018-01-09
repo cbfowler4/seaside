@@ -41,11 +41,13 @@ ActiveRecord::Schema.define(version: 20180109220850) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "booking_id", null: false
+    t.string "reviewable_type"
+    t.bigint "reviewable_id"
     t.text "body", null: false
     t.integer "rating", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id"
   end
 
   create_table "rooms", force: :cascade do |t|
