@@ -10,6 +10,7 @@ class RoomShow extends React.Component {
     this.props.fetchRoomInfo(this.props.roomId);
   }
 
+  // <img src={`this.props.photos[this.props.host.photoIds[0]].imageUrl`} />
   render() {
     if (this.props.room) {
       return (
@@ -31,7 +32,7 @@ class RoomShow extends React.Component {
                     <h2>{this.props.room.roomType}</h2>
                   </div>
                   <div className='host-pic'>
-                    <img src={`this.props.photos[this.props.host.photoIds[0]].imageUrl`} />
+
                   </div>
               </header>
               <div className='room-features'>
