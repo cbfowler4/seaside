@@ -27,7 +27,6 @@ json.photos do
   end
 
   # @user_photos.each do |photo|
-  #   debugger
   #   json.set! photo.id do
   #     json.partial! '/api/photos/photo', photo: photo
   #   end

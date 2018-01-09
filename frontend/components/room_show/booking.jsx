@@ -102,12 +102,21 @@ class Booking extends React.Component {
   }
 
   render() {
+
+    let errors;
+    if (this.props.errors) {
+      errors = this.props.errors.map((error, idx)=> {
+        return (<h2 className='booking-error' key={idx}>{error}</h2>);
+      });
+    }
+
     return (
       <div className='booking-component'>
         <div className='header'>
           <h1><span>{`$${this.props.room.price}`}</span> per night</h1>
           <h3>ratings here</h3>
         </div>
+        {errors}
         <form onSubmit={this.handleSubmit}>
           <label>Dates
             <div><DateRangePicker
@@ -130,6 +139,7 @@ class Booking extends React.Component {
           </label>
           {this.guestDropDown()}
           <button className='booking-button'>Request to Book</button>
+
         </form>
 
       </div>

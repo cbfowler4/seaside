@@ -6,7 +6,6 @@ class Api::BookingsController < ApplicationController
 
   def create
     parsed_book_params = booking_params;
-    debugger
     start_date = Date.new(*(parsed_book_params[:startDate].split('/').map(&:to_i).rotate(2)))
     end_date = Date.new(*(parsed_book_params[:endDate].split('/').map(&:to_i).rotate(2)))
     @booking = Booking.new({
@@ -18,7 +17,6 @@ class Api::BookingsController < ApplicationController
       child_guests: parsed_book_params[:child]
       })
 
-    debugger
     if @booking.save
       render :create
     else
