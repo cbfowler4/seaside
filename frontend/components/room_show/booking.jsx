@@ -14,7 +14,7 @@ class Booking extends React.Component {
       adult: 1,
       child: 0,
       roomId: this.props.room.id,
-      currentUserId: currentUser.id
+      currentUser: this.props.currentUser
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -39,7 +39,9 @@ class Booking extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.requestBooking(this.state);
+    if (this.state.currentUser) {
+      this.props.requestBooking(this.state);
+    }
   }
 
   addGuest(guestType) {

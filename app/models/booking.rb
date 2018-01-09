@@ -25,6 +25,7 @@ class Booking < ApplicationRecord
   class_name: :Room
 
   def isValid?
+    debugger
     if (self.start_date < self.end_date) && (self.room.host_id != self.renter.id)
       if isOverlap
         errors.add(:date, "Booking request overlaps with another confirmed booking")
