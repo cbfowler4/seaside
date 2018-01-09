@@ -7,7 +7,16 @@ import { DateRangePicker } from 'react-dates';
 class Booking extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {startDate: null, endDate: null, focusedInput: null, adult: 1, child: 0};
+    this.state = {
+      startDate: null,
+      endDate: null,
+      focusedInput: null,
+      adult: 1,
+      child: 0,
+      roomId: this.props.room.id,
+      currentUserId: currentUser.id
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onDatesChange = this.onDatesChange.bind(this);
     this.onFocusChange = this.onFocusChange.bind(this);
