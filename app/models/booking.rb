@@ -2,14 +2,16 @@
 #
 # Table name: bookings
 #
-#  id         :integer          not null, primary key
-#  renter_id  :integer          not null
-#  house_id   :integer          not null
-#  start_date :date             not null
-#  end_date   :date             not null
-#  status     :string           default("Pending")
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
+#  id           :integer          not null, primary key
+#  renter_id    :integer          not null
+#  start_date   :date             not null
+#  end_date     :date             not null
+#  status       :string           default("Pending")
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  room_id      :integer          not null
+#  adult_guests :integer          not null
+#  child_guests :integer          not null
 #
 
 class Booking < ApplicationRecord
@@ -23,6 +25,8 @@ class Booking < ApplicationRecord
   belongs_to :room,
   foreign_key: :room_id,
   class_name: :Room
+
+  has_one :review 
 
   def isValid?
     if (self.start_date > self.end_date)
