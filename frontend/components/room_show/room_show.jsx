@@ -1,4 +1,5 @@
 import React from 'react';
+import BookingContainer from './booking_container';
 
 class RoomShow extends React.Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class RoomShow extends React.Component {
               </p>
             </section>
             <aside className='booking-aside'>
-              this will be the booking component
+              <BookingContainer room={this.props.room}/>
             </aside>
           </main>
         </content>
