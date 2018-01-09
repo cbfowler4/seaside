@@ -17,11 +17,12 @@ class BookingSeeds
   def createBooking(room_obj)
     (rand()*5).to_i.times do
       start_date = Date.today()+(rand()*90)
+      debugger
       @bookings.push(Booking.create({
         renter_id: @users[@users.keys.sample][0][:user].id,
         room_id: room_obj[:room].id,
         start_date: start_date,
-        end_date: start_date+(rand()*5).to_i,
+        end_date: start_date+(1+rand()*5).to_i,
         adult_guests: (rand()*3).to_i,
         child_guests: (rand()*1).to_i
         }))
