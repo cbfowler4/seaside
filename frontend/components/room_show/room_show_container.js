@@ -18,13 +18,13 @@ const mapStateToProps = (state, ownProps) => {
     room.reviewIds.forEach((id) => {
       reviews[id] = state.entities.reviews[id];
       let authorId = reviews[id].authorId;
+
       users[authorId] = state.entities.users[authorId];
 
       users[authorId].photoIds.forEach((photoId) => {
         photos[photoId] = state.entities.photos[photoId];
       });
     });
-
 
     users[room.hostId] = state.entities.users[room.hostId];
     users[room.hostId].photoIds.forEach((photoId) => {
