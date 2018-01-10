@@ -12,12 +12,13 @@ class RoomShow extends React.Component {
   }
 
   render() {
-    if (this.props.room) {
+    if (!!this.props.room && !!this.props.reviews[this.props.room.reviewIds[0]]) {
       const host = this.props.users[this.props.room.hostId];
       let reviews = this.props.room.reviewIds.map((reviewId) => {
         let review = this.props.reviews[reviewId];
         let user = this.props.users[review.authorId];
         return (<Review
+          key={reviewId}
           review={review}
           user={user}
           imageUrl={this.props.photos[user.photoIds[0]].imageAvatarUrl}/>);
