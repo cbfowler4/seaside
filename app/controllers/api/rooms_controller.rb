@@ -7,6 +7,7 @@ class Api::RoomsController < ApplicationController
   def show
     @room = Room.find_by(id: params[:id].to_i)
     # @users = Room.find_all_users(@room)
+    debugger
 
     # @user_photos = @users.map do |user|
     #   user.photos
@@ -14,7 +15,6 @@ class Api::RoomsController < ApplicationController
 
     @room_photos = @room.photos
 
-    debugger
     if @room
       render :show
     else
