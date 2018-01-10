@@ -14,6 +14,7 @@ class RoomShow extends React.Component {
   // <img src={`this.props.photos[this.props.host.photoIds[0]].imageUrl`} />
   render() {
     if (this.props.room) {
+      debugger
       let reviews = this.props.room.reviewIds.map((reviewId) => {
         let review = this.props.reviews[reviewId];
         return (<Review review={review} user={this.props.users[review.authorId]}/>);
