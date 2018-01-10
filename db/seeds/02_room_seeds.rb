@@ -76,7 +76,7 @@ class RoomSeeds
             :bathrooms => (rand()*3.to_i),
             :bedrooms => (rand()*5.to_i),
             :cancellation => CANCELLATION.sample,
-            :min_stay => (rand()*4).to_i,
+            :min_stay => (rand()*2).to_i,
             :room_type => 'Sail boat'
             }),
             picture: boat

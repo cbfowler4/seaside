@@ -46,7 +46,7 @@ class Booking < ApplicationRecord
 
   def isOverlap
     self.room.bookings.any? do |booking|
-      !(self.start_date >= booking.end_date || self.end_date <= booking.start_date)
+      !(self.start_date >= booking.end_date || self.end_date <= booking.start_date) && (booking.status == 'Approved')
     end
   end
 end

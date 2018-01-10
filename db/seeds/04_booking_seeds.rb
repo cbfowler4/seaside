@@ -1,5 +1,7 @@
 
 class BookingSeeds
+  attr_reader :bookings
+
   def initialize(users, rooms)
     @users = users
     @rooms = rooms
@@ -15,7 +17,7 @@ class BookingSeeds
   end
 
   def createBooking(room_obj)
-    (rand()*20).to_i.times do
+    (rand()*15).to_i.times do
       start_date = Date.today()+(rand()*120)
       renter_id =  @users[@users.keys.sample].sample[:user].id
 
@@ -27,10 +29,11 @@ class BookingSeeds
         renter_id: renter_id,
         room_id: room_obj[:room].id,
         start_date: start_date,
-        end_date: start_date+(1+rand()*5).to_i,
+        end_date: start_date+(room_obj[:room].min_stay+rand()*5).to_i,
         adult_guests: (1+rand()*2).to_i,
-        child_guests: (rand()*1).to_i })
-      curr_booking.save
+        child_guests: (rand()*1).to_i,
+        status: 'Approved'})
+
       @bookings.push(curr_booking)
     end
   end
