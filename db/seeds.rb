@@ -16,6 +16,7 @@ User.destroy_all
 Room.destroy_all
 Photo.destroy_all
 Booking.destroy_all
+Review.destroy_all
 
 user_seeds = UserSeeds.new()
 user_seeds.generateSeeds
