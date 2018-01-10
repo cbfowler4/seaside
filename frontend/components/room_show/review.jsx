@@ -6,7 +6,9 @@ class Review extends React.Component {
     return (
       <li className='review-component'>
         <div className='user-header'>
-          <div className='user-picture'> this is a pic </div>
+          <div className='user-picture'>
+            <img src={this.props.imageUrl} />
+          </div>
           <div className='user-info'>
             <h2>{this.props.user.fname}</h2>
             <h3>{date.toLocaleString('en-US', { year: 'numeric', month: 'long'})}</h3>

@@ -11,18 +11,21 @@ class RoomShow extends React.Component {
     this.props.fetchRoomInfo(this.props.roomId);
   }
 
-  // <img src={`this.props.photos[this.props.host.photoIds[0]].imageUrl`} />
   render() {
     if (this.props.room) {
-      debugger
+      const host = this.props.users[this.props.room.hostId];
       let reviews = this.props.room.reviewIds.map((reviewId) => {
         let review = this.props.reviews[reviewId];
-        return (<Review review={review} user={this.props.users[review.authorId]}/>);
+        let user = this.props.users[review.authorId];
+        return (<Review
+          review={review}
+          user={user}
+          imageUrl={this.props.photos[user.photoIds[0]].imageAvatarUrl}/>);
       })
       return (
         <content className='room-show-main'>
           <div className='room-main-picture'>
-          <img src={this.props.photos[this.props.room.photoIds[0]].imageUrl}/>
+            <img src={this.props.photos[this.props.room.photoIds[0]].imageUrl}/>
           </div>
           <main className='room-info-booking-container'>
             <section className='room-info'>
@@ -38,7 +41,8 @@ class RoomShow extends React.Component {
                     <h2>{this.props.room.roomType}</h2>
                   </div>
                   <div className='host-pic'>
-
+                    <img src={this.props.photos[host.photoIds[0]].imageAvatarUrl} />
+                    <h2>{host.fname}</h2>
                   </div>
               </header>
               <div className='room-features'>
@@ -52,8 +56,8 @@ class RoomShow extends React.Component {
               </p>
 
               <section className='reviews-container'>
-                <div>
-                  <h1>Review Numbers</h1>
+                <div className='review-header'>
+                  <h1>{`${reviews.length} Review${reviews.length>1 ? 's': ''}`}</h1>
                 </div>
                 <ul className='review-list'>
                   {reviews}

@@ -6,15 +6,13 @@ class Api::RoomsController < ApplicationController
 
   def show
     @room = Room.find_by(id: params[:id].to_i)
-    
-    # @user_photos = @users.map do |user|
-    #   user.photos
-    # end
+
 
     @room_photos = @room.photos
     @room_reviews = @room.reviews
     @users = @room.reviewers
     @host = @room.host
+
 
     # @room.rating = Review.get_average_rating(@room)
 
