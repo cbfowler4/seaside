@@ -65,7 +65,7 @@ class ReviewSeeds
       @reviews.push(Review.create!({
         reviewable: booking.room,
         rating: (rand()*2+3).to_i,
-        body: "#{booking.room.host.fname}#{ROOM_REVIEWS_WITH_NAMES.sample}#{ROOM_REVIEWS_GENERAL.sample}#{ROOM_REVIEWS_SENDOFF.sample}"
+        body: "#{booking.room.host.fname}#{ROOM_REVIEWS_WITH_NAMES.sample}#{ROOM_REVIEWS_SENDOFF.sample}"
         }))
     end
   end

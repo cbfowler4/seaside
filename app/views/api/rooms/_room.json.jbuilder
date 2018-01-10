@@ -9,4 +9,5 @@ json.position do
 end
 
 json.photoIds room.photo_ids
+json.reviewIds room.review_ids
 # json.rating room.rating

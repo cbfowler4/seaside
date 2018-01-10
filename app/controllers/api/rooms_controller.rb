@@ -7,13 +7,14 @@ class Api::RoomsController < ApplicationController
   def show
     @room = Room.find_by(id: params[:id].to_i)
     # @users = Room.find_all_users(@room)
-    debugger
 
     # @user_photos = @users.map do |user|
     #   user.photos
     # end
 
     @room_photos = @room.photos
+    @room_reviews = @room.reviews
+    # @room.rating = Review.get_average_rating(@room)
 
     if @room
       render :show

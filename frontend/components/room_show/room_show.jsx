@@ -1,5 +1,6 @@
 import React from 'react';
 import BookingContainer from './booking_container';
+import Review from './review';
 
 class RoomShow extends React.Component {
   constructor(props) {

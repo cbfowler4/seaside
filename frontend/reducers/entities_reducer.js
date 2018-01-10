@@ -6,7 +6,7 @@ import reviewsReducer from './reviews_reducer';
 const entitiesReducer = combineReducers({
   rooms: roomReducer,
   photos: photosReducer,
-  reviews: reviewReducer
+  reviews: reviewsReducer
 });
 
 export default entitiesReducer;
