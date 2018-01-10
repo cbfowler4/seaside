@@ -26,6 +26,20 @@
     float: left;
     color: #484848;
 
+    .stars {
+      padding-top: 3px;
+      display: flex;
+
+      .rating-length {
+        padding-left: 10px;
+        color: rgb(72,72,72);
+        letter-spacing: .4px;
+        line-height: 16px;
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+
     h3 {
       color: rgb(57, 87, 106);
       font-size: 14px;
@@ -33,6 +47,7 @@
       line-height: 16px;
       letter-spacing: .4px;
       text-transform: uppercase;
+      padding-top: 3px;
     }
 
     h1 {
@@ -40,6 +55,7 @@
       font-size: 22px;
       font-weight: 700px;
       line-height: 22px;
+      padding-top: 3px;
 
     }
 
@@ -48,6 +64,7 @@
       line-height: 18px;
       letter-spacing: .2px;
       font-weight: 400px;
+      padding-top: 3px;
     }
 
 

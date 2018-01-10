@@ -1,5 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import ReactStars from 'react-stars';
+
 
 class RoomListItem extends React.Component {
   constructor(props) {
@@ -19,6 +21,17 @@ class RoomListItem extends React.Component {
         <h3>{this.room.roomType}</h3>
         <h1>{this.room.title}</h1>
         <p>{`From $${this.room.price} per night`}</p>
+        <div className='stars'>
+          <ReactStars
+            count={5}
+            value={this.props.room.rating} size={10}
+            edit={false}
+            half={true}
+            color2={'#008489'}/>
+          <span className='rating-length'>{this.room.reviewIds.length} ·
+          {this.room.reviewIds.length > 15 ? ' Superhost' : ' Host'}</span>
+        </div>
+
       </div>
     );
   }

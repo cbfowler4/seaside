@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import ReactStars from 'react-stars';
 
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
@@ -41,6 +42,8 @@ class Booking extends React.Component {
     e.preventDefault();
     if (this.state.currentUser) {
       this.props.requestBooking(this.state);
+    } else {
+      this.props.openSignup();
     }
   }
 
@@ -109,12 +112,11 @@ class Booking extends React.Component {
         return (<h2 className='booking-error' key={idx}>{error}</h2>);
       });
     }
-
     return (
       <div className='booking-component'>
         <div className='header'>
           <h1><span>{`$${this.props.room.price}`}</span> per night</h1>
-          <h3>ratings here</h3>
+          <h3><ReactStars count={5} value={this.props.room.rating} size={20} edit={false} half={true} color2={'#008489'}/></h3>
         </div>
         {errors}
         <form onSubmit={this.handleSubmit}>

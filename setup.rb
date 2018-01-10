@@ -1,5 +1,5 @@
 system('npm init -y')
-system('npm install --save webpack react lodash react-dom react-router-dom react-redux redux redux-logger redux-thunk babel-core babel-loader babel-preset-react babel-preset-env')
+system('npm install --save webpack react lodash react-dom react-star react-router-dom react-redux redux redux-logger redux-thunk babel-core babel-loader babel-preset-react babel-preset-env')
 system('(export PKG=react-dates; npm info "$PKG" peerDependencies --json | command sed \'s/[\{\},]//g ; s/: /@/g; s/ *//g\' | xargs npm install --save "$PKG" )')
 system('bundle install')
 system('rails db:create')

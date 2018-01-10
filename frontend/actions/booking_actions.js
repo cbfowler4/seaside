@@ -24,12 +24,12 @@ export const requestBooking = (booking) => {
   booking.endDate = booking.endDate.format('MM/DD/YYYY');
   booking.currentUser = booking.currentUser.id;
   return (dispatch) => {
-    return BookingsAPIUtil.requestRoomBooking(booking).then(() =>
+    return (BookingsAPIUtil.requestRoomBooking(booking).then(() =>
      {
        dispatch(receiveSuccessfulBooking());
      },
     (errors) => {
       dispatch(receiveErrors(errors.responseJSON));
-    });
+    }));
   };
 };
