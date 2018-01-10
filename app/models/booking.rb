@@ -31,7 +31,7 @@ class Booking < ApplicationRecord
   def isValid?
     if (self.start_date > self.end_date)
       errors.add(:date, "Start date is after end date of booking")
-    elsif (self.room.host_id != self.renter.id)
+    elsif (self.room.host_id == self.renter.id)
       errors.add(:date, "Cannot book a boat you are captain of!")
     elsif isOverlap
         errors.add(:date, "Booking request overlaps with another confirmed booking")

@@ -60,21 +60,27 @@ class Room < ApplicationRecord
 
   has_many :bookings
 
+  has_many :renters,
+    through: :bookings,
+    source: :renter
+
 
   def self.filterRooms(filters)
     default_filters = {
-      "guests" => {"adult" => "1", "child" => "0"}
+      "guests" => {"adult" => "1", "child" => "0"},
+      "price" => {"min" => "0", "max" => "10000"}
     }
 
     merged_filters = default_filters.merge(filters)
 
     bounds = merged_filters['bounds']
     total_guests = merged_filters['guests']['adult'].to_i + merged_filters['guests']['child'].to_i
-
+    price = merged_filters['price']
     Room
       .where(["lat < ? and lat > ?", bounds['north'],bounds['south']])
       .where(["lng > ? and lng < ?", bounds['west'],bounds['east']])
       .where([" max_guests >= ?", total_guests])
+      .where(["price > ? and price < ?", price['min'], price['max']])
 
   end
 

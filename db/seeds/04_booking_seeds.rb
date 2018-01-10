@@ -8,9 +8,7 @@ class BookingSeeds
 
   def generateSeeds()
     @rooms.keys.each do |room_type|
-      debugger
       @rooms[room_type].each do |room_obj|
-        debugger
         createBooking(room_obj)
       end
     end
@@ -34,7 +32,6 @@ class BookingSeeds
         child_guests: (rand()*1).to_i })
       curr_booking.save
       @bookings.push(curr_booking)
-      debugger
     end
   end
 end
