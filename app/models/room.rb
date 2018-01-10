@@ -57,7 +57,7 @@ class Room < ApplicationRecord
 
   has_many :photos, as: :imageable
   has_many :reviews, as: :reviewable
-  
+
   has_many :reviewers,
     through: :reviews,
     source: :author
@@ -68,6 +68,7 @@ class Room < ApplicationRecord
     through: :bookings,
     source: :renter
 
+  attr_accessor :rating
 
   def self.filterRooms(filters)
     default_filters = {
@@ -88,7 +89,12 @@ class Room < ApplicationRecord
 
   end
 
-  def self.find_all_users(room)
-    # User.where('id in ?', [room.hostId].concat(room.commenter_ids))
+  def getRating
+    sum = 0
+    self.reviews.each do |review|
+      sum += review.rating
+    end
+
+    sum.fdiv(self.reviews.length)
   end
 end

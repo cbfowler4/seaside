@@ -1,6 +1,8 @@
 import { connect } from 'react-redux';
 import Booking from './booking';
 import { requestBooking } from '../../actions/booking_actions';
+import { openSignup } from '../../actions/ui_actions';
+
 
 const mapStateToProps = (state, ownProps) => {
   return ({
@@ -12,7 +14,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = dispatch => {
   return ({
-    requestBooking: (booking) => dispatch(requestBooking(booking))
+    requestBooking: (booking) => dispatch(requestBooking(booking)),
+    openSignup: () => dispatch(openSignup()),
   });
 };
 

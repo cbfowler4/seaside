@@ -2,11 +2,15 @@ class Api::RoomsController < ApplicationController
 
   def index
     @rooms = Room.filterRooms(filter_params).includes(:photos);
+
+    @rooms.each do |room|
+      room.rating = room.getRating
+    end
   end
 
   def show
     @room = Room.find_by(id: params[:id].to_i)
-
+    @room.rating = @room.getRating
 
     @room_photos = @room.photos
     @room_reviews = @room.reviews
