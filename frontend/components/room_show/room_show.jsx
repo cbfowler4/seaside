@@ -12,6 +12,11 @@ class RoomShow extends React.Component {
 
   // <img src={`this.props.photos[this.props.host.photoIds[0]].imageUrl`} />
   render() {
+
+    // let reviews = this.props.room.reviewIds.map((room) => {
+    //   console.log('hey');
+    // })
+
     if (this.props.room) {
       return (
         <content className='room-show-main'>
@@ -49,6 +54,13 @@ class RoomShow extends React.Component {
               <BookingContainer room={this.props.room}/>
             </aside>
           </main>
+          <section className='reviews-container'>
+            <div>
+              <h1>Review Numbers</h1>
+            </div>
+            <ul className='review-list'>
+            </ul>
+          </section>
         </content>
       )
     }
