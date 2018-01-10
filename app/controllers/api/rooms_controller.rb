@@ -14,6 +14,7 @@ class Api::RoomsController < ApplicationController
 
     @room_photos = @room.photos
 
+    debugger
     if @room
       render :show
     else
@@ -34,6 +35,8 @@ class Api::RoomsController < ApplicationController
   private
 
   def filter_params
-    params.require(:filters).permit(bounds: [:north, :west, :east, :south], guests: [:child, :adult])
+    params.require(:filters).permit(bounds: [:north, :west, :east, :south],
+      guests: [:child, :adult],
+      price: [:min, :max])
   end
 end
