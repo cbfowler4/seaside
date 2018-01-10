@@ -7,10 +7,17 @@ const mapStateToProps = (state, ownProps) => {
   const room = state.entities.rooms[roomId];
   // const host = state.entities.users[room.hostId];
   let photos = {};
+  let reviews = {};
+  let users = {};
   if (room) {
     room.photoIds.forEach((id) => {
       photos[id] = state.entities.photos[id];
     });
+
+    room.reviewIds.forEach((id) => {
+      reviews[id] = state.entities.reviews[id];
+    });
+
   }
 
   return ({

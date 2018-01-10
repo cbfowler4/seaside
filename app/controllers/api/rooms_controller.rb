@@ -14,6 +14,7 @@ class Api::RoomsController < ApplicationController
 
     @room_photos = @room.photos
     @room_reviews = @room.reviews
+    debugger
     # @room.rating = Review.get_average_rating(@room)
 
     if @room
