@@ -29,7 +29,6 @@ photo_seeds.generateSeeds
 booking_seeds = BookingSeeds.new(user_seeds.users, room_seeds.rooms)
 booking_seeds.generateSeeds
 
-debugger
 
 review_seeds = ReviewSeeds.new(booking_seeds.bookings)
 review_seeds.generateSeeds

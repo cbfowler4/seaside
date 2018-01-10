@@ -35,6 +35,18 @@ json.reviews do
   end
 end
 
+json.users do
+  @users.each do |user|
+    json.set! user.id do
+      json.partial! '/api/users/user', user: user
+    end
+  end
+
+  json.set! @host.id do
+    json.partial! '/api/users/user', user: @host
+  end
+end
+
   # @user_photos.each do |photo|
   #   json.set! photo.id do
   #     json.partial! '/api/photos/photo', photo: photo

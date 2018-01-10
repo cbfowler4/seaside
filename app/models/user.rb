@@ -28,6 +28,10 @@ class User < ApplicationRecord
   has_many :photos, as: :imageable
   has_many :reviews, as: :reviewable
   
+  has_many :authored_reviews,
+    foreign_key: :author_id,
+    class_name: :Review
+
   has_many :bookings
 
   attr_reader :password

@@ -16,7 +16,7 @@ class RoomShow extends React.Component {
     if (this.props.room) {
       let reviews = this.props.room.reviewIds.map((reviewId) => {
         let review = this.props.reviews[reviewId];
-        return (<Review review={review} user={this.props.users[1]}/>);
+        return (<Review review={review} user={this.props.users[review.authorId]}/>);
       })
       return (
         <content className='room-show-main'>

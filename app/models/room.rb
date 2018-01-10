@@ -57,6 +57,10 @@ class Room < ApplicationRecord
 
   has_many :photos, as: :imageable
   has_many :reviews, as: :reviewable
+  
+  has_many :reviewers,
+    through: :reviews,
+    source: :author
 
   has_many :bookings
 

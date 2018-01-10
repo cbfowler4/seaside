@@ -58,12 +58,14 @@ class ReviewSeeds
     @bookings.each do |booking|
       @reviews.push(Review.create!({
         reviewable: booking.renter,
+        author_id: booking.room.host.id,
         rating: (rand()*2+3).to_i,
         body: "#{booking.renter.fname}#{RENTER_REVIEWS_WITH_NAMES.sample}#{RENTER_REVIEWS_GENERAL.sample}#{RENTER_REVIEWS_SENDOFF.sample}"
         }))
 
       @reviews.push(Review.create!({
         reviewable: booking.room,
+        author_id: booking.renter.id,
         rating: (rand()*2+3).to_i,
         body: "#{booking.room.host.fname}#{ROOM_REVIEWS_WITH_NAMES.sample}#{ROOM_REVIEWS_SENDOFF.sample}"
         }))

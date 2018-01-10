@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => {
   let photos = {};
   let reviews = {};
   let users = {};
+
   if (room) {
     room.photoIds.forEach((id) => {
       photos[id] = state.entities.photos[id];
@@ -16,6 +17,8 @@ const mapStateToProps = (state, ownProps) => {
 
     room.reviewIds.forEach((id) => {
       reviews[id] = state.entities.reviews[id];
+      let authorId = reviews[id].authorId;
+      users[authorId] = state.entities.users[authorId];
     });
 
   }
@@ -24,6 +27,8 @@ const mapStateToProps = (state, ownProps) => {
     roomId: roomId,
     room: room,
     photos: photos,
+    reviews: reviews,
+    users: users,
     isFetching: state.ui.isFetching
   });
 };

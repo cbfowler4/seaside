@@ -2,6 +2,7 @@ import React from 'react';
 
 class Review extends React.Component {
   render() {
+    debugger
     return (
       <li className='review-component'>
         <div className='user-header'>

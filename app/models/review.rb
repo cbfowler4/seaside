@@ -16,4 +16,7 @@ class Review < ApplicationRecord
 
   belongs_to :reviewable, polymorphic: true
 
+  belongs_to :author,
+    foreign_key: :author_id,
+    class_name: :User
 end
