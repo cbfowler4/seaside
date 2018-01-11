@@ -27,8 +27,8 @@ class Api::ReviewsController < ApplicationController
     @review = Review.find_by(id: params[:id])
     @review.destroy!
 
-    if @review.room
-      @room = @review.room 
+    if @review.reviewable.is_a?(Room)
+      @room = @review.reviewable
     end
 
     if @review

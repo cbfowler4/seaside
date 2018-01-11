@@ -29,6 +29,7 @@ class RoomShow extends React.Component {
         return (<Review
           key={reviewId}
           review={review}
+          reviewId={reviewId}
           user={user}
           imageUrl={this.props.photos[user.photoIds[0]].imageAvatarUrl}
           currentUser={this.props.currentUser}

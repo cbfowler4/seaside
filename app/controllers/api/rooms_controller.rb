@@ -15,6 +15,7 @@ class Api::RoomsController < ApplicationController
     @room_reviews = @room.reviews
     @users = @room.reviewers
     @host = @room.host
+    @current_user = current_user
     @reviewer_ids = @room.reviewer_ids
 
 

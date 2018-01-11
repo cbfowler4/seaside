@@ -7,7 +7,7 @@ class Review extends React.Component {
   }
 
   handleDelete(e) {
-    this.props.deleteReview(this.props.review.id);
+    this.props.deleteReview(this.props.reviewId);
     e.stopPropagation();
   }
 

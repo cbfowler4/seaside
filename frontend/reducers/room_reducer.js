@@ -1,6 +1,6 @@
 import { RECEIVE_ROOMS } from '../actions/room_index_actions.js';
 import { RECEIVE_ROOM } from '../actions/room_show_actions.js';
-import { RECEIVE_REVIEW } from '../actions/review_actions.js';
+import { RECEIVE_REVIEW, REMOVE_REVIEW } from '../actions/review_actions.js';
 
 import { merge } from 'lodash';
 
@@ -13,6 +13,9 @@ export default (state = {}, action) => {
     case RECEIVE_ROOM:
       return merge({}, state, action.room);
     case RECEIVE_REVIEW:
+      return merge({}, state, action.room);
+    case REMOVE_REVIEW:
+      debugger
       return merge({}, state, action.room);
     default:
       return state;
