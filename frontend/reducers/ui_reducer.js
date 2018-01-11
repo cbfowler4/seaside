@@ -7,6 +7,7 @@ import {
   FETCHING_COMPLETE } from '../actions/ui_actions';
 
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { BOOKING_CHANGED, RECEIVE_BOOKING_SUCCESS } from '../actions/booking_actions';
 
 import { merge } from 'lodash';
 
@@ -14,7 +15,8 @@ const defaultState = {
   login_modal: false,
   signup_modal: false,
   filter_modal: null,
-  isFetching: false
+  isFetching: false,
+  booked: false
 };
 
 export default (state = defaultState, action) => {
@@ -33,6 +35,10 @@ export default (state = defaultState, action) => {
       return merge({}, state, {isFetching: true});
     case FETCHING_COMPLETE:
       return merge({}, state, {isFetching: false});
+    case BOOKING_CHANGED:
+      return merge({}, state, {booked: false});
+    case RECEIVE_BOOKING_SUCCESS:
+      return merge({}, state, {booked: true});
     default:
       return state;
   }

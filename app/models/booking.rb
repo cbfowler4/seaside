@@ -37,7 +37,7 @@ class Booking < ApplicationRecord
         errors.add(:date, "Booking request overlaps with another confirmed booking")
     elsif (self.start_date < Date.today())
       errors.add(:date, "Booking start date is before current date")
-    elsif (self.start_date + self.room.min_stay < self.end_date)
+    elsif (self.start_date + self.room.min_stay > self.end_date)
       errors.add(:date, "Booking is does not extend for boats minimum stay length")
     else
       true

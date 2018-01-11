@@ -8,19 +8,19 @@ import { DateRangePicker } from 'react-dates';
 class Booking extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
+    this.defaultState = {
       startDate: null,
       endDate: null,
       focusedInput: null,
       adult: 1,
       child: 0,
       roomId: this.props.room.id,
-      currentUser: this.props.currentUser
+      currentUser: this.props.currentUser,
     };
+    this.state = this.defaultState;
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.onDatesChange = this.onDatesChange.bind(this);
-    this.onFocusChange = this.onFocusChange.bind(this);
     this.getGuestSum = this.getGuestSum.bind(this);
     this.toggleDropDown = this.toggleDropDown.bind(this);
 
@@ -31,17 +31,20 @@ class Booking extends React.Component {
   }
 
   onDatesChange ({ startDate, endDate }) {
+    this.props.bookingChanged();
     this.setState({startDate, endDate});
   }
 
-  onFocusChange () {
-    this.setState({ focusedInput });
-  }
+
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.currentUser) {
+    if (this.state.startDate === null || this.state.endDate === null) {
+      this.props.receiveErrors(['Must specify a start and end date!']);
+    }
+    else if (this.state.currentUser) {
       this.props.requestBooking(this.state);
+      this.setState(this.defaultState);
     } else {
       this.props.openSignup();
     }
@@ -107,11 +110,12 @@ class Booking extends React.Component {
   render() {
 
     let errors;
-    if (this.props.errors) {
+    if (this.props.errors.length>1) {
       errors = this.props.errors.map((error, idx)=> {
         return (<h2 className='booking-error' key={idx}>{error}</h2>);
       });
     }
+
     return (
       <div className='booking-component'>
         <div className='header'>
@@ -124,7 +128,7 @@ class Booking extends React.Component {
             <div><DateRangePicker
                 startDate={this.state.startDate}
                 endDate={this.state.endDate}
-                onDatesChange={({ startDate, endDate }) => this.setState({ startDate, endDate })}
+                onDatesChange={this.onDatesChange}
                 focusedInput={this.state.focusedInput}
                 onFocusChange={focusedInput => this.setState({ focusedInput })}
                 startDateId="dp_start_date"
@@ -140,7 +144,7 @@ class Booking extends React.Component {
             </div>
           </label>
           {this.guestDropDown()}
-          <button className='booking-button'>Request to Book</button>
+          <button className='booking-button'>{this.props.booked ? 'Booked!' : 'Request to Book'}</button>
 
         </form>
 

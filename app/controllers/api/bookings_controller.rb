@@ -5,6 +5,7 @@ class Api::BookingsController < ApplicationController
   end
 
   def create
+
     parsed_book_params = booking_params;
     start_date = Date.new(*(parsed_book_params[:startDate].split('/').map(&:to_i).rotate(2)))
     end_date = Date.new(*(parsed_book_params[:endDate].split('/').map(&:to_i).rotate(2)))
@@ -14,8 +15,18 @@ class Api::BookingsController < ApplicationController
       room_id: parsed_book_params[:roomId],
       renter_id: parsed_book_params[:currentUser],
       adult_guests: parsed_book_params[:adult],
-      child_guests: parsed_book_params[:child]
+      child_guests: parsed_book_params[:child],
+      status: "Approved"
       })
+
+    room_review = Review.new({
+      reviewable: Room.find(room_id),
+      author_id: parsed_book_params[:currentUser],
+      rating: null,
+      body: null,
+      modified: false
+      })
+
 
     if @booking.save
       render :create
