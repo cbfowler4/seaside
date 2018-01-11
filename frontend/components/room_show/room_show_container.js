@@ -1,8 +1,7 @@
 import { connect } from 'react-redux';
 import RoomShow from './room_show';
 import { fetchRoomInfo } from '../../actions/room_show_actions';
-import { updateEditId } from '../../actions/ui_actions';
-import { createReview, deleteReview } from '../../actions/review_actions';
+import { createReview, updateReview } from '../../actions/review_actions';
 
 const mapStateToProps = (state, ownProps) => {
   const roomId = ownProps.match.params.roomId;
@@ -42,16 +41,14 @@ const mapStateToProps = (state, ownProps) => {
     users: users,
     isFetching: state.ui.isFetching,
     currentUser: state.session.currentUser,
-    editId: state.ui.editId
   });
 };
 
 const mapDispatchToProps = dispatch => {
   return ({
     fetchRoomInfo: (roomId) => dispatch(fetchRoomInfo(roomId)),
-    updateEditId: (id) => dispatch(updateEditId(id)),
     createReview: (review) => dispatch(createReview(review)),
-    deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
+    updateReview: (review) => dispatch(updateReview(review)),
   });
 };
 
