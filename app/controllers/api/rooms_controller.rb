@@ -11,14 +11,19 @@ class Api::RoomsController < ApplicationController
   def show
     @room = Room.find_by(id: params[:id].to_i)
     @room.rating = @room.getRating
-
     @room_photos = @room.photos
     @room_reviews = @room.reviews
     @users = @room.reviewers
     @host = @room.host
+    @reviewer_ids = @room.reviewer_ids
 
 
-    # @room.rating = Review.get_average_rating(@room)
+    bookings = @room.bookings
+
+    @renter_ids = bookings.map do |booking|
+      booking.renter_id
+    end
+
 
     if @room
       render :show

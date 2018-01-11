@@ -1,6 +1,8 @@
 json.room do
   json.set! @room.id do
     json.partial! '/api/rooms/room', room: @room, photos: @room_photos
+    json.reviewerIds @reviewer_ids
+    json.renterIds @renter_ids
     json.bedrooms @room.bedrooms
     json.beds @room.beds
     json.bathrooms @room.bathrooms
