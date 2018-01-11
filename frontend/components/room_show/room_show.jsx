@@ -1,8 +1,7 @@
 import React from 'react';
 import BookingContainer from './booking_container';
-import Review from './review';
+import ReviewContainer from './review_container';
 import Spinner from '../spinner';
-import ReviewEdit from './review_edit';
 
 class RoomShow extends React.Component {
   constructor(props) {
@@ -26,29 +25,30 @@ class RoomShow extends React.Component {
       let reviews = this.props.room.reviewIds.map((reviewId) => {
         let review = this.props.reviews[reviewId];
         let user = this.props.users[review.authorId];
-        return (<Review
+        return (<ReviewContainer
           key={reviewId}
-          review={review}
           reviewId={reviewId}
           user={user}
+          action={this.props.updateReview}
+          roomId={this.props.room.id}
           imageUrl={this.props.photos[user.photoIds[0]].imageAvatarUrl}
-          currentUser={this.props.currentUser}
-          editId={this.props.editId}
-          updateEditId={this.props.updateEditId}
-          deleteReview={this.props.deleteReview}/>);
+          new={false}
+          />);
       })
 
       if (!this.props.room.reviewerIds.includes(this.props.currentUser.id) &&
           this.props.room.renterIds.includes(this.props.currentUser.id)) {
-            const emptyReview = {body: "", rating: 0}
-            reviews.unshift(<ReviewEdit
-              review={emptyReview}
-              createReview={this.props.createReview}
-              authorId={this.props.currentUser.id}
-              roomId={this.props.room.id}
+            const emptyReview = {body: "", rating: 0};
+            reviews.unshift(<ReviewContainer
               key={this.props.room.id}
+              review={emptyReview}
+              action={this.props.createReview}
+              user={this.props.currentUser}
+              roomId={this.props.room.id}
+              imageUrl={this.props.photos[this.props.currentUser.photoIds[0]].imageAvatarUrl}
+              new={true}
               />);
-        }
+          };
 
       return (
         <content className='room-show-main'>

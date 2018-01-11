@@ -27,6 +27,14 @@ export const createReview = (review) => {
   };
 };
 
+export const updateReview = (review) => {
+  return (dispatch) => {
+    ReviewAPIUtil.updateReview(review).then((response) => {
+      dispatch(receiveReview(response));
+    });
+  };
+};
+
 export const deleteReview = (reviewId) => {
   return (dispatch) => {
     ReviewAPIUtil.deleteReview(reviewId).then((response) => {
