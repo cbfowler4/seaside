@@ -15,7 +15,7 @@ class Booking extends React.Component {
       adult: 1,
       child: 0,
       roomId: this.props.room.id,
-      currentUser: this.props.currentUser,
+      currentUser: this.props.currentUser
     };
     this.state = this.defaultState;
 
@@ -35,14 +35,19 @@ class Booking extends React.Component {
     this.setState({startDate, endDate});
   }
 
-
+  componentWillReceiveProps(nextProps) {
+    if (this.props.currentUser != nextProps.currentUser) {
+      this.setState({currentUser: nextProps.currentUser});
+    }
+  }
 
   handleSubmit(e) {
     e.preventDefault();
+
     if (this.state.startDate === null || this.state.endDate === null) {
       this.props.receiveErrors(['Must specify a start and end date!']);
     }
-    else if (this.state.currentUser) {
+    else if (this.props.currentUser) {
       this.props.requestBooking(this.state);
       this.setState(this.defaultState);
     } else {
@@ -110,7 +115,7 @@ class Booking extends React.Component {
   render() {
 
     let errors;
-    if (this.props.errors.length>1) {
+    if (this.props.errors.length>0) {
       errors = this.props.errors.map((error, idx)=> {
         return (<h2 className='booking-error' key={idx}>{error}</h2>);
       });
@@ -122,7 +127,11 @@ class Booking extends React.Component {
           <h1><span>{`$${this.props.room.price}`}</span> per night</h1>
           <h3><ReactStars count={5} value={this.props.room.rating} size={20} edit={false} half={true} color2={'#008489'}/></h3>
         </div>
-        {errors}
+        {this.props.errors.length > 0 &&
+          <div className='errors'>
+            {errors}
+          </div>
+        }
         <form onSubmit={this.handleSubmit}>
           <label>Dates
             <div><DateRangePicker

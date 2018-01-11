@@ -1,6 +1,7 @@
 import React from 'react';
 import BookingContainer from './booking_container';
 import Review from './review';
+import Spinner from '../spinner';
 
 class RoomShow extends React.Component {
   constructor(props) {
@@ -12,6 +13,10 @@ class RoomShow extends React.Component {
   }
 
   render() {
+    if (this.props.isFetching) {
+      return (<Spinner />);
+    }
+
     if (!!this.props.room && !!this.props.reviews[this.props.room.reviewIds[0]]) {
       const host = this.props.users[this.props.room.hostId];
       let reviews = this.props.room.reviewIds.map((reviewId) => {

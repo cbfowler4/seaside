@@ -5,7 +5,8 @@ import RoomList from './room_list';
 const mapStateToProps = state => {
   return ({
     rooms: Object.values(state.entities.rooms),
-    photos: state.entities.photos
+    photos: state.entities.photos,
+    isFetching: state.ui.isFetching
   });
 };
 

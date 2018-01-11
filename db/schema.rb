@@ -43,11 +43,11 @@ ActiveRecord::Schema.define(version: 20180110165215) do
   create_table "reviews", force: :cascade do |t|
     t.string "reviewable_type"
     t.bigint "reviewable_id"
-    t.text "body", null: false
-    t.integer "rating", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "author_id", null: false
+    t.integer "rating", null: false
+    t.text "body", null: false
     t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable_type_and_reviewable_id"
   end
 

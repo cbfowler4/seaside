@@ -24,6 +24,7 @@
 }
 
 .booking-component {
+  position: relative;
 
   .header {
     height: 64px;
@@ -79,6 +80,19 @@
     text-align: center;
   }
 
+  .errors {
+    position: absolute;
+    z-index: 4;
+    background-color: red;
+    color: white;
+    top: -84px;
+    right: 32px;
+    width: 252px;
+    font-size: 10px;
+    font-weight: 300;
+    padding: 5px;
+    border-radius: 6px;
+  }
 }
 
 

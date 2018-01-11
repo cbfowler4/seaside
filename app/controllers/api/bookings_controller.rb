@@ -19,14 +19,6 @@ class Api::BookingsController < ApplicationController
       status: "Approved"
       })
 
-    room_review = Review.new({
-      reviewable: Room.find(room_id),
-      author_id: parsed_book_params[:currentUser],
-      rating: null,
-      body: null,
-      modified: false
-      })
-
 
     if @booking.save
       render :create
