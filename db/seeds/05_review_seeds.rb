@@ -61,7 +61,6 @@ class ReviewSeeds
         author_id: booking.room.host.id,
         rating: (rand()*2+3).to_i,
         body: "#{booking.renter.fname}#{RENTER_REVIEWS_WITH_NAMES.sample}#{RENTER_REVIEWS_GENERAL.sample}#{RENTER_REVIEWS_SENDOFF.sample}",
-        modified: true
         }))
 
       @reviews.push(Review.create!({
@@ -69,7 +68,6 @@ class ReviewSeeds
         author_id: booking.renter.id,
         rating: (rand()*2+3).to_i,
         body: "#{booking.room.host.fname}#{ROOM_REVIEWS_WITH_NAMES.sample}#{ROOM_REVIEWS_SENDOFF.sample}",
-        modified: true
         }))
     end
   end

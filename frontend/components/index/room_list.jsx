@@ -1,5 +1,6 @@
 import React from 'react';
 import RoomListItem from './room_list_item';
+import Spinner from '../spinner';
 
 class RoomList extends React.Component {
   constructor(props) {
@@ -14,6 +15,10 @@ class RoomList extends React.Component {
       });
       return (<RoomListItem room={room} photos={photos} key={room.id}/>);
     });
+
+    if (this.props.isFetching) {
+      return (<Spinner />);
+    }
 
     return(
       <ul className='room-list'>
