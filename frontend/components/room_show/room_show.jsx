@@ -2,6 +2,7 @@ import React from 'react';
 import BookingContainer from './booking_container';
 import Review from './review';
 import Spinner from '../spinner';
+import ReviewEdit from './review_edit';
 
 class RoomShow extends React.Component {
   constructor(props) {
@@ -18,6 +19,9 @@ class RoomShow extends React.Component {
     }
 
     if (!!this.props.room && !!this.props.reviews[this.props.room.reviewIds[0]]) {
+
+
+      //reviews
       const host = this.props.users[this.props.room.hostId];
       let reviews = this.props.room.reviewIds.map((reviewId) => {
         let review = this.props.reviews[reviewId];
@@ -26,8 +30,25 @@ class RoomShow extends React.Component {
           key={reviewId}
           review={review}
           user={user}
-          imageUrl={this.props.photos[user.photoIds[0]].imageAvatarUrl}/>);
+          imageUrl={this.props.photos[user.photoIds[0]].imageAvatarUrl}
+          currentUser={this.props.currentUser}
+          editId={this.props.editId}
+          updateEditId={this.props.updateEditId}
+          deleteReview={this.props.deleteReview}/>);
       })
+
+      if (!this.props.room.reviewerIds.includes(this.props.currentUser.id) &&
+          this.props.room.renterIds.includes(this.props.currentUser.id)) {
+            const emptyReview = {body: "", rating: 0}
+            reviews.unshift(<ReviewEdit
+              review={emptyReview}
+              createReview={this.props.createReview}
+              authorId={this.props.currentUser.id}
+              roomId={this.props.room.id}
+              key={this.props.room.id}
+              />);
+        }
+
       return (
         <content className='room-show-main'>
           <div className='room-main-picture'>

@@ -4,7 +4,8 @@ import {
   CLOSE_MODAL,
   OPEN_FILTER,
   FETCHING,
-  FETCHING_COMPLETE } from '../actions/ui_actions';
+  FETCHING_COMPLETE,
+  UPDATE_EDIT_ID } from '../actions/ui_actions';
 
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { BOOKING_CHANGED, RECEIVE_BOOKING_SUCCESS } from '../actions/booking_actions';
@@ -16,7 +17,8 @@ const defaultState = {
   signup_modal: false,
   filter_modal: null,
   isFetching: false,
-  booked: false
+  booked: false,
+  editId: null
 };
 
 export default (state = defaultState, action) => {
@@ -39,6 +41,8 @@ export default (state = defaultState, action) => {
       return merge({}, state, {booked: false});
     case RECEIVE_BOOKING_SUCCESS:
       return merge({}, state, {booked: true});
+    case UPDATE_EDIT_ID:
+      return merge({}, state, {editId: action.editId});
     default:
       return state;
   }
