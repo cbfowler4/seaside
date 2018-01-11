@@ -15,8 +15,13 @@ export default (state = {}, action) => {
     case RECEIVE_REVIEW:
       return merge({}, state, action.room);
     case REMOVE_REVIEW:
-      debugger
-      return merge({}, state, action.room);
+      let newState = merge({}, state);
+      const roomId = Object.keys(action.room)[0];
+
+      newState[roomId].reviewerIds = action.room[roomId].reviewerIds;
+      newState[roomId].reviewIds = action.room[roomId].reviewIds;
+      
+      return newState;
     default:
       return state;
   }
