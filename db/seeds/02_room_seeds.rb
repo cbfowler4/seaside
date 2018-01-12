@@ -43,8 +43,8 @@ LAT_LNG = [
   {lat: 29.213, lng: -86.2342}
 ]
 
-ADJECTIVES = [ 'Beautiful', 'Amazing', 'Spectacular', 'Cozy', 'Comfortable', 'Welcoming']
-VERBS = ["all aboard!", "please join us!", "perfect for a weekend", "bring your shorts!"]
+ADJECTIVES = [ 'Beautiful', 'Amazing', 'Spectacular', 'Cozy', 'Comfortable', 'Welcoming', 'Chill', "Old and rustic"]
+VERBS = ["all aboard!", "please join us!", "perfect for a weekend", "bring your shorts!", "anchors away!", "we have lobster", "this is a great value! Trust us"]
 CANCELLATION = ["Strict", "Moderate"]
 
 USER_TYPES = [:couples, :males, :females]
@@ -70,7 +70,8 @@ class RoomSeeds
             :max_guests => (rand()*8.to_i),
             :description => 'Ship from the 1800s with ample space and plenty of natural light.
              Please stay on our boat with us. We can take you across the marina or to some islands nearby.
-              There are awesome places for swimming and fishing as well. The sunsets are also beautiful and
+              There are awesome places for swimming and fishing as well. Sometimes we see dolphins on the port side of the vessel.
+              My father was a sailor in the Navy so I am an experience captain!. The sunsets are also beautiful and
                we would love for you to join us',
             :beds => (rand()*8.to_i),
             :bathrooms => (rand()*3.to_i),
@@ -93,7 +94,11 @@ class RoomSeeds
             :lng => (LAT_LNG.sample[:lng]+(rand()/100)),
             :price => (rand()*400).to_i,
             :max_guests => (rand()*8.to_i),
-            :description => 'Ship from the 1800s with ample space and plenty of natural light',
+            :description => 'Ship from the 1800s with ample space and plenty of natural light.
+             Please stay on our boat with us. We can take you across the marina or to some islands nearby.
+              There are awesome places for swimming and fishing as well. Sometimes we see dolphins on the port side of the vessel.
+              My father was a sailor in the Navy so I am an experience captain!. The sunsets are also beautiful and
+               we would love for you to join us',
             :beds => (rand()*8.to_i),
             :bathrooms => (rand()*3.to_i),
             :bedrooms => (rand()*5.to_i),
@@ -116,7 +121,11 @@ class RoomSeeds
             :lng => (LAT_LNG.sample[:lng]+(rand()/100)),
             :price => (rand()*400).to_i,
             :max_guests => (rand()*8.to_i),
-            :description => 'Ship from the 1800s with ample space and plenty of natural light',
+            :description => 'Ship from the 1800s with ample space and plenty of natural light.
+             Please stay on our boat with us. We can take you across the marina or to some islands nearby.
+              There are awesome places for swimming and fishing as well. Sometimes we see dolphins on the port side of the vessel.
+              My father was a sailor in the Navy so I am an experience captain!. The sunsets are also beautiful and
+               we would love for you to join us',
             :beds => (rand()*8.to_i),
             :bathrooms => (rand()*3.to_i),
             :bedrooms => (rand()*5.to_i),
