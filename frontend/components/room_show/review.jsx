@@ -21,6 +21,7 @@ class Review extends React.Component {
     this.handleBodyChange = this.handleBodyChange.bind(this);
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCancel = this.handleCancel.bind(this);
 
   }
 
@@ -43,7 +44,7 @@ class Review extends React.Component {
     this.setState({rating: e});
   }
 
-  handleCancel (){
+  handleCancel (e) {
     this.props.updateEditId(null);
     e.stopPropagation();
   }
@@ -74,7 +75,7 @@ class Review extends React.Component {
     if (mode == "create") {
       buttons =  (
         <div className='review-button-container'>
-          <button>Create</button>
+          <button onClick={this.handleSubmit}>Create</button>
           <button onClick={this.handleCancel}>Cancel</button>
         </div>
       );
@@ -88,7 +89,7 @@ class Review extends React.Component {
     } else if (mode == "editing") {
         buttons = (
           <div className='review-button-container'>
-            <button>Save</button>
+            <button onClick={this.handleSubmit}>Save</button>
             <button onClick={this.handleCancel}>Cancel</button>
           </div>
         );
@@ -101,10 +102,9 @@ class Review extends React.Component {
     if (mode == "create" || mode == "editing") {
       body =  (
         <div className='review-body'>
-          <form onSubmit={this.handleSubmit}>
-            <textarea value={this.state.body} onChange={this.handleBodyChange}>
+          <form  onSubmit={this.handleSubmit}>
+            <textarea className='review-textarea' value={this.state.body} onChange={this.handleBodyChange} placeholder={`Leave a review...`}>
             </textarea>
-            {buttons}
           </form>
           <ReactStars
             count={5}
@@ -118,8 +118,7 @@ class Review extends React.Component {
     } else {
       body =  (
         <div className='review-body'>
-          {buttons}
-          {this.state.body}
+          <div>{this.state.body}</div>
         </div>
       );
     }
@@ -136,6 +135,9 @@ class Review extends React.Component {
               <h2>{this.props.user.fname}</h2>
               <h3>{this.state.date.toLocaleString('en-US', { year: 'numeric', month: 'long'})}</h3>
             </div>
+          </div>
+          <div className='right'>
+            {buttons}
           </div>
         </div>
           {body}
