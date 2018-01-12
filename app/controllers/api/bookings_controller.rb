@@ -19,6 +19,7 @@ class Api::BookingsController < ApplicationController
       status: "Approved"
       })
 
+    @room = @booking.room
 
     if @booking.save
       render :create

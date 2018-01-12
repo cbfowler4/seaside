@@ -9,7 +9,7 @@ class Review extends React.Component {
     this.state = {
       body: this.props.review.body,
       rating: this.props.review.rating,
-      authorId: this.props.authorId,
+      authorId: this.props.currentUser.id,
       roomId: this.props.roomId,
       reviewId: this.props.reviewId
     };
@@ -17,6 +17,7 @@ class Review extends React.Component {
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChangeEditId = this.handleChangeEditId.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
   }
 
@@ -53,10 +54,10 @@ class Review extends React.Component {
     let mode;
     if (this.props.new == true) {
       mode = "create";
-    } else if (this.props.currentUser.id == this.props.review.authorId &&
-    this.props.editId != this.props.review.authorId) {
+    } else if (this.props.currentUser != null && this.props.currentUser.id == this.props.review.authorId &&
+    this.props.editId != this.props.reviewId) {
       mode = "edit";
-    } else if (this.props.currentUser.id == this.props.review.authorId &&
+    } else if (this.props.currentUser != null && this.props.currentUser.id == this.props.review.authorId &&
       this.props.editId == this.props.reviewId){
       mode = "editing";
     } else {

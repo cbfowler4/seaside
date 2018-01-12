@@ -42,9 +42,11 @@ json.photos do
     end
   end
 
-  @current_user.photos.each do |photo|
-    json.set! photo.id do
-      json.partial! '/api/photos/photo', photo: photo
+  if @current_user
+    @current_user.photos.each do |photo|
+      json.set! photo.id do
+        json.partial! '/api/photos/photo', photo: photo
+      end
     end
   end
 
@@ -69,8 +71,10 @@ json.users do
     json.partial! '/api/users/user', user: @host
   end
 
-  json.set! @current_user.id do
-    json.partial! '/api/users/user', user: @current_user
+  if @current_user
+    json.set! @current_user.id do
+      json.partial! '/api/users/user', user: @current_user
+    end
   end
 end
 

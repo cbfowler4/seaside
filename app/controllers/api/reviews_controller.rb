@@ -15,11 +15,22 @@ class Api::ReviewsController < ApplicationController
 
     @room = reviewable
 
+
     if @review.save
       render :show
     else
       render json: @review.errors.full_messages, status: 422
     end
+  end
+
+  def update
+    @review = Review.find_by(id: params[:id])
+
+    if @review.update({body: params[:review][:body], rating: params[:review][:rating]})
+      render :show
+    else
+      render json: @review.errors.full_messages, status: 422
+    end 
   end
 
 
