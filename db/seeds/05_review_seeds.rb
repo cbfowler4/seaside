@@ -27,7 +27,7 @@ RENTER_REVIEWS_SENDOFF = [
   'When pirates strike, we want you aboard our vessel.']
 
 ROOM_REVIEWS_WITH_NAMES = [
-  ' thank you for letting us stay with you! ',
+  ' thank you for letting us stay with you! It was such a pleasure for me to hangout.',
   ' thank you so much! ',
   ' was a great host and has a beautiful boat! ',
   ' helped create a perfect weekend for me and my family! ',
@@ -35,7 +35,8 @@ ROOM_REVIEWS_WITH_NAMES = [
   ' took us fishing on their boat and made us a fresh fish dinner! ',
   ' thank you a million times over! ',
   ' was not around during our stay, boat was clean. ',
-  ' has a huge personality! A lot of fun! ']
+  ' has a huge personality! A lot of fun! ',
+  ' left the poop deck a mess! ']
 
 ROOM_REVIEWS_SENDOFF = [
   'We will be staying with you again soon!',
@@ -44,7 +45,10 @@ ROOM_REVIEWS_SENDOFF = [
   'Anchors away! Thanks for hosting!',
   'Thank you for allowing us to board your vessel.',
   'We hope to voyage the seven seas again soon.',
-  'Watch out for pirates, sharks and large squid! LOL']
+  'Watch out for pirates, sharks and large squid! LOL',
+  'Not only did we stay on a ship, but we also built a ship. A friendship. ',
+  'You were cool, went with the flow. ',
+  'Acted very fishy, but eventually warmed up. ']
 
 
 
