@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewEdit from './review_edit';
+import ReactStars from 'react-stars';
 
 
 class Review extends React.Component {
@@ -11,12 +12,14 @@ class Review extends React.Component {
       rating: this.props.review.rating,
       authorId: this.props.currentUser.id,
       roomId: this.props.roomId,
-      reviewId: this.props.reviewId
+      reviewId: this.props.reviewId,
+      date: new Date(Date.UTC(2015+parseInt(Math.random()*2), parseInt(Math.random()*12)))
     };
 
     this.handleDelete = this.handleDelete.bind(this);
     this.handleChangeEditId = this.handleChangeEditId.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleBodyChange = this.handleBodyChange.bind(this);
+    this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
 
   }
@@ -32,10 +35,12 @@ class Review extends React.Component {
     e.stopPropagation();
   }
 
-  handleChange(field) {
-    return (e) => {
-      this.setState({[field]: e.target.value});
-    };
+  handleBodyChange(e) {
+    this.setState({body: e.target.value});
+  }
+
+  handleRatingChange(e) {
+    this.setState({rating: e});
   }
 
   handleCancel (){
@@ -49,7 +54,7 @@ class Review extends React.Component {
   }
 
   render() {
-    var date = new Date(Date.UTC(2015+parseInt(Math.random()*2), parseInt(Math.random()*12)));
+
 
     let mode;
     if (this.props.new == true) {
@@ -97,10 +102,17 @@ class Review extends React.Component {
       body =  (
         <div className='review-body'>
           <form onSubmit={this.handleSubmit}>
-            <textarea value={this.state.body} onChange={this.handleChange('body')}>
+            <textarea value={this.state.body} onChange={this.handleBodyChange}>
             </textarea>
             {buttons}
           </form>
+          <ReactStars
+            count={5}
+            value={this.state.rating} size={8}
+            edit={true}
+            half={true}
+            color2={'#008489'}
+            onChange={this.handleRatingChange}/>
         </div>
       );
     } else {
@@ -122,7 +134,7 @@ class Review extends React.Component {
             </div>
             <div className='user-info'>
               <h2>{this.props.user.fname}</h2>
-              <h3>{date.toLocaleString('en-US', { year: 'numeric', month: 'long'})}</h3>
+              <h3>{this.state.date.toLocaleString('en-US', { year: 'numeric', month: 'long'})}</h3>
             </div>
           </div>
         </div>
