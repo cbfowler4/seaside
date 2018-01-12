@@ -10,7 +10,6 @@ const mapStateToProps = (state, ownProps) => {
   let reviewId;
   let currentUser;
 
-
   if (ownProps.new) {
     review = {body: "", rating: 0};
     reviewId = null;
@@ -24,7 +23,7 @@ const mapStateToProps = (state, ownProps) => {
   } else {
     currentUser = state.session.currentUser;
   }
-  
+
   return ({
     review,
     reviewId,
