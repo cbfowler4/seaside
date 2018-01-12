@@ -144,7 +144,8 @@
   div {
     padding: 10px;
   }
-  
+
+
   .review-textarea {
     padding: 10px;
     width: 100%;
@@ -159,13 +160,23 @@
   }
 }
 
+.review-stars {
+  padding: 4px;
+}
+
 .review-button-container {
   margin-top: 50px;
   display: flex;
   justify-content: space-between;
-  width: 250px;
+  width: 400px;
+  display: flex;
+  justify-content: flex-end;
+
+  .review-buttons {
+  }
 
   button {
+    margin-left: 20px;
     font-size: 14px;
     font-weight: 700;
     color: #484848;
@@ -176,6 +187,7 @@
     height: 36px;
     width: 95px;
   }
+
 
   button:hover {
     background-color: rgba(0,0,0,.25);
@@ -275,4 +287,9 @@
   letter-spacing: 0.2px;
   line-height: 22px;
   margin: 50px 0 ;
+}
+
+.location-container {
+  margin-top: 30px;
+  margin-bottom: 50px;
 }

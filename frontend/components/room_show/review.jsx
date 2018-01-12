@@ -75,22 +75,46 @@ class Review extends React.Component {
     if (mode == "create") {
       buttons =  (
         <div className='review-button-container'>
-          <button onClick={this.handleSubmit}>Create</button>
-          <button onClick={this.handleCancel}>Cancel</button>
+          <ReactStars
+            className='review-stars'
+            count={5}
+            value={this.state.rating}
+            size={20}
+            edit={true}
+            half={true}
+            color2={'#008489'}
+            onChange={this.handleRatingChange}/>
+          <div className='review-buttons'>
+            <button onClick={this.handleSubmit}>Create</button>
+            <button onClick={this.handleCancel}>Cancel</button>
+          </div>
         </div>
       );
     } else if (mode == "edit") {
       buttons =  (
         <div className='review-button-container'>
-          <button onClick={this.handleChangeEditId}>Edit</button>
-          <button onClick={this.handleDelete}>Remove</button>
+          <div className='review-buttons'>
+            <button onClick={this.handleChangeEditId}>Edit</button>
+            <button onClick={this.handleDelete}>Remove</button>
+          </div>
         </div>
       );
     } else if (mode == "editing") {
         buttons = (
           <div className='review-button-container'>
-            <button onClick={this.handleSubmit}>Save</button>
-            <button onClick={this.handleCancel}>Cancel</button>
+            <ReactStars
+              className='review-stars'
+              count={5}
+              value={this.state.rating}
+              size={20}
+              edit={true}
+              half={true}
+              color2={'#008489'}
+              onChange={this.handleRatingChange}/>
+            <div className='review-buttons'>
+              <button onClick={this.handleSubmit}>Save</button>
+              <button onClick={this.handleCancel}>Cancel</button>
+            </div>
           </div>
         );
     } else {
@@ -106,13 +130,6 @@ class Review extends React.Component {
             <textarea className='review-textarea' value={this.state.body} onChange={this.handleBodyChange} placeholder={`Leave a review...`}>
             </textarea>
           </form>
-          <ReactStars
-            count={5}
-            value={this.state.rating} size={8}
-            edit={true}
-            half={true}
-            color2={'#008489'}
-            onChange={this.handleRatingChange}/>
         </div>
       );
     } else {
