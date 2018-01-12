@@ -15,7 +15,6 @@ class Api::ReviewsController < ApplicationController
 
     @room = reviewable
 
-
     if @review.save
       render :show
     else
@@ -30,7 +29,7 @@ class Api::ReviewsController < ApplicationController
       render :show
     else
       render json: @review.errors.full_messages, status: 422
-    end 
+    end
   end
 
 

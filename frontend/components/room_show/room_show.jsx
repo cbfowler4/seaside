@@ -20,7 +20,7 @@ class RoomShow extends React.Component {
     if (nextState.mapInitialize){
 
       const mapOptions = {
-        zoom: 10,
+        zoom: 13,
         center: this.props.room.position
       };
 
@@ -30,7 +30,13 @@ class RoomShow extends React.Component {
         map: this.map,
         title: this.props.room.title,
         icon: {
-          scale: 1
+          scale: 50,
+          path: google.maps.SymbolPath.CIRCLE,
+          strokeWeight: 1,
+          fillColor: '#05DCC9',
+          fillOpacity: .5,
+          strokeColor: '#00B5A5'
+
         },
       });
     }

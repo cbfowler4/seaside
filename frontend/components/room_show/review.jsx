@@ -10,10 +10,9 @@ class Review extends React.Component {
     this.state = {
       body: this.props.review.body,
       rating: this.props.review.rating,
-      authorId: this.props.review.authorId,
+      authorId: this.props.currentUser.id,
       roomId: this.props.roomId,
       reviewId: this.props.reviewId,
-      date: new Date(Date.UTC(2015+parseInt(Math.random()*2), parseInt(Math.random()*12)))
     };
 
     this.handleDelete = this.handleDelete.bind(this);
@@ -23,6 +22,7 @@ class Review extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
 
+    this.date = new Date(Date.UTC(2015+parseInt(Math.random()*2), parseInt(Math.random()*12)));
   }
 
   handleDelete(e) {
@@ -150,7 +150,7 @@ class Review extends React.Component {
             </div>
             <div className='user-info'>
               <h2>{this.props.user.fname}</h2>
-              <h3>{this.state.date.toLocaleString('en-US', { year: 'numeric', month: 'long'})}</h3>
+              <h3>{this.date.toLocaleString('en-US', { year: 'numeric', month: 'long'})}</h3>
             </div>
           </div>
           <div className='right'>

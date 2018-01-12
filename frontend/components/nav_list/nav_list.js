@@ -37,6 +37,7 @@ class NavList extends React.Component {
     } else {
       userStatus = (
         <div className='nav-right'>
+          <img src={this.props.photos[this.props.currentUser.photoIds[0]].imageAvatarUrl}/>
           <form onSubmit={this.handleLogout}>
             <button>Log Out</button>
           </form>

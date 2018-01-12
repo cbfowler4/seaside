@@ -4,6 +4,10 @@
       "api/users/user.json.jbuilder",
       user: current_user
     ).html_safe %>
+
+    window.photos = <%= render(
+      'api/photos/photo.json.jbuilder',
+      photo: current_user_photo).html_safe %>
   <% end %>
 </script>
 
