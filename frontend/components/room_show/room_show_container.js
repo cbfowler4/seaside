@@ -24,6 +24,16 @@ const mapStateToProps = (state, ownProps) => {
 
     //get all renter info and pictures for reviews
     room.renterIds.forEach((id) => {
+      if (Object.keys(state.entities.users).includes(id)) {
+        users[id] = state.entities.users[id];
+        users[id].photoIds.forEach((photoId) => {
+          photos[photoId] = state.entities.photos[photoId];
+        });
+      }
+    });
+
+    //get all reviwer info for pictures and reviews (shouldnt be necessary)
+    room.reviewerIds.forEach((id) => {
       users[id] = state.entities.users[id];
 
       users[id].photoIds.forEach((photoId) => {
@@ -36,8 +46,13 @@ const mapStateToProps = (state, ownProps) => {
     users[room.hostId].photoIds.forEach((photoId) => {
       photos[photoId] = state.entities.photos[photoId];
     });
-  }
 
+    //get currentUser photo
+    if (state.session.currentUser != null) {
+      let currentUserPhotoId = state.session.currentUser.photoIds[0];
+      photos[currentUserPhotoId] = state.entities.photos[currentUserPhotoId];
+    }
+  }
   return ({
     roomId: roomId,
     room: room,

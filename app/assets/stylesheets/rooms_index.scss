@@ -12,9 +12,29 @@
   display: flex;
 }
 
+#life-saver {
+  background-image: image-url('boat-lifesaver');
+  background-size: contain;
+  background-repeat: no-repeat;
+  padding: 10px;
+  height: 400px;
+  width: 400px;
+}
+
+.no-results-index {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  align-items: center;
+  h1 {
+    padding: 10px;
+  }
+}
+
 .room-list {
   width: 70%;
-  display: float;
+  display: flex;
+  flex-wrap: wrap;
   padding: 10px;
   height: calc(100vh - 146px);
   overflow: scroll;

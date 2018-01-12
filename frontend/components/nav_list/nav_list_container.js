@@ -8,7 +8,8 @@ import { openLogin, openSignup } from '../../actions/ui_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    currentUser: state.session.currentUser
+    currentUser: state.session.currentUser,
+    photos: state.entities.photos
   };
 };
 

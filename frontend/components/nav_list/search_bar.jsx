@@ -21,6 +21,8 @@ class SearchBar extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetSearch = this.resetSearch.bind(this);
+
+    this.cities = ["New York", "San Francisco", "Fort Lauderdale", 'Miami', 'Hartford', 'Havana', 'Virginia Beach', 'Charleston', 'Cape May', 'Jacksonville', 'Martha\'s Vineyard'];
   }
 
   handleChange (e) {
@@ -54,11 +56,12 @@ class SearchBar extends React.Component {
       cancelInput =  <div className='clear-search' onClick={this.resetSearch}>X</div>;
     }
 
+
     return (
       <div className = 'search-bar'>
         <form onSubmit={this.handleSubmit}>
           <input type='text'
-            placeholder='Try "New York"'
+            placeholder={`Try "${this.cities[Math.floor(Math.random()*this.cities.length)]}"`}
             value={this.state.search}
             onChange={this.handleChange}>
           </input>

@@ -20,6 +20,16 @@ class RoomList extends React.Component {
       return (<Spinner />);
     }
 
+    if (roomListArr.length < 1) {
+      return (
+        <ul className='room-list '>
+          <div className='no-results-index'>
+            <div id='life-saver'></div>
+            <h1>There ARRR no boats in this area</h1>
+          </div>
+        </ul>
+      );
+    }
     return(
       <ul className='room-list'>
         {roomListArr}
