@@ -22,7 +22,7 @@ const mapStateToProps = (state, ownProps) => {
     review,
     reviewId,
     currentUser: state.session.currentUser,
-    editId: state.ui.editId
+    editId: state.ui.editId,
   });
 };
 
