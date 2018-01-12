@@ -6,16 +6,34 @@ import Spinner from '../spinner';
 class RoomShow extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {mapInitialize: false};
   }
 
   componentDidMount() {
     this.props.fetchRoomInfo(this.props.roomId);
 
-    const mapOptions = {
-      zoom: 10,
-      center: {lat: 45, lng: 43}
-    };
 
+
+  }
+
+  componentWillUpdate (nextProps, nextState) {
+    if (nextState.mapInitialize){
+
+      const mapOptions = {
+        zoom: 10,
+        center: this.props.room.position
+      };
+
+      this.map = new google.maps.Map(document.getElementById('show-map-container'), mapOptions);
+      this.marker = new google.maps.Marker({
+        position: this.props.room.position,
+        map: this.map,
+        title: this.props.room.title,
+        icon: {
+          scale: 1
+        },
+      });
+    }
   }
 
   render() {
@@ -24,6 +42,10 @@ class RoomShow extends React.Component {
     }
 
     if (!!this.props.room && !!this.props.reviews[this.props.room.reviewIds[0]]) {
+      if (!this.state.mapInitialize) {
+        this.setState({mapInitialize: true});
+      }
+
 
       //reviews
       const host = this.props.users[this.props.room.hostId];
@@ -94,22 +116,22 @@ class RoomShow extends React.Component {
                   {reviews}
                 </ul>
               </section>
-              <div className='location-container'>
-                <h1>Location</h1>
-                <div className='room-map-container'></div>
-
-
-              </div>
             </section>
             <aside className='booking-aside'>
               <BookingContainer room={this.props.room}/>
             </aside>
           </main>
+          <div className='location-container'>
+            <a>Location</a>
+            <div id='show-map-container'></div>
+
+
+          </div>
         </content>
       )
     }
     else {
-      return null
+      return (null);
     }
   }
 }
