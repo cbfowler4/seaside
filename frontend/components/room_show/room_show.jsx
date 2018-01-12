@@ -122,7 +122,7 @@ class RoomShow extends React.Component {
             </aside>
           </main>
           <div className='location-container'>
-            <a>Location</a>
+            <h1>Location</h1>
             <div id='show-map-container'></div>
 
 

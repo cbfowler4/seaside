@@ -10,7 +10,7 @@ class Review extends React.Component {
     this.state = {
       body: this.props.review.body,
       rating: this.props.review.rating,
-      authorId: this.props.currentUser.id,
+      authorId: this.props.review.authorId,
       roomId: this.props.roomId,
       reviewId: this.props.reviewId,
       date: new Date(Date.UTC(2015+parseInt(Math.random()*2), parseInt(Math.random()*12)))
