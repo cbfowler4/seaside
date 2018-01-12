@@ -25,7 +25,6 @@ const mapStateToProps = (state, ownProps) => {
     //get all renter info and pictures for reviews
     room.renterIds.forEach((id) => {
       users[id] = state.entities.users[id];
-
       users[id].photoIds.forEach((photoId) => {
         photos[photoId] = state.entities.photos[photoId];
       });

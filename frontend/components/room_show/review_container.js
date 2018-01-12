@@ -8,7 +8,7 @@ import { deleteReview } from '../../actions/review_actions';
 const mapStateToProps = (state, ownProps) => {
   let review;
   let reviewId;
-
+  let currentUser;
 
   if (ownProps.new) {
     review = {body: "", rating: 0};
@@ -18,10 +18,16 @@ const mapStateToProps = (state, ownProps) => {
     review = state.entities.reviews[reviewId];
   }
 
+  if (state.session.currentUser == null ) {
+    currentUser = {id: null};
+  } else {
+    currentUser = state.session.currentUser;
+  }
+
   return ({
     review,
     reviewId,
-    currentUser: state.session.currentUser,
+    currentUser,
     editId: state.ui.editId,
   });
 };
