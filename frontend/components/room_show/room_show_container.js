@@ -12,21 +12,26 @@ const mapStateToProps = (state, ownProps) => {
   let users = {};
 
   if (room && !!state.entities.reviews[room.reviewIds[0]]) {
+    //room photos
     room.photoIds.forEach((id) => {
       photos[id] = state.entities.photos[id];
     });
 
+    //get all reviews
     room.reviewIds.forEach((id) => {
       reviews[id] = state.entities.reviews[id];
-      let authorId = reviews[id].authorId;
+    });
 
-      users[authorId] = state.entities.users[authorId];
+    //get all renter info and pictures for reviews
+    room.renterIds.forEach((id) => {
+      users[id] = state.entities.users[id];
 
-      users[authorId].photoIds.forEach((photoId) => {
+      users[id].photoIds.forEach((photoId) => {
         photos[photoId] = state.entities.photos[photoId];
       });
     });
 
+    //get host info for pictures and name
     users[room.hostId] = state.entities.users[room.hostId];
     users[room.hostId].photoIds.forEach((photoId) => {
       photos[photoId] = state.entities.photos[photoId];

@@ -19,9 +19,10 @@ export const bookingChanged = () => {
   };
 };
 
-export const receiveSuccessfulBooking = () => {
+export const receiveSuccessfulBooking = (response) => {
   return {
     type: RECEIVE_BOOKING_SUCCESS,
+    room: response.room
   };
 };
 
@@ -32,9 +33,9 @@ export const requestBooking = (booking) => {
   booking.currentUser = booking.currentUser.id;
 
   return (dispatch) => {
-    return (BookingsAPIUtil.requestRoomBooking(booking).then(() =>
+    return (BookingsAPIUtil.requestRoomBooking(booking).then((response) =>
      {
-       dispatch(receiveSuccessfulBooking());
+       dispatch(receiveSuccessfulBooking(response));
      },
     (errors) => {
       dispatch(receiveErrors(errors.responseJSON));

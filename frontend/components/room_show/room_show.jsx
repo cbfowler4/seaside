@@ -10,6 +10,12 @@ class RoomShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchRoomInfo(this.props.roomId);
+
+    const mapOptions = {
+      zoom: 10,
+      center: {lat: 45, lng: 43}
+    };
+
   }
 
   render() {
@@ -18,7 +24,6 @@ class RoomShow extends React.Component {
     }
 
     if (!!this.props.room && !!this.props.reviews[this.props.room.reviewIds[0]]) {
-
 
       //reviews
       const host = this.props.users[this.props.room.hostId];
@@ -36,12 +41,10 @@ class RoomShow extends React.Component {
           />);
       })
 
-      if (!this.props.room.reviewerIds.includes(this.props.currentUser.id) &&
+      if (this.props.currentUser != null && !this.props.room.reviewerIds.includes(this.props.currentUser.id) &&
           this.props.room.renterIds.includes(this.props.currentUser.id)) {
-            const emptyReview = {body: "", rating: 0};
             reviews.unshift(<ReviewContainer
               key={this.props.room.id}
-              review={emptyReview}
               action={this.props.createReview}
               user={this.props.currentUser}
               roomId={this.props.room.id}
@@ -91,7 +94,12 @@ class RoomShow extends React.Component {
                   {reviews}
                 </ul>
               </section>
+              <div className='location-container'>
+                <h1>Location</h1>
+                <div className='room-map-container'></div>
 
+
+              </div>
             </section>
             <aside className='booking-aside'>
               <BookingContainer room={this.props.room}/>

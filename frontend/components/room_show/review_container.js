@@ -6,11 +6,23 @@ import { deleteReview } from '../../actions/review_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
+  let review;
+  let reviewId;
+
+
+  if (ownProps.new) {
+    review = {body: "", rating: 0};
+    reviewId = null;
+  } else {
+    reviewId = ownProps.reviewId;
+    review = state.entities.reviews[reviewId];
+  }
+
   return ({
-    review: state.entities.reviews[ownProps.reviewId],
-    reviewId: ownProps.reviewId,
+    review,
+    reviewId,
     currentUser: state.session.currentUser,
-    editId: state.ui.editIds
+    editId: state.ui.editId
   });
 };
 

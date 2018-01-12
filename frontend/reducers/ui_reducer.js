@@ -7,6 +7,7 @@ import {
   FETCHING_COMPLETE,
   UPDATE_EDIT_ID } from '../actions/ui_actions';
 
+import { RECEIVE_REVIEW } from '../actions/review_actions';
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { BOOKING_CHANGED, RECEIVE_BOOKING_SUCCESS } from '../actions/booking_actions';
 
@@ -43,6 +44,8 @@ export default (state = defaultState, action) => {
       return merge({}, state, {booked: true});
     case UPDATE_EDIT_ID:
       return merge({}, state, {editId: action.editId});
+    case RECEIVE_REVIEW:
+      return merge({}, state, {editId: null});
     default:
       return state;
   }
