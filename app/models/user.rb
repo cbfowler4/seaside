@@ -25,9 +25,9 @@ class User < ApplicationRecord
     foreign_key: :host_id,
     class_name: :Room
 
-  has_many :photos, as: :imageable
+  has_one :photo, as: :imageable
   has_many :reviews, as: :reviewable
-  
+
   has_many :authored_reviews,
     foreign_key: :author_id,
     class_name: :Review
@@ -68,9 +68,5 @@ class User < ApplicationRecord
     end
   end
 
-  def self.find_host_and_commenters(room)
-    # Room.where(['id = ?', room.id]).includes(:host)
-    # Room.where( )
-  end
 
 end

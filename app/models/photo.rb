@@ -15,7 +15,7 @@
 #
 
 class Photo < ApplicationRecord
-  has_attached_file :image, styles: { avatar: "100x100>", thumb: "500x500>" }, default_url: ""
+  has_attached_file :image, styles: { avatar: "100x100>", thumb: "500x500>", banner: "1500x1500>" }, default_url: 'https://s3.amazonaws.com/aa-seaside-dev/seeds/users/default/swimming-figure.png'
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
 
   validates :title, presence: true

@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user_photo
-    Photo.find(current_user.photo_ids[0])
+    photo = Photo.find_by(id: current_user.photo)
   end
 
   def logged_in?

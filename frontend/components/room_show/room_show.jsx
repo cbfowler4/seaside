@@ -44,7 +44,7 @@ class RoomShow extends React.Component {
       return (<Spinner />);
     }
 
-    if (!!this.props.room && !!this.props.reviews[this.props.room.reviewIds[0]]) {
+    if (this.props.room && this.props.room.show === true) {
       if (!this.state.mapInitialize) {
         this.setState({mapInitialize: true});
       }
@@ -61,7 +61,7 @@ class RoomShow extends React.Component {
           user={user}
           action={this.props.updateReview}
           roomId={this.props.room.id}
-          imageUrl={this.props.photos[user.photoIds[0]].imageAvatarUrl}
+          imageUrl={user.imageAvatarUrl}
           new={false}
           />);
       })
@@ -73,7 +73,7 @@ class RoomShow extends React.Component {
               action={this.props.createReview}
               user={this.props.currentUser}
               roomId={this.props.room.id}
-              imageUrl={this.props.photos[this.props.currentUser.photoIds[0]].imageAvatarUrl}
+              imageUrl={this.props.currentUser.imageAvatarUrl}
               new={true}
               />);
           };
@@ -81,7 +81,7 @@ class RoomShow extends React.Component {
       return (
         <content className='room-show-main'>
           <div className='room-main-picture'>
-            <img src={this.props.photos[this.props.room.photoIds[0]].imageUrl}/>
+            <img src={this.props.photos[this.props.room.photoIds[0]].imageBannerUrl}/>
           </div>
           <main className='room-info-booking-container'>
             <section className='room-info'>
@@ -97,7 +97,7 @@ class RoomShow extends React.Component {
                     <h2>{this.props.room.roomType}</h2>
                   </div>
                   <div className='host-pic'>
-                    <img src={this.props.photos[host.photoIds[0]].imageAvatarUrl} />
+                    <img src={this.props.users[this.props.room.hostId].imageAvatarUrl} />
                     <h2>{host.fname}</h2>
                   </div>
               </header>
