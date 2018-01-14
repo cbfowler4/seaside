@@ -11,56 +11,22 @@ const mapStateToProps = (state, ownProps) => {
   let reviews = {};
   let users = {};
 
-  if (room && !!state.entities.reviews[room.reviewIds[0]]) {
-    //room photos
-    room.photoIds.forEach((id) => {
-      photos[id] = state.entities.photos[id];
+  if (room && room.show === true) {
+    return ({
+      roomId: roomId,
+      room: room,
+      photos: state.entities.photos,
+      reviews: state.entities.reviews,
+      users: state.entities.users,
+      isFetching: state.ui.isFetching,
+      currentUser: state.session.currentUser,
     });
-
-    //get all reviews
-    room.reviewIds.forEach((id) => {
-      reviews[id] = state.entities.reviews[id];
+  } else {
+    return ({
+      roomId: roomId,
+      room: room
     });
-
-    //get all renter info and pictures for reviews
-    room.renterIds.forEach((id) => {
-      if (Object.keys(state.entities.users).includes(id)) {
-        users[id] = state.entities.users[id];
-        users[id].photoIds.forEach((photoId) => {
-          photos[photoId] = state.entities.photos[photoId];
-        });
-      }
-    });
-
-    //get all reviwer info for pictures and reviews (shouldnt be necessary)
-    room.reviewerIds.forEach((id) => {
-      users[id] = state.entities.users[id];
-      users[id].photoIds.forEach((photoId) => {
-        photos[photoId] = state.entities.photos[photoId];
-      });
-    });
-
-    //get host info for pictures and name
-    users[room.hostId] = state.entities.users[room.hostId];
-    users[room.hostId].photoIds.forEach((photoId) => {
-      photos[photoId] = state.entities.photos[photoId];
-    });
-
-    //get currentUser photo
-    if (state.session.currentUser != null) {
-      let currentUserPhotoId = state.session.currentUser.photoIds[0];
-      photos[currentUserPhotoId] = state.entities.photos[currentUserPhotoId];
-    }
   }
-  return ({
-    roomId: roomId,
-    room: room,
-    photos: photos,
-    reviews: reviews,
-    users: users,
-    isFetching: state.ui.isFetching,
-    currentUser: state.session.currentUser,
-  });
 };
 
 const mapDispatchToProps = dispatch => {

@@ -3,6 +3,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      Photo.create({title: 'user_default', imageable: @user})
       login(@user)
       render 'api/users/show'
     else

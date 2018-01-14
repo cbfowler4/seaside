@@ -18,6 +18,7 @@ json.room do
       json.gym @room.gym
       json.hot_tub @room.hot_tub
     end
+    json.show true
   end
 end
 
@@ -25,23 +26,6 @@ json.photos do
   @room_photos.each do |photo|
     json.partial! '/api/photos/photo', photo: photo
   end
-
-  @users.each do |user|
-    user.photos.each do |photo|
-      json.partial! '/api/photos/photo', photo: photo
-    end
-  end
-
-  @host.photos.each do |photo|
-    json.partial! '/api/photos/photo', photo: photo
-  end
-
-  if @current_user
-    @current_user.photos.each do |photo|
-      json.partial! '/api/photos/photo', photo: photo
-    end
-  end
-
 end
 
 json.reviews do
@@ -69,9 +53,3 @@ json.users do
     end
   end
 end
-
-  # @user_photos.each do |photo|
-  #   json.set! photo.id do
-  #     json.partial! '/api/photos/photo', photo: photo
-  #   end
-  # end
