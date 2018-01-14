@@ -1,5 +1,4 @@
 import React from 'react';
-import ReviewEdit from './review_edit';
 import ReactStars from 'react-stars';
 
 
@@ -21,6 +20,7 @@ class Review extends React.Component {
     this.handleRatingChange = this.handleRatingChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCancel = this.handleCancel.bind(this);
+    this.handleUserShow = this.handleUserShow.bind(this);
 
     this.date = new Date(Date.UTC(2015+parseInt(Math.random()*2), parseInt(Math.random()*12)));
   }
@@ -54,9 +54,12 @@ class Review extends React.Component {
     e.stopPropagation();
   }
 
+  handleUserShow (e) {
+    this.props.history.push(`/users/${this.props.user.id}`);
+    e.stopPropagation();
+  }
+
   render() {
-
-
     let mode;
     if (this.props.new == true) {
       mode = "create";
@@ -146,10 +149,10 @@ class Review extends React.Component {
         <div className='user-header'>
           <div className='left'>
             <div className='user-picture'>
-              <img src={this.props.imageUrl} />
+              <img src={this.props.imageUrl} onClick={this.handleUserShow}/>
             </div>
             <div className='user-info'>
-              <h2>{this.props.user.fname}</h2>
+              <h2 onClick={this.handleUserShow}>{this.props.user.fname}</h2>
               <h3>{this.date.toLocaleString('en-US', { year: 'numeric', month: 'long'})}</h3>
             </div>
           </div>
