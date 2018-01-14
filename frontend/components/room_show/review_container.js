@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import Review from './review';
+import { withRouter } from 'react-router-dom';
 import { updateEditId } from '../../actions/ui_actions';
 import { deleteReview } from '../../actions/review_actions';
 
@@ -40,4 +41,4 @@ const mapDispatchToProps = dispatch => {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Review);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Review));

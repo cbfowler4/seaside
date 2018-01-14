@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
     if @user.save
       Photo.create({title: 'user_default', imageable: @user})
       login(@user)
-      render 'api/users/show'
+      render 'api/users/create'
     else
       if @user.errors.keys.include?(:lname)
         @user.errors.messages.delete(:lname)
@@ -22,7 +22,13 @@ class Api::UsersController < ApplicationController
   end
 
   def show
-
+    @user = User.find_by(id: params[:id])
+    @bookings = @user.bookings.includes(room: [:photos])
+    if @user
+      render :show
+    else
+      render json: ['User not found'], status: 422
+    end
   end
 
   private
