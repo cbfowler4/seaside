@@ -11,6 +11,7 @@ json.users do
     json.partial! 'api/users/user', user: @user
     json.reviewIds @user.review_ids
     json.reviewerIds @user.reviewer_ids
+    json.show true
   end
 
   @user.reviewers.each do |reviewer|
