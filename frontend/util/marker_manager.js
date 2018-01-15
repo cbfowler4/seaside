@@ -6,8 +6,6 @@ export default class MarkerManager {
   }
 
   updateMarkers(rooms) {
-    console.log('update rooms');
-
     rooms.forEach((room) => {
       if (!Object.keys(this.markers).includes(room.id)) {
         this.createMarkerFromRoom(room);

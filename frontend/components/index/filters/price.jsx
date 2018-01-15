@@ -44,7 +44,6 @@ class PriceFilter extends React.Component {
 
   handleChange(priceType) {
     return ((e) => {
-      console.log("hey");
       if (priceType === 'min' && parseInt(e.target.value) < parseInt(this.state.max) - 30) {
         this.setState({'min': e.target.value});
       } else if (priceType === 'max' && parseInt(e.target.value) > parseInt(this.state.min) + 30) {

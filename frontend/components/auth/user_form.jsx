@@ -26,7 +26,7 @@ const mapDispatchToProps = dispatch => {
 class UserForm extends React.Component {
   constructor(props){
     super(props);
-    this.state = { email: "", fname: "", lname: "", password: ""};
+    this.state = { email: "", fname: "", lname: "", password: "", city: "Manhattan", state: "New York"};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);

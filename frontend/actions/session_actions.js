@@ -43,6 +43,7 @@ export const login = (user) => {
 
 export const signup = (user) => {
   return (dispatch) => {
+    debugger
     SessionAPIUtil.signup(user).then((response) => {
       dispatch(receiveCurrentUser(response));
     },

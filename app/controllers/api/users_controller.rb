@@ -2,6 +2,7 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    debugger
     if @user.save
       Photo.create({title: 'user_default', imageable: @user})
       login(@user)
@@ -34,6 +35,6 @@ class Api::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :fname, :lname, :password)
+    params.require(:user).permit(:email, :fname, :lname, :password, :city, :state)
   end
 end
