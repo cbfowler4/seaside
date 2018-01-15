@@ -46,7 +46,6 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    debugger
     this.props.login({user: this.state});
     this.setState({password: ""});
   }
