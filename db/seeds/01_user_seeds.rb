@@ -26,6 +26,24 @@ COUPLE_IMAGES = ['https://s3.amazonaws.com/aa-seaside-dev/seeds/users/couples/ar
 'https://s3.amazonaws.com/aa-seaside-dev/seeds/users/couples/suzana-sousa-280169.jpg'
 ]
 
+CITY_STATES = [
+  ['Los Angeles', 'California'],
+  ['San Diego', 'California'],
+  ['San Francisco', 'California'],
+  ['Sacramento', 'California'],
+  ['Brooklyn', 'New York'],
+  ['Queens', 'New York'],
+  ['Staten Island', 'New York'],
+  ['Manhattan', 'New York'],
+  ['Orlando', 'Florida'],
+  ['Miami', 'Florida'],
+  ['West Palm Beach', 'Florida'],
+  ['London', 'England'],
+  ['Tokyo', 'Japan'],
+  ['Cape Town', 'South Africa'],
+  ['Hartford', 'Connecticut'],
+]
+
 class UserSeeds
   attr_reader :users
 
@@ -40,41 +58,52 @@ class UserSeeds
           email: "guest",
           fname: "Bryan",
           lname: "Fowler",
-          password: "password"}),
+          password: "password",
+          city: 'Hartford',
+          state: 'Connecticut'}),
 
           picture: MALE_IMAGES.sample
       })
 
     MALE_IMAGES.each do |person|
+      city_state = CITY_STATES.sample
       @users[:males].push({
             user: User.create!({
               email: Faker::Internet.email,
               fname: Faker::Name.first_name,
               lname: Faker::Name.last_name,
-              password: "password"}),
+              password: "password",
+              city: city_state[0],
+              state: city_state[1]}),
 
             picture: person})
     end
 
     FEMALE_IMAGES.each do |person|
+      city_state = CITY_STATES.sample
       @users[:females].push({
             user: User.create!({
               email: Faker::Internet.email,
               fname: Faker::Name.first_name,
               lname: Faker::Name.last_name,
-              password: "password"}),
+              password: "password",
+              city: city_state[0],
+              state: city_state[1]}),
 
             picture: person})
     end
 
 
     COUPLE_IMAGES.each do |person|
+      city_state = CITY_STATES.sample
       @users[:couples].push({
             user: User.create!({
               email: Faker::Internet.email,
               fname: "#{Faker::Name.first_name} & #{Faker::Name.first_name}",
               lname: Faker::Name.last_name,
-              password: "password"}),
+              password: "password",
+              city: city_state[0],
+              state: city_state[1]}),
 
             picture: person})
     end

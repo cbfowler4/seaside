@@ -10,7 +10,6 @@ class Review extends React.Component {
       body: this.props.review.body,
       rating: this.props.review.rating,
       authorId: this.props.currentUser.id,
-      roomId: this.props.roomId,
       reviewId: this.props.reviewId,
     };
 

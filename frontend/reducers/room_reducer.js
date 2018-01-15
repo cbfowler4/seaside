@@ -2,7 +2,7 @@ import { RECEIVE_ROOMS } from '../actions/room_index_actions.js';
 import { RECEIVE_ROOM } from '../actions/room_show_actions.js';
 import { RECEIVE_REVIEW, REMOVE_REVIEW } from '../actions/review_actions.js';
 import { RECEIVE_BOOKING_SUCCESS } from '../actions/booking_actions';
-
+import { RECEIVE_USER } from '../actions/user_show_actions';
 import { merge } from 'lodash';
 
 window.merge = merge;
@@ -30,6 +30,8 @@ export default (state = {}, action) => {
       roomId = Object.keys(action.room)[0];
       newState[roomId].renterIds = action.room[roomId].renterIds;
       return newState;
+    case RECEIVE_USER:
+      return merge({}, state, action.rooms);
     default:
       return state;
   }

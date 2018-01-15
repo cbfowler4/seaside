@@ -7,6 +7,7 @@ class RoomShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {mapInitialize: false};
+    this.handleUserShow = this.handleUserShow.bind(this);
   }
 
   componentDidMount() {
@@ -39,6 +40,12 @@ class RoomShow extends React.Component {
     }
   }
 
+
+  handleUserShow (e) {
+    this.props.history.push(`/users/${this.props.user.id}`);
+    e.stopPropagation();
+  }
+
   render() {
     if (this.props.isFetching) {
       return (<Spinner />);
@@ -60,7 +67,6 @@ class RoomShow extends React.Component {
           reviewId={reviewId}
           user={user}
           action={this.props.updateReview}
-          roomId={this.props.room.id}
           imageUrl={user.imageAvatarUrl}
           new={false}
           />);
@@ -72,7 +78,6 @@ class RoomShow extends React.Component {
               key={this.props.room.id}
               action={this.props.createReview}
               user={this.props.currentUser}
-              roomId={this.props.room.id}
               imageUrl={this.props.currentUser.imageAvatarUrl}
               new={true}
               />);
@@ -80,7 +85,7 @@ class RoomShow extends React.Component {
 
       return (
         <content className='room-show-main'>
-          <div className='room-main-picture'>
+          <div className='room-main-picture' onClick={this.handleUserShow}>
             <img src={this.props.photos[this.props.room.photoIds[0]].imageBannerUrl}/>
           </div>
           <main className='room-info-booking-container'>
