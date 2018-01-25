@@ -62,6 +62,7 @@ class UserForm extends React.Component {
     this.props.openLogin();
   }
 
+
   render() {
     let errors;
     if (this.props.errors) {
