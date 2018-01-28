@@ -21,11 +21,11 @@ class RoomList extends React.Component {
       return (<RoomListItem room={room} photos={photos} key={room.id}/>);
     });
 
-    if (this.props.isFetching || this.hasRenderedOnce === false) {
+    if (this.props.isFetching) {
       return (<Spinner />);
     }
 
-    if (roomListArr.length < 1 && this.hasRenderedOnce === true) {
+    if (roomListArr.length < 1) {
       return (
         <ul className='room-list '>
           <div className='no-results-index'>
