@@ -1,9 +1,9 @@
 RENTER_REVIEWS_WITH_NAMES = [
-  'was a great person!',
+  ' was a great person!',
   ' please come back soon! ',
   ' was the perfect guest! ',
   ' could have been a better guest. ',
-  ' left the poop deck a mess! ',
+  ' left the deck a mess! ',
   ' caught a massive fish! ',
   ' left early in the morning, very respectful. '
 ]
