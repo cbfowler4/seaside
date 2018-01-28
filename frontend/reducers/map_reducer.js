@@ -3,7 +3,7 @@ import { merge } from 'lodash';
 
 
 const defaultState = {
-  center: {lat: 43.213, lng: -72.2342 }
+  center: {lat: 40.752, lng: -73.9812 }
 };
 
 export default (state = defaultState, action ) => {

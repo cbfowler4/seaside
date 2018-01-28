@@ -7,7 +7,7 @@ class RoomShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {mapInitialize: false};
-    this.handleUserShow = this.handleUserShow.bind(this);
+    this.handleHostShow = this.handleHostShow.bind(this);
   }
 
   componentDidMount() {
@@ -41,8 +41,8 @@ class RoomShow extends React.Component {
   }
 
 
-  handleUserShow (e) {
-    this.props.history.push(`/users/${this.props.user.id}`);
+  handleHostShow (e) {
+    this.props.history.push(`/users/${this.props.room.hostId}`);
     e.stopPropagation();
   }
 
@@ -64,6 +64,7 @@ class RoomShow extends React.Component {
         let user = this.props.users[review.authorId];
         return (<ReviewContainer
           key={reviewId}
+          roomId={this.props.room.id}
           reviewId={reviewId}
           user={user}
           action={this.props.updateReview}
@@ -76,16 +77,17 @@ class RoomShow extends React.Component {
           this.props.room.renterIds.includes(this.props.currentUser.id)) {
             reviews.unshift(<ReviewContainer
               key={this.props.room.id}
+              roomId={this.props.room.id}
               action={this.props.createReview}
               user={this.props.currentUser}
               imageUrl={this.props.currentUser.imageAvatarUrl}
               new={true}
               />);
-          };
+          }
 
       return (
         <content className='room-show-main'>
-          <div className='room-main-picture' onClick={this.handleUserShow}>
+          <div className='room-main-picture'>
             <img src={this.props.photos[this.props.room.photoIds[0]].imageBannerUrl}/>
           </div>
           <main className='room-info-booking-container'>
@@ -101,7 +103,7 @@ class RoomShow extends React.Component {
                     <h1>{this.props.room.title}</h1>
                     <h2>{this.props.room.roomType}</h2>
                   </div>
-                  <div className='host-pic'>
+                  <div className='host-pic' onClick={this.handleHostShow}>
                     <img src={this.props.users[this.props.room.hostId].imageAvatarUrl} />
                     <h2>{host.fname}</h2>
                   </div>

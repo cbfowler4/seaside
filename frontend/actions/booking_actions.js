@@ -28,10 +28,9 @@ export const receiveSuccessfulBooking = (response) => {
 
 
 export const requestBooking = (booking) => {
-  booking.startDate = booking.startDate.format('MM/DD/YYYY');
-  booking.endDate = booking.endDate.format('MM/DD/YYYY');
+  booking.startDate = booking.startDate.format('YYYY-MM-DD');
+  booking.endDate = booking.endDate.format('YYYY-MM-DD');
   booking.currentUser = booking.currentUser.id;
-
   return (dispatch) => {
     return (BookingsAPIUtil.requestRoomBooking(booking).then((response) =>
      {

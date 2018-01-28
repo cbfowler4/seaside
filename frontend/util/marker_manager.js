@@ -3,16 +3,32 @@ export default class MarkerManager {
   constructor(map) {
     this.map = map;
     this.markers = {};
+    this.mouseOverListeners = {};
+    this.mouseOutListeners = {};
   }
 
   updateMarkers(rooms) {
+    // debugger
+    this.currentRooms = {};
     rooms.forEach((room) => {
-      if (!Object.keys(this.markers).includes(room.id)) {
+      if (this.markers[room.id] === undefined) {
         this.createMarkerFromRoom(room);
+        this.currentRooms[room.id] = true;
+      // } else if (this.markers[room.id].map === null) {
+      //   this.marker[room.id].setMap(this.map);
       }
     });
 
+    // this.removeMarkers(rooms);
   }
+  // 
+  // removeMarkers(rooms) {
+  //   Object.keys(this.markers).forEach((roomId) => {
+  //     if (this.currentRooms[roomId] === undefined) {
+  //       this.markers[roomId].setMap(null);
+  //     }
+  //   });
+  // }
 
   highlightIcon(marker) {
     return (() => {
@@ -50,9 +66,11 @@ export default class MarkerManager {
       },
       zIndex: room.id
     });
-    // this context is lost?
 
-    this.markers[room.id].addListener('mouseover', this.highlightIcon(this.markers[room.id]));
-    this.markers[room.id].addListener('mouseout', this.removeIconHighlight(this.markers[room.id]));
+    this.mouseOverListeners[room.id] = this.markers[room.id]
+      .addListener('mouseover', this.highlightIcon(this.markers[room.id]));
+
+    this.mouseOutListeners[room.id] = this.markers[room.id]
+      .addListener('mouseout', this.removeIconHighlight(this.markers[room.id]));
   }
 }

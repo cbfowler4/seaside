@@ -7,7 +7,8 @@ import {  receiveMapCenter } from '../../actions/map_actions';
 const mapStateToProps = state => {
   return ({
     center: state.map.center,
-    rooms: Object.values(state.entities.rooms)
+    rooms: Object.values(state.entities.rooms),
+    bounds: state.filters.bounds
   });
 };
 

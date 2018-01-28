@@ -40,7 +40,9 @@ YACHTS = ['https://s3.amazonaws.com/aa-seaside-dev/seeds/boats/yachts/ahmed-saff
 LAT_LNG = [
   {lat: 43.213, lng: -72.2342},
   {lat: 38.213, lng: -78.2342},
-  {lat: 29.213, lng: -86.2342}
+  {lat: 29.213, lng: -86.2342},
+  {lat: 33.701, lng: -117.885},
+  {lat: 22.813, lng: -82.2342}
 ]
 
 ADJECTIVES = [ 'Beautiful', 'Amazing', 'Spectacular', 'Cozy', 'Comfortable', 'Welcoming', 'Chill', "Old and rustic"]
@@ -58,83 +60,85 @@ class RoomSeeds
   end
 
   def generateSeeds()
-    SAIL_BOATS.each do |boat|
-      @rooms[:sailboats].push({ room:
-            Room.create!({
-            :host_id => @users[USER_TYPES.sample].sample[:user].id,
-            :title => "#{ADJECTIVES.sample} sail boat, #{VERBS.sample}",
-            :address => Faker::Address.street_address,
-            :lat => (LAT_LNG.sample[:lat]+(5*rand())),
-            :lng => (LAT_LNG.sample[:lng]+(5*rand())),
-            :price => (rand()*400).to_i,
-            :max_guests => (rand()*8.to_i),
-            :description => 'Ship from the 1800s with ample space and plenty of natural light.
-             Please stay on our boat with us. We can take you across the marina or to some islands nearby.
-              There are awesome places for swimming and fishing as well. Sometimes we see dolphins on the port side of the vessel.
-              My father was a sailor in the Navy so I am an experience captain!. The sunsets are also beautiful and
-               we would love for you to join us',
-            :beds => (rand()*8.to_i),
-            :bathrooms => (rand()*3.to_i),
-            :bedrooms => (rand()*5.to_i),
-            :cancellation => CANCELLATION.sample,
-            :min_stay => (rand()*2).to_i,
-            :room_type => 'Sail boat'
+    2.times do
+      SAIL_BOATS.each do |boat|
+        @rooms[:sailboats].push({ room:
+              Room.create!({
+              :host_id => @users[USER_TYPES.sample].sample[:user].id,
+              :title => "#{ADJECTIVES.sample} sail boat, #{VERBS.sample}",
+              :address => Faker::Address.street_address,
+              :lat => (LAT_LNG.sample[:lat]+(5*rand())+(1*rand())),
+              :lng => (LAT_LNG.sample[:lng]+(5*rand())+(1*rand())),
+              :price => (rand()*400).to_i,
+              :max_guests => (rand()*8.to_i),
+              :description => 'Ship from the 1800s with ample space and plenty of natural light.
+               Please stay on our boat with us. We can take you across the marina or to some islands nearby.
+                There are awesome places for swimming and fishing as well. Sometimes we see dolphins on the port side of the vessel.
+                My father was a sailor in the Navy so I am an experience captain!. The sunsets are also beautiful and
+                 we would love for you to join us',
+              :beds => (rand()*8.to_i),
+              :bathrooms => (rand()*3.to_i),
+              :bedrooms => (rand()*5.to_i),
+              :cancellation => CANCELLATION.sample,
+              :min_stay => (rand()*2).to_i,
+              :room_type => 'Sail boat'
+              }),
+              picture: boat
+            })
+        end
+
+      MOTOR_BOATS.each do |boat|
+        @rooms[:motorboats].push({ room:
+              Room.create!({
+              :host_id => @users[USER_TYPES.sample].sample[:user].id,
+              :title => "#{ADJECTIVES.sample} motor boat, all aboard!",
+              :address => Faker::Address.street_address,
+              :lat => (LAT_LNG.sample[:lat]+(rand()/100)),
+              :lng => (LAT_LNG.sample[:lng]+(rand()/100)),
+              :price => (rand()*400).to_i,
+              :max_guests => (rand()*8.to_i),
+              :description => 'Ship from the 1800s with ample space and plenty of natural light.
+               Please stay on our boat with us. We can take you across the marina or to some islands nearby.
+                There are awesome places for swimming and fishing as well. Sometimes we see dolphins on the port side of the vessel.
+                My father was a sailor in the Navy so I am an experience captain!. The sunsets are also beautiful and
+                 we would love for you to join us',
+              :beds => (rand()*8.to_i),
+              :bathrooms => (rand()*3.to_i),
+              :bedrooms => (rand()*5.to_i),
+              :cancellation => CANCELLATION.sample,
+              :min_stay => (rand()*4).to_i,
+              :room_type => 'Motor boat'
             }),
             picture: boat
           })
-      end
 
-    MOTOR_BOATS.each do |boat|
-      @rooms[:motorboats].push({ room:
-            Room.create!({
-            :host_id => @users[USER_TYPES.sample].sample[:user].id,
-            :title => "#{ADJECTIVES.sample} motor boat, all aboard!",
-            :address => Faker::Address.street_address,
-            :lat => (LAT_LNG.sample[:lat]+(rand()/100)),
-            :lng => (LAT_LNG.sample[:lng]+(rand()/100)),
-            :price => (rand()*400).to_i,
-            :max_guests => (rand()*8.to_i),
-            :description => 'Ship from the 1800s with ample space and plenty of natural light.
-             Please stay on our boat with us. We can take you across the marina or to some islands nearby.
-              There are awesome places for swimming and fishing as well. Sometimes we see dolphins on the port side of the vessel.
-              My father was a sailor in the Navy so I am an experience captain!. The sunsets are also beautiful and
-               we would love for you to join us',
-            :beds => (rand()*8.to_i),
-            :bathrooms => (rand()*3.to_i),
-            :bedrooms => (rand()*5.to_i),
-            :cancellation => CANCELLATION.sample,
-            :min_stay => (rand()*4).to_i,
-            :room_type => 'Motor boat'
-          }),
-          picture: boat
-        })
+        end
 
-      end
-
-    YACHTS.each do |boat|
-      @rooms[:yachts].push({ room:
-            Room.create!({
-            :host_id => @users[USER_TYPES.sample].sample[:user].id,
-            :title => "#{ADJECTIVES.sample} yacht, all aboard!",
-            :address => Faker::Address.street_address,
-            :lat => (LAT_LNG.sample[:lat]+(rand()/100)),
-            :lng => (LAT_LNG.sample[:lng]+(rand()/100)),
-            :price => (rand()*400).to_i,
-            :max_guests => (rand()*8.to_i),
-            :description => 'Ship from the 1800s with ample space and plenty of natural light.
-             Please stay on our boat with us. We can take you across the marina or to some islands nearby.
-              There are awesome places for swimming and fishing as well. Sometimes we see dolphins on the port side of the vessel.
-              My father was a sailor in the Navy so I am an experience captain!. The sunsets are also beautiful and
-               we would love for you to join us',
-            :beds => (rand()*8.to_i),
-            :bathrooms => (rand()*3.to_i),
-            :bedrooms => (rand()*5.to_i),
-            :cancellation => CANCELLATION.sample,
-            :min_stay => (rand()*4).to_i,
-            :room_type => 'Yacht'
-          }),
-          picture: boat
-        })
+      YACHTS.each do |boat|
+        @rooms[:yachts].push({ room:
+              Room.create!({
+              :host_id => @users[USER_TYPES.sample].sample[:user].id,
+              :title => "#{ADJECTIVES.sample} yacht, all aboard!",
+              :address => Faker::Address.street_address,
+              :lat => (LAT_LNG.sample[:lat]+(rand()/100)),
+              :lng => (LAT_LNG.sample[:lng]+(rand()/100)),
+              :price => (rand()*400).to_i,
+              :max_guests => (rand()*8.to_i),
+              :description => 'Ship from the 1800s with ample space and plenty of natural light.
+               Please stay on our boat with us. We can take you across the marina or to some islands nearby.
+                There are awesome places for swimming and fishing as well. Sometimes we see dolphins on the port side of the vessel.
+                My father was a sailor in the Navy so I am an experience captain!. The sunsets are also beautiful and
+                 we would love for you to join us',
+              :beds => (rand()*8.to_i),
+              :bathrooms => (rand()*3.to_i),
+              :bedrooms => (rand()*5.to_i),
+              :cancellation => CANCELLATION.sample,
+              :min_stay => (rand()*4).to_i,
+              :room_type => 'Yacht'
+            }),
+            picture: boat
+          })
+        end
     end
   end
 end

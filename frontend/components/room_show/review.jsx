@@ -11,6 +11,7 @@ class Review extends React.Component {
       rating: this.props.review.rating,
       authorId: this.props.currentUser.id,
       reviewId: this.props.reviewId,
+      roomId: this.props.roomId
     };
 
     this.handleDelete = this.handleDelete.bind(this);

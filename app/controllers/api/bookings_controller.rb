@@ -7,8 +7,9 @@ class Api::BookingsController < ApplicationController
   def create
 
     parsed_book_params = booking_params;
-    start_date = Date.new(*(parsed_book_params[:startDate].split('/').map(&:to_i).rotate(2)))
-    end_date = Date.new(*(parsed_book_params[:endDate].split('/').map(&:to_i).rotate(2)))
+    start_date = Date.new(*(parsed_book_params[:startDate].split('-').map(&:to_i)))
+    end_date = Date.new(*(parsed_book_params[:endDate].split('-').map(&:to_i)))
+  
     @booking = Booking.new({
       start_date: start_date,
       end_date: end_date,

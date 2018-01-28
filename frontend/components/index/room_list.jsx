@@ -5,7 +5,12 @@ import Spinner from '../spinner';
 class RoomList extends React.Component {
   constructor(props) {
     super(props);
+    this.hasRenderedOnce = false;
 
+  }
+
+  componentWillUpdate() {
+    this.hasRenderedOnce = true;
   }
 
   render () {
@@ -16,11 +21,11 @@ class RoomList extends React.Component {
       return (<RoomListItem room={room} photos={photos} key={room.id}/>);
     });
 
-    if (this.props.isFetching) {
+    if (this.props.isFetching || this.hasRenderedOnce === false) {
       return (<Spinner />);
     }
 
-    if (roomListArr.length < 1) {
+    if (roomListArr.length < 1 && this.hasRenderedOnce === true) {
       return (
         <ul className='room-list '>
           <div className='no-results-index'>

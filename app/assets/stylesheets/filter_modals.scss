@@ -39,7 +39,7 @@
 
 .filter-modal-background {
   position: absolute;
-  top: 80px;
+  top: 95px;
   left: 0;
   right: 0;
   height: 100%;
@@ -64,6 +64,7 @@
 .guest-modal {
   position: absolute;
   left: 16px;
+  top: 53px;
 
   ul {
     li {
@@ -114,12 +115,13 @@
 }
 
 .price-modal {
-  left: 105px;
+  left: 97px;
+  top: 53px;
   height: 205px;
-  font-weight: 300px;
+  font-weight: 300;
   line-height: 24px;
   font-size: 19px;
-  color: rgb(72, 72, 72);
+  color: #484848;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
