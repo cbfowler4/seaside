@@ -9,11 +9,6 @@ var prodPlugins = [
     'process.env': {
       'NODE_ENV': JSON.stringify('production')
     }
-  }),
-  new webpack.optimize.UglifyJsPlugin({
-    compress: {
-      warnings: true
-    }
   })
 ];
 
@@ -28,7 +23,7 @@ module.exports = {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
-  // plugins: plugins,
+  plugins: plugins,
   module: {
     loaders: [
       {
