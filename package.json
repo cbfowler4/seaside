@@ -48,6 +48,6 @@
   },
   "homepage": "http://github.com/cbfowler4/seaside#readme",
   "devDependencies": {
-    "redux-logger": "^3.0.6",
+    "redux-logger": "^3.0.6"
   }
 }
