@@ -36,7 +36,7 @@ class SearchBar extends React.Component {
       this.props.history.push('/explore');
     }
 
-    this.geocoder.geocode({'address': this.state.search}, (response)=>{
+    this.geocoder.geocode({'address': this.state.search !== "" ? this.state.search : "New York City"}, (response)=>{
       const center = response[0].geometry.location.toJSON();
       this.props.receiveMapCenter(center);
     });
