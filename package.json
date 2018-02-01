@@ -18,7 +18,6 @@
     "react-spinners": "^0.2.5",
     "react-stars": "^2.2.5",
     "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "webpack": "^3.10.0"
   },
@@ -48,5 +47,7 @@
     "url": "http://github.com/cbfowler4/seaside/issues"
   },
   "homepage": "http://github.com/cbfowler4/seaside#readme",
-  "devDependencies": {}
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
+  }
 }
