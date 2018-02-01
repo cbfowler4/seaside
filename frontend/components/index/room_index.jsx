@@ -3,6 +3,7 @@ import RoomMapContainer from '../map/room_map_container';
 import RoomListContainer from './room_list_container';
 import FilterBarContainer from './filter_bar_container';
 
+
 class RoomIndex extends React.Component {
   constructor(props) {
     super(props);

@@ -8,7 +8,6 @@ export default class MarkerManager {
   }
 
   updateMarkers(rooms) {
-    // debugger
     this.currentRooms = {};
     rooms.forEach((room) => {
       if (this.markers[room.id] === undefined) {
@@ -21,7 +20,7 @@ export default class MarkerManager {
 
     // this.removeMarkers(rooms);
   }
-  // 
+  //
   // removeMarkers(rooms) {
   //   Object.keys(this.markers).forEach((roomId) => {
   //     if (this.currentRooms[roomId] === undefined) {

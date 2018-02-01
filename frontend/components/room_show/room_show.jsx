@@ -11,7 +11,9 @@ class RoomShow extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchRoomInfo(this.props.roomId);
+    if (this.props.room === undefined || this.props.room.show !== true) {
+      this.props.fetchRoomInfo(this.props.roomId);
+    }
   }
 
   componentWillUpdate (nextProps, nextState) {
