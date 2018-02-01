@@ -39,14 +39,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/cbfowler4/seaside.git"
+    "url": "git+http://github.com/cbfowler4/seaside.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/cbfowler4/seaside/issues"
+    "url": "http://github.com/cbfowler4/seaside/issues"
   },
-  "homepage": "https://github.com/cbfowler4/seaside#readme",
+  "homepage": "http://github.com/cbfowler4/seaside#readme",
   "devDependencies": {}
 }
