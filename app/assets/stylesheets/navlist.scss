@@ -87,6 +87,18 @@
 
 }
 
+#contact-info ul {
+  display: flex;
+  margin-left: 10px;
+  padding-left: 10px;
+  border-left: 1px solid rgba(0,0,0,.1);
+
+  a {
+    font-size: 30px;
+  }
+
+}
+
 .clear-search {
   display: inline;
   position: absolute;
