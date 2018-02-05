@@ -1,24 +1,7 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Seaside](http://seaside.bryanfowler.io) is an [AirBnB](https://www.airbnb.com/) inspired single page application built with Ruby on Rails, PostgreSQL and React. 
 
-Things you may want to cover:
+##Key Features
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Users may search for available boats throughout the world using an integrated Google Maps API and a geoencoder based search bar. Boats are filterable based on location, price and number of guests. Users may book boats by navigating to the boat's show page, selecting the desired dates and clicking "Request Booking". Bookings are automatically approved if another booking does not overlap. After booking, users may leave reviews on the boat. Ratings and comments will immediately be reflected on the boat's show page.
