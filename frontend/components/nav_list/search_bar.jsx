@@ -21,7 +21,6 @@ class SearchBar extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.resetSearch = this.resetSearch.bind(this);
-
     this.cities = ["New York", "San Francisco", "Fort Lauderdale", 'Miami', 'Hartford', 'Havana', 'Virginia Beach', 'Charleston', 'Cape May', 'Jacksonville', 'Martha\'s Vineyard'];
   }
 
@@ -32,7 +31,7 @@ class SearchBar extends React.Component {
   handleSubmit (e) {
     e.preventDefault();
 
-    if (this.props.onWelcomePage) {
+    if (this.props.location.pathname !== '/explore') {
       this.props.history.push('/explore');
     }
 

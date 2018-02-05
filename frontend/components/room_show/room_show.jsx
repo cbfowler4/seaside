@@ -87,6 +87,14 @@ class RoomShow extends React.Component {
               />);
           }
 
+      //Nav bar to be implemented
+      // <nav>
+      //   <a>Overview</a><span> · </span>
+      //   <a>Reviews</a><span> · </span>
+      //   <a>The Host</a><span> · </span>
+      //   <a>Location</a>
+      // </nav>
+
       return (
         <content className='room-show-main'>
           <div className='room-main-picture'>
@@ -94,12 +102,6 @@ class RoomShow extends React.Component {
           </div>
           <main className='room-info-booking-container'>
             <section className='room-info'>
-                <nav>
-                  <a>Overview</a><span> · </span>
-                  <a>Reviews</a><span> · </span>
-                  <a>The Host</a><span> · </span>
-                  <a>Location</a>
-                </nav>
                 <header>
                   <div className='header-content'>
                     <h1>{this.props.room.title}</h1>

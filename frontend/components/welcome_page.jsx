@@ -6,8 +6,6 @@ class WelcomePage extends React.Component {
     return (this.props.location.pathname === '/');
   }
 
-  //ComponentDidMount add a class to nav-bar to remove bottom border
-  //ComponentDidUnmount remove class from nav-bar
   render() {
     return (
       <main className='welcome-page-main'>

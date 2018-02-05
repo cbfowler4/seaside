@@ -29,7 +29,7 @@ class RoomListItem extends React.Component {
             half={true}
             color2={'#008489'}/>
           <span className='rating-length'>{this.room.reviewIds.length} ·
-          {this.room.reviewIds.length > 15 ? ' Superhost' : ' Host'}</span>
+          {this.room.reviewIds.length > 10 ? ' Super Host' : ' Host'}</span>
         </div>
 
       </div>
